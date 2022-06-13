@@ -1,0 +1,60 @@
+baseURL = 'https://musing.dcaro.es/'
+canonifyurls = true
+copyright = "© David Caro 2022"
+languageCode = 'en-us'
+theme = "m10c"
+title = "David's musings and ramblings."
+
+[params]
+author = "David Caro"
+avatar = "/sudo_face.png"
+description = "Amateur yak shaver"
+
+[[params.social]]
+icon = "github"
+name = "My Github"
+url = "https://github.com/david-caro"
+
+[[params.social]]
+icon = "gitlab"
+name = "My Gilab"
+url = "https://gitlab.com/david-caro"
+
+[[params.social]]
+icon = "gitlab"
+name = "Work Gilab"
+url = "https://gitlab.wikimedia.org/dcaro"
+
+[[params.social]]
+icon = "gerrit"
+name = "Work Gerrit"
+url = "https://gerrit.wikimedia.org/r/q/author:dcaro"
+
+[[params.social]]
+icon = "twitter"
+name = "My Twitter"
+url = "https://twitter.com/dcaroest"
+
+[[params.social]]
+icon = "linkedin"
+name = "My Linkedin"
+url = "https://www.linkedin.com/in/davidcaroestevez"
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+pre = "<br />"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 2
+
+[[menu.main]]
+identifier = "about"
+name = "About"
+pre = "<br />"
+url = "/about"
+weight = 3
