@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on David&#39;s musings and ramblings.</title>
+    <link>https://musing.dcaro.es/categories/</link>
+    <description>Recent content in Categories on David&#39;s musings and ramblings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© David Caro 2022</copyright><atom:link href="https://musing.dcaro.es/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
