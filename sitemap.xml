@@ -2,30 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://musing.dcaro.es/about/</loc>
+    <loc>https://musings.dcaro.es/about/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/tags/blog/</loc>
+    <loc>https://musings.dcaro.es/tags/blog/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/</loc>
+    <loc>https://musings.dcaro.es/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/tags/hugo/</loc>
+    <loc>https://musings.dcaro.es/tags/hugo/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/tags/jekyll/</loc>
+    <loc>https://musings.dcaro.es/tags/jekyll/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/posts/</loc>
+    <loc>https://musings.dcaro.es/posts/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</loc>
+    <loc>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/tags/</loc>
+    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musing.dcaro.es/categories/</loc>
+    <loc>https://musings.dcaro.es/categories/</loc>
   </url>
 </urlset>

@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on David&#39;s musings and ramblings.</title>
-    <link>https://musing.dcaro.es/tags/</link>
+    <link>https://musings.dcaro.es/tags/</link>
     <description>Recent content in Tags on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Sun, 12 Jun 2022 16:47:56 +0200</lastBuildDate><atom:link href="https://musing.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jun 2022 16:47:56 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>blog</title>
-      <link>https://musing.dcaro.es/tags/blog/</link>
+      <link>https://musings.dcaro.es/tags/blog/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       
-      <guid>https://musing.dcaro.es/tags/blog/</guid>
+      <guid>https://musings.dcaro.es/tags/blog/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://musing.dcaro.es/tags/hugo/</link>
+      <link>https://musings.dcaro.es/tags/hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       
-      <guid>https://musing.dcaro.es/tags/hugo/</guid>
+      <guid>https://musings.dcaro.es/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jekyll</title>
-      <link>https://musing.dcaro.es/tags/jekyll/</link>
+      <link>https://musings.dcaro.es/tags/jekyll/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       
-      <guid>https://musing.dcaro.es/tags/jekyll/</guid>
+      <guid>https://musings.dcaro.es/tags/jekyll/</guid>
       <description></description>
     </item>
     
