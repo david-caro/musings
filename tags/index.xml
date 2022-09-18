@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Sun, 12 Jun 2022 16:47:56 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 12:01:53 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>golang</title>
+      <link>https://musings.dcaro.es/tags/golang/</link>
+      <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>netsnoop</title>
+      <link>https://musings.dcaro.es/tags/netsnoop/</link>
+      <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/netsnoop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://musings.dcaro.es/tags/network/</link>
+      <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systems</title>
+      <link>https://musings.dcaro.es/tags/systems/</link>
+      <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/systems/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>blog</title>
       <link>https://musings.dcaro.es/tags/blog/</link>

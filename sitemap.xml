@@ -2,13 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/golang/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/netsnoop/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/network/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/systems/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/about/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/blog/</loc>
-    <lastmod>2022-06-12T16:47:56+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/hugo/</loc>
@@ -17,13 +38,7 @@
     <loc>https://musings.dcaro.es/tags/jekyll/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2022-06-12T16:47:56+02:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</loc>
-    <lastmod>2022-06-12T16:47:56+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2022-06-12T16:47:56+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/categories/</loc>

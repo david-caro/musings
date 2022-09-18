@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on David&#39;s musings and ramblings.</title>
-    <link>https://musings.dcaro.es/posts/</link>
-    <description>Recent content in Posts on David&#39;s musings and ramblings.</description>
+    <title>network on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/network/</link>
+    <description>Recent content in network on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Sat, 17 Sep 2022 12:01:53 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 12:01:53 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/network/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fooling around with the proc directory and network connections</title>
       <link>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</link>
@@ -17,18 +17,6 @@
       <description>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
 This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it&amp;rsquo;s containers run as that user).
 To do so, I wrote a small golang script. Here&amp;rsquo;s some notes on trying to get that information.</description>
-    </item>
-    
-    <item>
-      <title>Setting up a space to write some stuff</title>
-      <link>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</link>
-      <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
-      <guid>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</guid>
-      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.
-I have decided to do it with Hugo, so far so good :)
-Some of the things I&amp;rsquo;m enjoying:
-hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
     </item>
     
   </channel>
