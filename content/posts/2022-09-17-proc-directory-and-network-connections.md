@@ -115,6 +115,8 @@ So that was interesting, `netstat` ends up doing the same too.
 
 Another option is `/proc/net`, here you'll find all the network connections. So that's the first thing I tried.
 
+More info on it [in the kernel docs here](https://www.kernel.org/doc/html/latest/networking/proc_net_tcp.html).
+
 Easy enough, that was working really well when trying to sniff on simple processes (ex. on one terminal you start the
 sniffer, and on another you run a `curl` command), but you will not see things running on containers, here's why:
 
@@ -151,20 +153,18 @@ exist anymore, giving the `No such file` error.
 
 
 # How to figure all that out then?
+
+Given that:
+* we don't care about that specific packet, just any "user" that has a namespace in which a process is contacting those services
+* the process file owner is the same as the user we care about
+
 {{< highlight pseudocode >}}
 for every pid in `/proc`, do
-    if it's namespace has not been visited:
-        check the `net/*` directories for the services we are interested in
-        if any matches:
-            add user owner of the namespace file and the namespace service counts to the stats
-        add namespace to visited list
-    if it has been visited:
-        do nothing 
+    check the `net/*` directories for the services we are interested in
+    if any matches:
+        add user owner of the process and the namespace service counts to the stats
 {{< /highlight >}}
 
-This is because:
-* we don't care about that specific packet, just any "user" that has a namespace in which a process is contacting those services
-* the namespace file owner is the same as the user we care about
 
 # How could you find out the specific process that sent the package?
 
@@ -175,6 +175,6 @@ For that we have to:
 * Follow the process above to get which namespace is the one that is contacting that IP/port
 * Once you have the namespace, you can also extract the inode (from the same net file `/proc/<pid>/net/*`)
 * With the inode, you can then look at all the open files for each process on that same namespace (`/proc/*/fd/*`)
-* That will give you the processes that have that socket open (note that could be more than one!)
+* That will give you the specific processes that have that socket open (note that could be more than one!)
 
 Enjoy!
