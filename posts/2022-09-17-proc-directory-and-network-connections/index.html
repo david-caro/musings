@@ -4,7 +4,7 @@
     <title>Fooling around with the proc directory and network connections // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.103.0" />
+    <meta name="generator" content="Hugo 0.103.1" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
@@ -233,6 +233,7 @@ sockets and ports:</p>
 <p>So that was interesting, <code>netstat</code> ends up doing the same too.</p>
 <h1 id="procnet">/proc/net</h1>
 <p>Another option is <code>/proc/net</code>, here you&rsquo;ll find all the network connections. So that&rsquo;s the first thing I tried.</p>
+<p>More info on it <a href="https://www.kernel.org/doc/html/latest/networking/proc_net_tcp.html">in the kernel docs here</a>.</p>
 <p>Easy enough, that was working really well when trying to sniff on simple processes (ex. on one terminal you start the
 sniffer, and on another you run a <code>curl</code> command), but you will not see things running on containers, here&rsquo;s why:</p>
 <p><code>/proc/net</code> is a link to <code>/proc/self/net</code>, and <code>/proc/self</code> is in itself a link to <code>/proc/&lt;pid&gt;</code> where <code>pid</code> is the
@@ -259,19 +260,15 @@ namespace, including the ones not started by that process, so you still have to 
 <p>Note also that even the time between bash expanding <code>/proc/*/ns/net</code> and ls reading the files some processes don&rsquo;t
 exist anymore, giving the <code>No such file</code> error.</p>
 <h1 id="how-to-figure-all-that-out-then">How to figure all that out then?</h1>
-<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode">for every pid in `/proc`, do
-    if it&#39;s namespace has not been visited:
-        check the `net/*` directories for the services we are interested in
-        if any matches:
-            add user owner of the namespace file and the namespace service counts to the stats
-        add namespace to visited list
-    if it has been visited:
-        do nothing </code></pre>
-<p>This is because:</p>
+<p>Given that:</p>
 <ul>
 <li>we don&rsquo;t care about that specific packet, just any &ldquo;user&rdquo; that has a namespace in which a process is contacting those services</li>
-<li>the namespace file owner is the same as the user we care about</li>
+<li>the process file owner is the same as the user we care about</li>
 </ul>
+<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode">for every pid in `/proc`, do
+    check the `net/*` directories for the services we are interested in
+    if any matches:
+        add user owner of the process and the namespace service counts to the stats</code></pre>
 <h1 id="how-could-you-find-out-the-specific-process-that-sent-the-package">How could you find out the specific process that sent the package?</h1>
 <p>That is a bit more complicated :/</p>
 <p>For that we have to:</p>
@@ -279,7 +276,7 @@ exist anymore, giving the <code>No such file</code> error.</p>
 <li>Follow the process above to get which namespace is the one that is contacting that IP/port</li>
 <li>Once you have the namespace, you can also extract the inode (from the same net file <code>/proc/&lt;pid&gt;/net/*</code>)</li>
 <li>With the inode, you can then look at all the open files for each process on that same namespace (<code>/proc/*/fd/*</code>)</li>
-<li>That will give you the processes that have that socket open (note that could be more than one!)</li>
+<li>That will give you the specific processes that have that socket open (note that could be more than one!)</li>
 </ul>
 <p>Enjoy!</p>
 
