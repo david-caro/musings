@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Sat, 17 Sep 2022 12:01:53 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 09:29:48 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>prometheus</title>
+      <link>https://musings.dcaro.es/tags/prometheus/</link>
+      <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>golang</title>
       <link>https://musings.dcaro.es/tags/golang/</link>
