@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Tue, 04 Oct 2022 09:29:48 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Apr 2023 13:38:17 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>envoy</title>
+      <link>https://musings.dcaro.es/tags/envoy/</link>
+      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/envoy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>https://musings.dcaro.es/tags/homelab/</link>
+      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kernel</title>
+      <link>https://musings.dcaro.es/tags/kernel/</link>
+      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rpi</title>
+      <link>https://musings.dcaro.es/tags/rpi/</link>
+      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/tags/rpi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>prometheus</title>
       <link>https://musings.dcaro.es/tags/prometheus/</link>

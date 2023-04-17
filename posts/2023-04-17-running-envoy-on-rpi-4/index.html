@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Starting envoy on Rpi 4 - recompiling a new kernel // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.111.3">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Starting envoy on Rpi 4 - recompiling a new kernel"/>
+<meta name="twitter:description" content="My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.
+First try Now, these raspberries are running debian bullseye, but it seems that envoy does not build packages for debian, and Tetrate (the ones that build some) stopped building them in 2021 :/"/>
+
+    <meta property="og:title" content="Starting envoy on Rpi 4 - recompiling a new kernel" />
+<meta property="og:description" content="My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.
+First try Now, these raspberries are running debian bullseye, but it seems that envoy does not build packages for debian, and Tetrate (the ones that build some) stopped building them in 2021 :/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-04-17T13:38:17+02:00" />
+<meta property="article:modified_time" content="2023-04-17T13:38:17+02:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+      <h1>David&#39;s musings and ramblings.</h1>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+      </nav>
+      <p>Amateur yak shaver</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+          </a>
+        
+          <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+          </a>
+        
+          <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+          <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Starting envoy on Rpi 4 - recompiling a new kernel</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Apr 17, 2023
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/envoy/">envoy</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/rpi/">rpi</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/homelab/">homelab</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/kernel/">kernel</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.</p>
+<h1 id="first-try">First try</h1>
+<p>Now, these raspberries are running debian bullseye, but it seems that envoy <a href="https://github.com/envoyproxy/envoy/issues/16867">does not build packages for debian</a>, and Tetrate (the ones that build some) stopped building them in 2021 :/</p>
+<p>I saw though that there&rsquo;s <a href="https://hub.docker.com/r/envoyproxy/envoy/tags/?page=1&amp;name=latest">official images for arm64</a> (yay!), so I decided to use one of those :)</p>
+<p>Little I knew that they would actually not work out of the box:</p>
+<pre tabindex="0"><code>$ sudo podman run  --privileged --arch arm64 --rm docker.io/envoyproxy/envoy:v1.24-latest
+Trying to pull docker.io/envoyproxy/envoy:v1.24-latest...
+Getting image source signatures
+Copying blob 6a82b170b6f7 done
+Copying blob 7d588ee5d67c done
+Copying blob 7a2e7d9bd4cc done
+Copying blob a774dfcdedc7 done
+Copying blob 420cd3903add done
+Copying blob dcb0f7060b9e done
+Copying blob 28c3e1133804 done
+Copying blob 6e730ab52427 done
+Copying config 10c90469e5 done
+Writing manifest to image destination
+Storing signatures
+external/com_github_google_tcmalloc/tcmalloc/system-alloc.cc:614] MmapAligned() failed - unable to allocate with tag (hint, size, alignment) - is something limiting address placement? 0x41900000000 1073741824 1073741824 @ 0x55944021fc 0x55943fd76c 0x55943fd118 0x55943e4700 0x55943fa044 0x55943f9e5c 0x55943d8ef8 0x5594312618 0x559430e710 0x55943cf0c8 0x7f9d1b4db8
+external/com_github_google_tcmalloc/tcmalloc/arena.cc:58] FATAL ERROR: Out of memory trying to allocate internal tcmalloc data (bytes, object-size); is something preventing mmap from succeeding (sandbox, VSS limitations)? 131072 600 @ 0x559440255c 0x55943e4790 0x55943fa044 0x55943f9e5c 0x55943d8ef8 0x5594312618 0x559430e710 0x55943cf0c8 0x7f9d1b4db8
+</code></pre><p>Hmm&hellip; it seems that it gets out of memory somehow&hellip; but it has more than enough.
+It turns out that it runs out of <strong>virtual memory</strong>!</p>
+<p>This is because by default, the raspberry-pi kernel is built using a <a href="https://github.com/envoyproxy/envoy/issues/15235#issuecomment-850516622">smaller amount of bits for the virtual memory addressing</a>, it uses 39 instead of the common 48, and envoy relies on the 48 when doing the memory allocation at boot.</p>
+<p>To fix this, you have to recompile the kernel changing that specific option. Let&rsquo;s see the steps:</p>
+<h1 id="compiling-a-new-kernel">Compiling a new kernel</h1>
+<p>The steps followed are from <a href="https://www.raspberrypi.com/documentation/computers/linux_kernel.html">here mostly</a>:</p>
+<pre tabindex="0"><code># clone the repo
+git clone --depth=1 https://github.com/raspberrypi/linux
+cd linux
+make bcm2711_defconfig  # add default configs
+make menuconfig  # this allows easily changing any settings
+# for this change, you have to go to &#34;Kernel features -&gt; Virtual address space size&#34;
+# Change from 39 to 48
+make -j4 Image.gz modules dtbs  # this takes a while
+KERNEL=kernel8  # name of your new kernel
+sudo make modules_install
+sudo cp arch/arm64/boot/dts/broadcom/*.dtb /boot/
+sudo cp arch/arm64/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo cp arch/arm64/boot/dts/overlays/README /boot/overlays/
+sudo cp arch/arm64/boot/Image.gz /boot/$KERNEL.img
+</code></pre><p>Once done, you can just reboot and you are in your new kernel!</p>
+<pre tabindex="0"><code>$ uname -a
+Linux node5 6.1.23-v8+ #1 SMP PREEMPT Sun Apr 16 21:52:56 BST 2023 aarch64 GNU/Linux
+</code></pre><p>Okok, back to envoy now.</p>
+<h2 id="envoy-success">Envoy success!</h2>
+<p>Now with the new kernel, envoy works!</p>
+<pre tabindex="0"><code>$ sudo podman run --privileged --arch arm64 --rm docker.io/envoyproxy/envoy:v1.24-latest
+...
+[2023-04-17 16:21:31.005][1][info][admin] [source/server/admin/admin.cc:67] admin address: 0.0.0.0:9901
+[2023-04-17 16:21:31.006][1][info][config] [source/server/configuration_impl.cc:131] loading tracing configuration
+[2023-04-17 16:21:31.006][1][info][config] [source/server/configuration_impl.cc:91] loading 0 static secret(s)
+[2023-04-17 16:21:31.006][1][info][config] [source/server/configuration_impl.cc:97] loading 1 cluster(s)
+[2023-04-17 16:21:31.011][1][info][config] [source/server/configuration_impl.cc:101] loading 1 listener(s)
+[2023-04-17 16:21:31.016][1][info][config] [source/server/configuration_impl.cc:113] loading stats configuration
+[2023-04-17 16:21:31.018][1][info][main] [source/server/server.cc:915] starting main dispatch loop
+...
+</code></pre><p>\o/
+Next step, configuring envoy</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

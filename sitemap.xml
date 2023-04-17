@@ -2,19 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/envoy/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/homelab/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/kernel/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/rpi/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</loc>
     <lastmod>2022-10-04T09:29:48+02:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/</loc>
-    <lastmod>2022-10-04T09:29:48+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2022-10-04T09:29:48+02:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/tags/prometheus/</loc>
-    <lastmod>2022-10-04T09:29:48+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2022-10-04T09:29:48+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</loc>
