@@ -7,7 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Mon, 17 Apr 2023 13:38:17 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Apr 2023 17:32:24 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Changing the Color for Evolution New Message</title>
+      <link>https://musings.dcaro.es/posts/2023-04-18-changing-the-color-for-evolution-new-message/</link>
+      <pubDate>Tue, 18 Apr 2023 17:32:24 +0200</pubDate>
+      
+      <guid>https://musings.dcaro.es/posts/2023-04-18-changing-the-color-for-evolution-new-message/</guid>
+      <description>Today I decided to fix one thing that annoyed me, and that was the new email color for the evolution mail client when it&amp;rsquo;s using the dark mode.
+After some reading found this, and voilà, it worked :)
+So here&amp;rsquo;s the snippet I used on the file ~/.config/gtk-3.0/gtk.css:
+MessageList,* { -MessageList-new-mail-bg-color: darkblue; } Awesome \o/</description>
+    </item>
+    
     <item>
       <title>Starting envoy on Rpi 4 - recompiling a new kernel</title>
       <link>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</link>
