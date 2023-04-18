@@ -17,7 +17,7 @@
       <description>Today I decided to fix one thing that annoyed me, and that was the new email color for the evolution mail client when it&amp;rsquo;s using the dark mode.
 After some reading found this, and voilà, it worked :)
 So here&amp;rsquo;s the snippet I used on the file ~/.config/gtk-3.0/gtk.css:
-MessageList,* { -MessageList-new-mail-bg-color: darkblue; } Awesome \o/</description>
+MessageList,* { -MessageList-new-mail-fg-color: darkblue; } Awesome \o/</description>
     </item>
     
     <item>
