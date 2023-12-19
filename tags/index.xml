@@ -6,124 +6,120 @@
     <description>Recent content in Tags on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Tue, 18 Apr 2023 17:32:24 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© David Caro 2023</copyright>
+    <lastBuildDate>Tue, 19 Dec 2023 12:44:45 +0100</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>evolution</title>
-      <link>https://musings.dcaro.es/tags/evolution/</link>
-      <pubDate>Tue, 18 Apr 2023 17:32:24 +0200</pubDate>
-      
-      <guid>https://musings.dcaro.es/tags/evolution/</guid>
+      <title>jupyter notebook</title>
+      <link>https://musings.dcaro.es/tags/jupyter-notebook/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/jupyter-notebook/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>physics</title>
+      <link>https://musings.dcaro.es/tags/physics/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/physics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>python</title>
+      <link>https://musings.dcaro.es/tags/python/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>quantum physics</title>
+      <link>https://musings.dcaro.es/tags/quantum-physics/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/quantum-physics/</guid>
+      <description></description>
+    </item>
     <item>
       <title>envoy</title>
       <link>https://musings.dcaro.es/tags/envoy/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/envoy/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>homelab</title>
       <link>https://musings.dcaro.es/tags/homelab/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/homelab/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>kernel</title>
       <link>https://musings.dcaro.es/tags/kernel/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/kernel/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>rpi</title>
       <link>https://musings.dcaro.es/tags/rpi/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/rpi/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>prometheus</title>
       <link>https://musings.dcaro.es/tags/prometheus/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/prometheus/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>golang</title>
       <link>https://musings.dcaro.es/tags/golang/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>netsnoop</title>
       <link>https://musings.dcaro.es/tags/netsnoop/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/netsnoop/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>network</title>
       <link>https://musings.dcaro.es/tags/network/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/network/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>systems</title>
       <link>https://musings.dcaro.es/tags/systems/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/systems/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>blog</title>
       <link>https://musings.dcaro.es/tags/blog/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/blog/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>hugo</title>
       <link>https://musings.dcaro.es/tags/hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>jekyll</title>
       <link>https://musings.dcaro.es/tags/jekyll/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/tags/jekyll/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

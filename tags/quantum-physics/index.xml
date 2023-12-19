@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>quantum physics on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/quantum-physics/</link>
+    <description>Recent content in quantum physics on David&#39;s musings and ramblings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© David Caro 2023</copyright>
+    <lastBuildDate>Tue, 19 Dec 2023 12:44:45 +0100</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/quantum-physics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Physics - Infinite Well 1d</title>
+      <link>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</guid>
+      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also too &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
+    </item>
+  </channel>
+</rss>

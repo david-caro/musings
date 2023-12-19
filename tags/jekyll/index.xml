@@ -6,19 +6,15 @@
     <description>Recent content in jekyll on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Sun, 12 Jun 2022 16:47:56 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© David Caro 2023</copyright>
+    <lastBuildDate>Sun, 12 Jun 2022 16:47:56 +0200</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up a space to write some stuff</title>
       <link>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</guid>
-      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.
-I have decided to do it with Hugo, so far so good :)
-Some of the things I&amp;rsquo;m enjoying:
-hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
+      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.&#xA;I have decided to do it with Hugo, so far so good :)&#xA;Some of the things I&amp;rsquo;m enjoying:&#xA;hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
     </item>
-    
   </channel>
 </rss>

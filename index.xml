@@ -6,72 +6,50 @@
     <description>Recent content on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© David Caro 2022</copyright>
-    <lastBuildDate>Tue, 18 Apr 2023 17:32:24 +0200</lastBuildDate><atom:link href="https://musings.dcaro.es/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© David Caro 2023</copyright>
+    <lastBuildDate>Tue, 19 Dec 2023 12:44:45 +0100</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Changing the Color for Evolution New Message</title>
-      <link>https://musings.dcaro.es/posts/2023-04-18-changing-the-color-for-evolution-new-message/</link>
-      <pubDate>Tue, 18 Apr 2023 17:32:24 +0200</pubDate>
-      
-      <guid>https://musings.dcaro.es/posts/2023-04-18-changing-the-color-for-evolution-new-message/</guid>
-      <description>Today I decided to fix one thing that annoyed me, and that was the new email color for the evolution mail client when it&amp;rsquo;s using the dark mode.
-After some reading found this, and voilà, it worked :)
-So here&amp;rsquo;s the snippet I used on the file ~/.config/gtk-3.0/gtk.css:
-MessageList,* { -MessageList-new-mail-fg-color: darkblue; } Awesome \o/</description>
+      <title>Quantum Physics - Infinite Well 1d</title>
+      <link>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</link>
+      <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</guid>
+      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also too &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
     </item>
-    
     <item>
       <title>Starting envoy on Rpi 4 - recompiling a new kernel</title>
       <link>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</guid>
-      <description>My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.
-First try Now, these raspberries are running debian bullseye, but it seems that envoy does not build packages for debian, and Tetrate (the ones that build some) stopped building them in 2021 :/</description>
+      <description>My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.&#xA;First try Now, these raspberries are running debian bullseye, but it seems that envoy does not build packages for debian, and Tetrate (the ones that build some) stopped building them in 2021 :/</description>
     </item>
-    
     <item>
       <title>Conditionally Rewriting Prometheus Instance Label</title>
       <link>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</guid>
-      <description>Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.
-But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname.</description>
+      <description>Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.&#xA;But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname.</description>
     </item>
-    
     <item>
       <title>Fooling around with the proc directory and network connections</title>
       <link>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</guid>
-      <description>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
-This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it&amp;rsquo;s containers run as that user).
-To do so, I wrote a small golang script. Here&amp;rsquo;s some notes on trying to get that information.</description>
+      <description>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.&#xA;This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it&amp;rsquo;s containers run as that user).&#xA;To do so, I wrote a small golang script. Here&amp;rsquo;s some notes on trying to get that information.</description>
     </item>
-    
     <item>
       <title>About</title>
       <link>https://musings.dcaro.es/about/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/about/</guid>
-      <description>Here&amp;rsquo;s some things I do:
-I play with computers and programming languages I do software reliability engineering for the Wikimedia Foundation I bike I garden I travel I learn (and re-learn) If you are still curious, you can find some more stuff I do around the internet, see the github/etc. links on the sidebar.</description>
+      <description>Here&amp;rsquo;s some things I do:&#xA;I play with computers and programming languages I do software reliability engineering for the Wikimedia Foundation I bike I garden I travel I learn (and re-learn) I physics If you are still curious, you can find some more stuff I do around the internet, see the github/etc. links on the sidebar.</description>
     </item>
-    
     <item>
       <title>Setting up a space to write some stuff</title>
       <link>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
-      
       <guid>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</guid>
-      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.
-I have decided to do it with Hugo, so far so good :)
-Some of the things I&amp;rsquo;m enjoying:
-hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
+      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.&#xA;I have decided to do it with Hugo, so far so good :)&#xA;Some of the things I&amp;rsquo;m enjoying:&#xA;hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
     </item>
-    
   </channel>
 </rss>

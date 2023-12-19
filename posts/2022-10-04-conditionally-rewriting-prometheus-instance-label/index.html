@@ -4,15 +4,14 @@
     <title>Conditionally Rewriting Prometheus Instance Label // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.111.3">
+    <meta name="generator" content="Hugo 0.121.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
 
     
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Conditionally Rewriting Prometheus Instance Label"/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Conditionally Rewriting Prometheus Instance Label"/>
 <meta name="twitter:description" content="Something curious found ot today, and I don&rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.
 But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname."/>
 
@@ -24,6 +23,8 @@ But for several reasons when dealing with the metrics we only filter by instance
 <meta property="article:published_time" content="2022-10-04T09:29:48+02:00" />
 <meta property="article:modified_time" content="2022-10-04T09:29:48+02:00" />
 
+
+    
 
   </head>
   <body>
@@ -183,5 +184,9 @@ group or the other as <code>$1</code>.</li>
   </article>
 
     </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+© 2023. This work is openly licensed via <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    </footer>
   </body>
 </html>
