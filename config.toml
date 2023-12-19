@@ -1,6 +1,6 @@
 baseURL = 'https://musings.dcaro.es/'
 canonifyurls = true
-copyright = "© David Caro 2022"
+copyright = "© David Caro 2023"
 languageCode = 'en-us'
 theme = "m10c"
 title = "David's musings and ramblings."
@@ -9,6 +9,7 @@ title = "David's musings and ramblings."
 author = "David Caro"
 avatar = "/sudo_face.png"
 description = "Amateur yak shaver"
+custom_css = "css/footer.css"
 
 [[params.social]]
 icon = "github"

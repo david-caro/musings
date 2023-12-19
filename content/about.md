@@ -11,6 +11,7 @@ Here's some things I do:
 * I garden
 * I travel
 * I learn (and re-learn)
+* I physics
 
 
 If you are still curious, you can find some more stuff I do around the internet, see the github/etc. links on the sidebar.
