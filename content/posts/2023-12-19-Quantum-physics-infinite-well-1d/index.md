@@ -73,7 +73,7 @@ Now, to find out $A$, we can normalize it ($\int_{-\infty}^{\infty}|\psi(x)|^2dx
 $$
 \int_{0}^{L}|A\sin{\frac{n\pi x}{L}}|^2dx = A^2\int_{0}^{L}sin^2{\frac{n\pi x}{L}}dx
 $$
-Using $sin^2{x} = (\frac{1}{2} - \frac{cos(x)}{2})$ we can simplify the integral and we end up with:
+Using $sin^2{x} = (\frac{1}{2} - \frac{cos(2x)}{2})$ we can simplify the integral and we end up with:
 $$
 A = \pm\sqrt{\frac{2}{L}}
 $$
