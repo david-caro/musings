@@ -7,7 +7,7 @@ math: true
 
 Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the [MIT 8.04](https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013) course on OCW, but I'm also following the great ['Introduction to Quantum Mechanics' book by David Griffiths and Darrell Schroeter](https://doi.org/10.1017/9781316995433).
 
-That made me rediscover my local library, and also too ['Numerical Methods in Physycs with Python' by Alex Gerzerlis](https://doi.org/10.1017/9781108772310) and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.
+That made me rediscover my local library, and also ['Numerical Methods in Physycs with Python' by Alex Gerzerlis](https://doi.org/10.1017/9781108772310) and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.
 
 This is not meant to be a complete, or even incomplete introduction to quantum mechanics, it's just a set of exercises and notes for myself, though you might find helpful also if you are following a quantum mechanics course either on-site, online, or just reading a book.
 
@@ -96,6 +96,10 @@ And as you can see, these are discrete states, that we can plot:
 And the 5 wave functions associated with them:
 
 ![Wave functions](images/Infinite_well-First_5_wave_functions.png)
+
+With the probabilities to find the particle at different positions (note that it can't be on every position):
+
+![Wave functions](images/Infinite_well-First_5_probabilities.png)
 
 
 You can find the code for this graphs [here](https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb).
