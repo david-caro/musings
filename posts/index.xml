@@ -14,7 +14,7 @@
       <link>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</link>
       <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</guid>
-      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also too &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
+      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
     </item>
     <item>
       <title>Starting envoy on Rpi 4 - recompiling a new kernel</title>
