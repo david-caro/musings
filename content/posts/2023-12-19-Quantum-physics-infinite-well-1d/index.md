@@ -102,4 +102,4 @@ With the probabilities to find the particle at different positions (note that it
 ![Wave functions](images/Infinite_well-First_5_probabilities.png)
 
 
-You can find the code for this graphs [here](https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb).
+You can find the code for the graphs [here](https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb).
