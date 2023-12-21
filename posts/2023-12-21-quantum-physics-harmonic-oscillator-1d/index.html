@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Quantum Physics - Infinite Well 1d // David&#39;s musings and ramblings.</title>
+    <title>Quantum Physics - Harmonic Oscillator 1d // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.121.1">
@@ -11,17 +11,23 @@
     <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
 
     
-    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Quantum Physics - Infinite Well 1d"/>
-<meta name="twitter:description" content="Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&rsquo;m also following the great &lsquo;Introduction to Quantum Mechanics&rsquo; book by David Griffiths and Darrell Schroeter.
-That made me rediscover my local library, and also &lsquo;Numerical Methods in Physycs with Python&rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject."/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Quantum Physics - Harmonic Oscillator 1d"/>
+<meta name="twitter:description" content="This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+In a classical frictionless harmonic oscillator, we had the force (Hooke&rsquo;s law):
+$$ F = -kx = m\frac{d^2x}{dt^2} $$
+The solution for this is (as we saw in the infinite well):
+$$ x(t) = A\sin{\omega t} = B\cos{\omega t} $$"/>
 
-    <meta property="og:title" content="Quantum Physics - Infinite Well 1d" />
-<meta property="og:description" content="Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&rsquo;m also following the great &lsquo;Introduction to Quantum Mechanics&rsquo; book by David Griffiths and Darrell Schroeter.
-That made me rediscover my local library, and also &lsquo;Numerical Methods in Physycs with Python&rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject." />
+    <meta property="og:title" content="Quantum Physics - Harmonic Oscillator 1d" />
+<meta property="og:description" content="This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+In a classical frictionless harmonic oscillator, we had the force (Hooke&rsquo;s law):
+$$ F = -kx = m\frac{d^2x}{dt^2} $$
+The solution for this is (as we saw in the infinite well):
+$$ x(t) = A\sin{\omega t} = B\cos{\omega t} $$" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-12-19T12:44:45+01:00" />
-<meta property="article:modified_time" content="2023-12-19T12:44:45+01:00" />
+<meta property="og:url" content="https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-12-21T12:01:18+01:00" />
+<meta property="article:modified_time" content="2023-12-21T12:01:18+01:00" />
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -106,21 +112,21 @@ That made me rediscover my local library, and also &lsquo;Numerical Methods in P
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Quantum Physics - Infinite Well 1d</h1>
+      <h1 class ="post-title">Quantum Physics - Harmonic Oscillator 1d</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Dec 19, 2023
+          Dec 21, 2023
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          3 min read
+          2 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -133,75 +139,81 @@ That made me rediscover my local library, and also &lsquo;Numerical Methods in P
       </div>
     </header>
     <div class="post-content">
-      <p>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the <a href="https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013">MIT 8.04</a> course on OCW, but I&rsquo;m also following the great <a href="https://doi.org/10.1017/9781316995433">&lsquo;Introduction to Quantum Mechanics&rsquo; book by David Griffiths and Darrell Schroeter</a>.</p>
-<p>That made me rediscover my local library, and also <a href="https://doi.org/10.1017/9781108772310">&lsquo;Numerical Methods in Physycs with Python&rsquo; by Alex Gerzerlis</a> and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</p>
-<p>This is not meant to be a complete, or even incomplete introduction to quantum mechanics, it&rsquo;s just a set of exercises and notes for myself, though you might find helpful also if you are following a quantum mechanics course either on-site, online, or just reading a book.</p>
-<h2 id="single-particle-inside-an-infinite-square-potential-well-1-dimension">Single particle inside an infinite square potential well (1 Dimension)</h2>
-<p>We have a potential of the type:</p>
+      <p>This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.</p>
+<p>In a classical frictionless harmonic oscillator, we had the force (<strong>Hooke&rsquo;s law</strong>):</p>
 <p>$$
-V(x) =
-\begin{cases}
-0, &amp; \text{if}\ 0 \le x \le L, \\
-\infty, &amp; \text{otherwise} \
-\end{cases}
+F = -kx = m\frac{d^2x}{dt^2}
 $$</p>
-<p>Outside the well, it&rsquo;s clear that the particle can&rsquo;t exist, as the potential is infinite, so we can say that:</p>
-<p>$$\psi(x) = 0$$</p>
-<h3 id="inside-the-well">Inside the well</h3>
-<p>Inside the well, we have $$V=0$$, so the time independent Schrödinger equation is:</p>
+<p>The solution for this is (as we saw in the infinite well):</p>
 <p>$$
--\frac{\hbar}{2m}\frac{d^2\psi}{dx^2} = E\psi
+x(t) = A\sin{\omega t} = B\cos{\omega t}
 $$</p>
-<p>This can be rewritten as a simple harmonic oscillator:</p>
+<p>with:
+$$
+\omega \equiv \sqrt{\frac{k}{m}}
+$$</p>
+<p>This gives a potential (around $x_0$ for small oscillations):</p>
 <p>$$
-\frac{d^2\psi}{dx^2}=k^2\psi, \hspace{1cm} \text{where} \hspace{0.5cm} k \equiv \frac{\sqrt{2mE}}{\hbar}
+V(x) = \frac{1}{2}m\omega^2x^2
 $$</p>
-<p>This has the canonical solution:
-$$
-\psi{x} = A\sin{kx} + B\cos{kx}
-$$</p>
-<p>Now, as we know that $\psi(0) = \psi(L) = 0$, then we can get $A$ and $B$ from the boundary conditions:</p>
+<p>With this, we end up with the time-independent Schrödinger equation:</p>
 <p>$$
-\psi(0) = 0 = A\sin{0} + B\cos(0) = B =&gt; B = 0
-$$
-So we have only the sinus left:
-$$
-\psi(x) = A\sin{kx}
-$$
-And on the other boundary:
-$$
-\psi(L) = 0 = A\sin{kL} =&gt; \begin{cases}
-A = 0 &amp; \text{but this means a trivial non-normalizable state} \\
-kL = 0, \pm\pi, \pm2\pi, &hellip; &amp; \text{where }k=0\text{is also no good, and negative solutions add nothing}\
-\end{cases}
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2\psi = E\psi
 $$</p>
-<p>So we end up with:
-$$
-k_n=\frac{n\pi}{L}, \text{ with } n=1,2,3,&hellip;
+<p>Now, this can be solved analytically (change of variable + power of series, &hellip;) or using a slick fancy method using the <strong>raising</strong> and <strong>lowering</strong> operators.</p>
+<p>Let&rsquo;s go fancy :)</p>
+<p>First, we can define the operators:</p>
+<p>$$
+\hat{a}_\pm \equiv \frac{1}{\sqrt{2\hbar m \omega}}(\mp i\hat{p} + m\omega x)
 $$</p>
-<p>Now, to find out $A$, we can normalize it ($\int_{-\infty}^{\infty}|\psi(x)|^2dx$=1):
+<p>Now, these operators are such that if $\psi$ satisfies the Shrödinger equation with energy $E$, then $\hat{a}_\pm\psi$ also satisfies it with energy $E \pm \hbar\omega$.</p>
+<p>Essentially:</p>
+<p>$$\hat{H}(\hat{a_\pm} \psi) = (E \pm \hbar\omega)(\hat{a}_\pm \psi)$$</p>
+<p>There has to be a lower boundary though, as $E\nless 0$, this is:
+$$\hbar{a}_-\psi_0 = 0$$</p>
+<p>This gives:</p>
+<p>$$
+\psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{m\omega}{2\hbar}x^2}
 $$
-\int_{0}^{L}|A\sin{\frac{n\pi x}{L}}|^2dx = A^2\int_{0}^{L}sin^2{\frac{n\pi x}{L}}dx
+Giving an energy (when plugging it into the Shrödinger equation):
 $$
-Using $sin^2{x} = (\frac{1}{2} - \frac{cos(2x)}{2})$ we can simplify the integral and we end up with:
-$$
-A = \pm\sqrt{\frac{2}{L}}
+E_0 = \frac{1}{2}\hbar\omega
 $$</p>
-<p>But as the phase of $A$ carries no physical significance, we can pick the easiest to deal with, that&rsquo;s the positive solution. So the final wave function is:
-$$
-\psi(x) = \sqrt{\frac{2}{L}}\sin{\frac{n\pi}{L}x} \hspace{0.5cm}\text{where } n=1,2,3,&hellip;
+<p>And now, given a lower boundary state (<strong>ground state</strong>), we can generate the rest of the states by just applying the <strong>raising</strong> operator:</p>
+<p>$$
+\psi_1 = \hbar{a}_+\psi_0
 $$</p>
-<p>We also get that the energy is:
-$$
-E_n=\frac{\hbar^2k_n^2}{2m}=\frac{n^2\pi^2\hbar^2}{2mL^2}
+<p>Giving the generic:</p>
+<p>$$
+\psi_n(x) = C_n(\hbar{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,&hellip;
 $$</p>
-<p>And as you can see, these are discrete states, that we can plot:</p>
-<p><img src="images/Infinite_well-First_5_energy_levels.png" alt="Energy levels"></p>
-<p>And the 5 wave functions associated with them:</p>
-<p><img src="images/Infinite_well-First_5_wave_functions.png" alt="Wave functions"></p>
-<p>With the probabilities to find the particle at different positions (note that it can&rsquo;t be on every position):</p>
-<p><img src="images/Infinite_well-First_5_probabilities.png" alt="Wave functions"></p>
-<p>You can find the code for the graphs <a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb">here</a>.</p>
+<p>Where $C_n$ are normalization coefficients that after some extra work normalizing some of the states, we end up with:</p>
+<p>$$
+A_n = \frac{1}{\sqrt{n!}}
+$$</p>
+<p>This can be rewritten using <a href="https://en.wikipedia.org/wiki/Hermite_polynomials"><strong>Hermite polynomials</strong></a>, like:
+$$
+\psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}
+\frac{1}{\sqrt{2^nn!}}
+H_n(\xi)e^{-\frac{\xi^2}{2}}
+$$
+Where we have $H_n$ being the Hermitian polynomial of order $n$ and:
+$$
+\xi = \sqrt{\frac{m\omega}{\hbar}}x
+$$</p>
+<p>So, putting it all together:
+$$
+\psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}\frac{1}{\sqrt{2^nn!}}H_n(\xi)e^{-\frac{\xi^2}{2}} \hspace{1cm}\text{where }\xi = \sqrt{\frac{m\omega}{\hbar}}x
+$$
+$$
+E_n = \left(n+\frac{1}{2}\right)\hbar\omega
+$$</p>
+<p>Here are the plots of the energy levels, the wave functions and the probabilities against the potential.
+Note that again, the particle can&rsquo;t be found everywhere, and notice that at higher energy levels the outer sides of the probability are higher (eventually looking similar to the classical probability).</p>
+<p><img src="images/Harmonic_oscillator-First_5_energy_levels.png" alt="Energy levels"></p>
+<p><img src="images/Harmonic_oscillator-First_5_wave_functions.png" alt="Wave functions"></p>
+<p><img src="images/Harmonic_oscillator-First_5_probabilities.png" alt="Wave functions"></p>
+<p>You can find the code for the graphs <a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-21-Quantum-physics-harmonic-oscillator-1d/code/harmonic-oscillator-1d.ipynb">here</a>.</p>
 
     </div>
     <div class="post-footer">
