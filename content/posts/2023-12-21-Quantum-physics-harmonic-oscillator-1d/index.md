@@ -17,7 +17,7 @@ $$
 The solution for this is (as we saw in the infinite well):
 
 $$
-x(t) = A\sin{\omega t} = B\cos{\omega t}
+x(t) = A\sin{\omega t} + B\cos{\omega t}
 $$
 
 with:
