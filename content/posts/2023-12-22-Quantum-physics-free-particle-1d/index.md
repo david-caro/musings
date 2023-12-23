@@ -68,3 +68,8 @@ $$
 $$
 v_\text{group} = \omega'(k) = \frac{\hbar k}{m} = 2 v_\text{phase}
 $$
+
+
+You can find an animation on the jupyter notebook [here](https://github.com/david-caro/musings/blob/main/content/posts/2023-12-22-Quantum-physics-free-particle-1d/code/free-particle.ipynb).
+
+Note that you might have to run locally for the interactive plot to show.
