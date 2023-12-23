@@ -28,7 +28,7 @@ Outside the well, it's clear that the particle can't exist, as the potential is 
 
 $$\psi(x) = 0$$
 
-### Inside the well
+### Inside the well {#inside}
 
 Inside the well, we have $$V=0$$, so the time independent Schrödinger equation is:
 
