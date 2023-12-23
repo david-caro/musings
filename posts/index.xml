@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2023</copyright>
-    <lastBuildDate>Thu, 21 Dec 2023 12:01:18 +0100</lastBuildDate>
+    <lastBuildDate>Fri, 22 Dec 2023 11:17:27 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quantum Physics Free Particle 1d</title>
+      <link>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</link>
+      <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</guid>
+      <description>Today let&amp;rsquo;s have a look to a single particle, going around without any potential. So we get the same time-independent Schrödinger equation as we got inside the infinite square well:&#xA;$$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi $$&#xA;A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:&#xA;$$ \psi(x) = Ae^{ikx} + Ae^{ikx} \hspace{0.5cm}\text{where }k\equiv\frac{\sqrt{2mE}}{\hbar} $$</description>
+    </item>
     <item>
       <title>Quantum Physics - Harmonic Oscillator 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</link>

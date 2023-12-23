@@ -1,0 +1,7 @@
+jupyter
+scipy
+plotly
+numpy
+chart-studio
+ipywidgets
+jupyter-dash
