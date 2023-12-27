@@ -1,5 +1,5 @@
 ---
-title: "Quantum Physics Free Particle 1d"
+title: "Quantum Physics - Free Particle 1d"
 date: 2023-12-22T11:17:27+01:00
 tags: [physics, "quantum physics", "jupyter notebook", python]
 math: true
@@ -14,13 +14,13 @@ $$
 A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:
 
 $$
-\psi(x) = Ae^{ikx} + Ae^{ikx} \hspace{0.5cm}\text{where }k\equiv\frac{\sqrt{2mE}}{\hbar}
+\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k\equiv\frac{\sqrt{2mE}}{\hbar}
 $$
 
 Now adding the time dependent bits (the "wiggle factor"):
 
 $$
-\psi(x) = Ae^{ik\left(x - \frac{\hbar k}{2m}t\right)} + Be^{ik\left(x-\frac{\hbar k}{2m}t\right)}
+\psi(x) = Ae^{ik\left(x - \frac{\hbar k}{2m}t\right)} + Be^{-ik\left(x-\frac{\hbar k}{2m}t\right)}
 $$
 
 Here we recognize this as two waves, one moving right and one moving left.
