@@ -2,16 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/ceph/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/</loc>
-    <lastmod>2023-12-22T11:17:27+01:00</lastmod>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/envoy/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/homelab/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/rpi/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2024-02-17T23:58:16+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/jupyter-notebook/</loc>
     <lastmod>2023-12-22T11:17:27+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/physics/</loc>
-    <lastmod>2023-12-22T11:17:27+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
     <lastmod>2023-12-22T11:17:27+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/python/</loc>
@@ -23,25 +41,13 @@
     <loc>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</loc>
     <lastmod>2023-12-22T11:17:27+01:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
-    <lastmod>2023-12-22T11:17:27+01:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</loc>
     <lastmod>2023-12-21T12:01:18+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</loc>
     <lastmod>2023-12-19T12:44:45+01:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/tags/envoy/</loc>
-    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/homelab/</loc>
-    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/tags/kernel/</loc>
-    <lastmod>2023-04-17T13:38:17+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/rpi/</loc>
     <lastmod>2023-04-17T13:38:17+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</loc>

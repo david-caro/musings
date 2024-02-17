@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2023</copyright>
-    <lastBuildDate>Fri, 22 Dec 2023 11:17:27 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2024 23:58:16 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding USB Osd to Rpi Ceph Cluster</title>
+      <link>https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/</link>
+      <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/</guid>
+      <description>I was trying to add some new USB disks to my ceph cluster, and then I remembered that ceph-volume does not support to use removable USB devices for OSDs :/&#xA;To do so, I had to go to the host with the new drives, and then open a cephadm shell and modify the ceph-volume library:&#xA;root@node1:~# cephadm shell Inferring fsid d49b287a-b680-11eb-95d4-e45f010c03a8 Inferring config /var/lib/ceph/d49b287a-b680-11eb-95d4-e45f010c03a8/mon.node1/config Using recent ceph image quay.io/ceph/ceph@sha256:6d83dc7540a56ba51c05f412c3def8e2d7e624501b25e5a00e31f3d53d4cf578 root@node1:/# vi /usr/lib/python3.</description>
+    </item>
     <item>
       <title>Quantum Physics - Free Particle 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</link>

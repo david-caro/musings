@@ -7,8 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2023</copyright>
-    <lastBuildDate>Fri, 22 Dec 2023 11:17:27 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 17 Feb 2024 23:58:16 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ceph</title>
+      <link>https://musings.dcaro.es/tags/ceph/</link>
+      <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/ceph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>envoy</title>
+      <link>https://musings.dcaro.es/tags/envoy/</link>
+      <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/envoy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>homelab</title>
+      <link>https://musings.dcaro.es/tags/homelab/</link>
+      <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>rpi</title>
+      <link>https://musings.dcaro.es/tags/rpi/</link>
+      <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/rpi/</guid>
+      <description></description>
+    </item>
     <item>
       <title>jupyter notebook</title>
       <link>https://musings.dcaro.es/tags/jupyter-notebook/</link>
@@ -38,31 +66,10 @@
       <description></description>
     </item>
     <item>
-      <title>envoy</title>
-      <link>https://musings.dcaro.es/tags/envoy/</link>
-      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      <guid>https://musings.dcaro.es/tags/envoy/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>homelab</title>
-      <link>https://musings.dcaro.es/tags/homelab/</link>
-      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      <guid>https://musings.dcaro.es/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>kernel</title>
       <link>https://musings.dcaro.es/tags/kernel/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/kernel/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>rpi</title>
-      <link>https://musings.dcaro.es/tags/rpi/</link>
-      <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
-      <guid>https://musings.dcaro.es/tags/rpi/</guid>
       <description></description>
     </item>
     <item>
