@@ -267,9 +267,10 @@ error.</p>
 in which a process is contacting those services</li>
 <li>the process file owner is the same as the user we care about</li>
 </ul>
-<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode"> for every pid in `/proc`, do check the `net/*`
-directories for the services we are interested in if any matches: add user owner
-of the process and the namespace service counts to the stats </code></pre>
+<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode">for every pid in `/proc`, do
+    check the `net/*` directories for the services we are interested in
+    if any matches:
+      add user owner of the process and the namespace service counts to the stats</code></pre>
 <h2 id="how-could-you-find-out-the-specific-process-that-sent-the-package">How could you find out the specific process that sent the package?</h2>
 <p>That is a bit more complicated :/</p>
 <p>For that we have to:</p>
