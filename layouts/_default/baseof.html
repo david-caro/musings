@@ -10,6 +10,9 @@
     <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}" />
     {{ $style := resources.Get "css/main.scss" | resources.ExecuteAsTemplate "css/main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint -}}
     <link rel="stylesheet" href="{{ $style.Permalink }}" />
+    
+    {{/* <link rel="stylesheet" type="text/css" href="/css/normalize.css" /> */}}
+    <link rel="stylesheet" type="text/css" href="/css/toc.css" />
 
     {{ template "_internal/google_analytics.html" . }}
     {{ template "_internal/twitter_cards.html" . }}
@@ -18,30 +21,37 @@
 
   </head>
   <body>
-    <header class="app-header">
-      <a href="{{ .Site.BaseURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
-      <h1>{{ .Site.Title }}</h1>
-      {{- with .Site.Menus.main }}
-      <nav class="app-header-menu">
-        {{- range $key, $item := . }}
-          {{- if ne $key 0 }}
-            {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="{{ .Site.BaseURL }}"><img class="app-header-avatar" src="{{ .Site.Params.avatar | default "avatar.jpg" | relURL }}" alt="{{ .Site.Params.author | default "John Doe" }}" /></a>
+          <h2>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Page.Title }}{{ end }}</h2>
+          {{ if .IsHome }}
+          <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
+          {{ else }}
+          {{ .TableOfContents }} 
           {{ end }}
-          <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
+          {{- with .Site.Menus.main }}
+          <nav class="app-header-menu">
+            {{- range $key, $item := . }}
+              {{- if ne $key 0 }}
+                {{ $.Site.Params.menu_item_separator | default " - " | safeHTML }}
+              {{ end }}
+              <a class="app-header-menu-item" href="{{ $item.URL }}">{{ $item.Name }}</a>
+            {{- end }}
+          </nav>
+          {{- end }}
+        </div>
+        {{- with .Site.Params.social }}
+        <div class="app-header-social">
+          {{ range . }}
+            <a href="{{ .url }}" target="_blank" rel="noreferrer noopener">
+              {{ partial "icon.html" (dict "ctx" $ "name" .icon "title" .name) }}
+            </a>
+          {{ end }}
+        </div>
         {{- end }}
-      </nav>
-      {{- end }}
-      <p>{{ .Site.Params.description | default "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium." }}</p>
-      {{- with .Site.Params.social }}
-      <div class="app-header-social">
-        {{ range . }}
-          <a href="{{ .url }}" target="_blank" rel="noreferrer noopener">
-            {{ partial "icon.html" (dict "ctx" $ "name" .icon "title" .name) }}
-          </a>
-        {{ end }}
-      </div>
-      {{- end }}
-    </header>
+      </header>
+    
     <main class="app-container">
       {{ block "main" . }}
         {{ .Content }}

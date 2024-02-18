@@ -4,15 +4,23 @@ date: 2023-04-17T13:38:17+02:00
 tags: [envoy, rpi, homelab, kernel]
 draft: false
 ---
-My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.
 
-# First try
+My main server died the other day, and it was the one running envoy for the rest
+of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I
+have idling around.
 
-Now, these raspberries are running debian bullseye, but it seems that envoy [does not build packages for debian](https://github.com/envoyproxy/envoy/issues/16867), and Tetrate (the ones that build some) stopped building them in 2021 :/
+## First try
 
-I saw though that there's [official images for arm64](https://hub.docker.com/r/envoyproxy/envoy/tags/?page=1&name=latest) (yay!), so I decided to use one of those :)
+Now, these raspberries are running debian bullseye, but it seems that envoy
+[does not build packages for debian](https://github.com/envoyproxy/envoy/issues/16867),
+and Tetrate (the ones that build some) stopped building them in 2021 :/
+
+I saw though that there's
+[official images for arm64](https://hub.docker.com/r/envoyproxy/envoy/tags/?page=1&name=latest)
+(yay!), so I decided to use one of those :)
 
 Little I knew that they would actually not work out of the box:
+
 ```
 $ sudo podman run  --privileged --arch arm64 --rm docker.io/envoyproxy/envoy:v1.24-latest
 Trying to pull docker.io/envoyproxy/envoy:v1.24-latest...
@@ -32,16 +40,21 @@ external/com_github_google_tcmalloc/tcmalloc/system-alloc.cc:614] MmapAligned() 
 external/com_github_google_tcmalloc/tcmalloc/arena.cc:58] FATAL ERROR: Out of memory trying to allocate internal tcmalloc data (bytes, object-size); is something preventing mmap from succeeding (sandbox, VSS limitations)? 131072 600 @ 0x559440255c 0x55943e4790 0x55943fa044 0x55943f9e5c 0x55943d8ef8 0x5594312618 0x559430e710 0x55943cf0c8 0x7f9d1b4db8
 ```
 
-Hmm... it seems that it gets out of memory somehow... but it has more than enough.
-It turns out that it runs out of **virtual memory**!
+Hmm... it seems that it gets out of memory somehow... but it has more than
+enough. It turns out that it runs out of **virtual memory**!
 
-This is because by default, the raspberry-pi kernel is built using a [smaller amount of bits for the virtual memory addressing](https://github.com/envoyproxy/envoy/issues/15235#issuecomment-850516622), it uses 39 instead of the common 48, and envoy relies on the 48 when doing the memory allocation at boot.
+This is because by default, the raspberry-pi kernel is built using a
+[smaller amount of bits for the virtual memory addressing](https://github.com/envoyproxy/envoy/issues/15235#issuecomment-850516622),
+it uses 39 instead of the common 48, and envoy relies on the 48 when doing the
+memory allocation at boot.
 
-To fix this, you have to recompile the kernel changing that specific option. Let's see the steps:
+To fix this, you have to recompile the kernel changing that specific option.
+Let's see the steps:
 
-# Compiling a new kernel
+## Compiling a new kernel
 
-The steps followed are from [here mostly](https://www.raspberrypi.com/documentation/computers/linux_kernel.html):
+The steps followed are from
+[here mostly](https://www.raspberrypi.com/documentation/computers/linux_kernel.html):
 
 ```
 # clone the repo
@@ -61,6 +74,7 @@ sudo cp arch/arm64/boot/Image.gz /boot/$KERNEL.img
 ```
 
 Once done, you can just reboot and you are in your new kernel!
+
 ```
 $ uname -a
 Linux node5 6.1.23-v8+ #1 SMP PREEMPT Sun Apr 16 21:52:56 BST 2023 aarch64 GNU/Linux
@@ -85,5 +99,4 @@ $ sudo podman run --privileged --arch arm64 --rm docker.io/envoyproxy/envoy:v1.2
 ...
 ```
 
-\o/
-Next step, configuring envoy
+\o/ Next step, configuring envoy
