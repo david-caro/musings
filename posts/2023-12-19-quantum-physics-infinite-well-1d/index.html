@@ -9,6 +9,9 @@
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
 
     
     <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Quantum Physics - Infinite Well 1d"/>
@@ -43,65 +46,76 @@ That made me rediscover my local library, and also &lsquo;Numerical Methods in P
 
   </head>
   <body>
-    <header class="app-header">
-      <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-      <h1>David&#39;s musings and ramblings.</h1>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
-             - 
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Quantum Physics - Infinite Well 1d</h2>
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
-             - 
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#single-particle-inside-an-infinite-square-potential-well-1-dimension">Single particle inside an infinite square potential well (1 Dimension)</a></li>
+    <li><a href="#inside">Inside the well</a></li>
+    <li><a href="#plots">Plots</a></li>
+  </ol>
+</nav> 
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
-      </nav>
-      <p>Amateur yak shaver</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
   <title>My Github</title>
   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>My Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>Work Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 </svg>
-          </a>
-        
-          <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
   <title>My Twitter</title>
   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
 </svg>
-          </a>
-        
-          <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
   <title>My Linkedin</title>
   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
-          </a>
-        
-      </div>
-    </header>
+            </a>
+          
+        </div>
+      </header>
+    
     <main class="app-container">
       
   <article class="post">
@@ -133,9 +147,19 @@ That made me rediscover my local library, and also &lsquo;Numerical Methods in P
       </div>
     </header>
     <div class="post-content">
-      <p>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the <a href="https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013">MIT 8.04</a> course on OCW, but I&rsquo;m also following the great <a href="https://doi.org/10.1017/9781316995433">&lsquo;Introduction to Quantum Mechanics&rsquo; book by David Griffiths and Darrell Schroeter</a>.</p>
-<p>That made me rediscover my local library, and also <a href="https://doi.org/10.1017/9781108772310">&lsquo;Numerical Methods in Physycs with Python&rsquo; by Alex Gerzerlis</a> and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</p>
-<p>This is not meant to be a complete, or even incomplete introduction to quantum mechanics, it&rsquo;s just a set of exercises and notes for myself, though you might find helpful also if you are following a quantum mechanics course either on-site, online, or just reading a book.</p>
+      <p>Lately I have had some extra quiet time due to medical conditions, and I took on
+some quantum mechanics. I followed the
+<a href="https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013">MIT 8.04</a>
+course on OCW, but I&rsquo;m also following the great
+<a href="https://doi.org/10.1017/9781316995433">&lsquo;Introduction to Quantum Mechanics&rsquo; book by David Griffiths and Darrell Schroeter</a>.</p>
+<p>That made me rediscover my local library, and also
+<a href="https://doi.org/10.1017/9781108772310">&lsquo;Numerical Methods in Physycs with Python&rsquo; by Alex Gerzerlis</a>
+and that combination gives this series of articles on both, python and physics
+with some summaries, exercises and musings on the subject.</p>
+<p>This is not meant to be a complete, or even incomplete introduction to quantum
+mechanics, it&rsquo;s just a set of exercises and notes for myself, though you might
+find helpful also if you are following a quantum mechanics course either
+on-site, online, or just reading a book.</p>
 <h2 id="single-particle-inside-an-infinite-square-potential-well-1-dimension">Single particle inside an infinite square potential well (1 Dimension)</h2>
 <p>We have a potential of the type:</p>
 <p>$$
@@ -145,10 +169,12 @@ V(x) =
 \infty, &amp; \text{otherwise} \
 \end{cases}
 $$</p>
-<p>Outside the well, it&rsquo;s clear that the particle can&rsquo;t exist, as the potential is infinite, so we can say that:</p>
+<p>Outside the well, it&rsquo;s clear that the particle can&rsquo;t exist, as the potential is
+infinite, so we can say that:</p>
 <p>$$\psi(x) = 0$$</p>
-<h3 id="inside">Inside the well</h3>
-<p>Inside the well, we have $$V=0$$, so the time independent Schrödinger equation is:</p>
+<h2 id="inside">Inside the well</h2>
+<p>Inside the well, we have $$V=0$$, so the time independent Schrödinger equation
+is:</p>
 <p>$$
 -\frac{\hbar}{2m}\frac{d^2\psi}{dx^2} = E\psi
 $$</p>
@@ -156,52 +182,60 @@ $$</p>
 <p>$$
 \frac{d^2\psi}{dx^2}=k^2\psi, \hspace{1cm} \text{where} \hspace{0.5cm} k \equiv \frac{\sqrt{2mE}}{\hbar}
 $$</p>
-<p>This has the canonical solution:
-$$
+<p>This has the canonical solution:</p>
+<p>$$
 \psi{x} = A\sin{kx} + B\cos{kx}
 $$</p>
-<p>Now, as we know that $\psi(0) = \psi(L) = 0$, then we can get $A$ and $B$ from the boundary conditions:</p>
+<p>Now, as we know that $\psi(0) = \psi(L) = 0$, then we can get $A$ and $B$ from
+the boundary conditions:</p>
 <p>$$
 \psi(0) = 0 = A\sin{0} + B\cos(0) = B =&gt; B = 0
-$$
-So we have only the sinus left:
-$$
+$$</p>
+<p>So we have only the sinus left:</p>
+<p>$$
 \psi(x) = A\sin{kx}
-$$
-And on the other boundary:
-$$
+$$</p>
+<p>And on the other boundary:</p>
+<p>$$
 \psi(L) = 0 = A\sin{kL} =&gt; \begin{cases}
 A = 0 &amp; \text{but this means a trivial non-normalizable state} \\
 kL = 0, \pm\pi, \pm2\pi, &hellip; &amp; \text{where }k=0\text{is also no good, and negative solutions add nothing}\
 \end{cases}
 $$</p>
-<p>So we end up with:
-$$
+<p>So we end up with:</p>
+<p>$$
 k_n=\frac{n\pi}{L}, \text{ with } n=1,2,3,&hellip;
 $$</p>
-<p>Now, to find out $A$, we can normalize it ($\int_{-\infty}^{\infty}|\psi(x)|^2dx$=1):
-$$
+<p>Now, to find out $A$, we can normalize it
+($\int_{-\infty}^{\infty}|\psi(x)|^2dx$=1):</p>
+<p>$$
 \int_{0}^{L}|A\sin{\frac{n\pi x}{L}}|^2dx = A^2\int_{0}^{L}sin^2{\frac{n\pi x}{L}}dx
-$$
-Using $sin^2{x} = (\frac{1}{2} - \frac{cos(2x)}{2})$ we can simplify the integral and we end up with:
-$$
+$$</p>
+<p>Using $sin^2{x} = (\frac{1}{2} - \frac{cos(2x)}{2})$ we can simplify the
+integral and we end up with:</p>
+<p>$$
 A = \pm\sqrt{\frac{2}{L}}
 $$</p>
-<p>But as the phase of $A$ carries no physical significance, we can pick the easiest to deal with, that&rsquo;s the positive solution. So the final wave function is:
-$$
+<p>But as the phase of $A$ carries no physical significance, we can pick the
+easiest to deal with, that&rsquo;s the positive solution. So the final wave function
+is:</p>
+<p>$$
 \psi(x) = \sqrt{\frac{2}{L}}\sin{\frac{n\pi}{L}x} \hspace{0.5cm}\text{where } n=1,2,3,&hellip;
 $$</p>
-<p>We also get that the energy is:
-$$
+<p>We also get that the energy is:</p>
+<p>$$
 E_n=\frac{\hbar^2k_n^2}{2m}=\frac{n^2\pi^2\hbar^2}{2mL^2}
 $$</p>
+<h2 id="plots">Plots</h2>
 <p>And as you can see, these are discrete states, that we can plot:</p>
 <p><img src="images/Infinite_well-First_5_energy_levels.png" alt="Energy levels"></p>
 <p>And the 5 wave functions associated with them:</p>
 <p><img src="images/Infinite_well-First_5_wave_functions.png" alt="Wave functions"></p>
-<p>With the probabilities to find the particle at different positions (note that it can&rsquo;t be on every position):</p>
+<p>With the probabilities to find the particle at different positions (note that it
+can&rsquo;t be on every position):</p>
 <p><img src="images/Infinite_well-First_5_probabilities.png" alt="Wave functions"></p>
-<p>You can find the code for the graphs <a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb">here</a>.</p>
+<p>You can find the code for the graphs
+<a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-19-Quantum-physics-infinite-well-1d/code/infinite-well-1d.ipynb">here</a>.</p>
 
     </div>
     <div class="post-footer">

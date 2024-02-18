@@ -6,7 +6,7 @@
     <description>Recent content in quantum physics on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© David Caro 2023</copyright>
+    <copyright>© David Caro 2024</copyright>
     <lastBuildDate>Fri, 22 Dec 2023 11:17:27 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/quantum-physics/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -21,7 +21,7 @@
       <link>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</link>
       <pubDate>Thu, 21 Dec 2023 12:01:18 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</guid>
-      <description>This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.&#xA;In a classical frictionless harmonic oscillator, we had the force (Hooke&amp;rsquo;s law):&#xA;$$ F = -kx = m\frac{d^2x}{dt^2} $$&#xA;The solution for this is (as we saw in the infinite well):&#xA;$$ x(t) = A\sin{\omega t} + B\cos{\omega t} $$</description>
+      <description>Harmonic oscillatoa This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.&#xA;In a classical frictionless harmonic oscillator, we had the force (Hooke&amp;rsquo;s law):&#xA;$$ F = -kx = m\frac{d^2x}{dt^2} $$&#xA;The solution for this is (as we saw in the infinite well):&#xA;$$ x(t) = A\sin{\omega t} + B\cos{\omega t} $$</description>
     </item>
     <item>
       <title>Quantum Physics - Infinite Well 1d</title>

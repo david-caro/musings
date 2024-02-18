@@ -9,6 +9,9 @@
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
 
     
     <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Fooling around with the proc directory and network connections"/>
@@ -30,65 +33,79 @@ To do so, I wrote a small golang script. Here&rsquo;s some notes on trying to ge
 
   </head>
   <body>
-    <header class="app-header">
-      <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-      <h1>David&#39;s musings and ramblings.</h1>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
-             - 
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Fooling around with the proc directory and network connections</h2>
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
-             - 
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#where-to-get-the-info-from">Where to get the info from</a></li>
+    <li><a href="#sniffing-in-golang">Sniffing in golang</a></li>
+    <li><a href="#how-does-ss-do-it">How does <code>ss</code> do it?</a></li>
+    <li><a href="#procnet">/proc/net</a></li>
+    <li><a href="#how-to-figure-all-that-out-then">How to figure all that out then?</a></li>
+    <li><a href="#how-could-you-find-out-the-specific-process-that-sent-the-package">How could you find out the specific process that sent the package?</a></li>
+  </ol>
+</nav> 
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
-      </nav>
-      <p>Amateur yak shaver</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
   <title>My Github</title>
   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>My Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>Work Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 </svg>
-          </a>
-        
-          <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
   <title>My Twitter</title>
   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
 </svg>
-          </a>
-        
-          <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
   <title>My Linkedin</title>
   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
-          </a>
-        
-      </div>
-    </header>
+            </a>
+          
+        </div>
+      </header>
+    
     <main class="app-container">
       
   <article class="post">
@@ -122,29 +139,35 @@ To do so, I wrote a small golang script. Here&rsquo;s some notes on trying to ge
       </div>
     </header>
     <div class="post-content">
-      <p>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to
-discover and expose dependencies between services.</p>
-<p>This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user
-has a linux user, and it&rsquo;s containers run as that user).</p>
-<p>To do so, I wrote a <a href="https://github.com/david-caro/netsnoop">small golang script</a>. Here&rsquo;s some notes on trying to get
-that information.</p>
-<h1 id="where-to-get-the-info-from">Where to get the info from</h1>
-<p>The ideal would be to operationalize the code, so the services themselves send statistics about their dependencies, but
-given the nature of the services (self-hoster, volunteer driven, any language, etc.) trying to touch all the services
-code is a no-go.</p>
+      <p>Lately I have been curious to try to know if certain linux users are accessing
+certain resources, in an effort to discover and expose dependencies between
+services.</p>
+<p>This users are actually the ones with which containers are being run with from
+k8s itself (in toolforge, each k8s user has a linux user, and it&rsquo;s containers
+run as that user).</p>
+<p>To do so, I wrote a
+<a href="https://github.com/david-caro/netsnoop">small golang script</a>. Here&rsquo;s some notes
+on trying to get that information.</p>
+<h2 id="where-to-get-the-info-from">Where to get the info from</h2>
+<p>The ideal would be to operationalize the code, so the services themselves send
+statistics about their dependencies, but given the nature of the services
+(self-hoster, volunteer driven, any language, etc.) trying to touch all the
+services code is a no-go.</p>
 <p>For that reason the information has to be gotten in a passible form.</p>
 <p>Some ideas would be:</p>
 <ul>
 <li>Using a transparent proxy</li>
-<li>Hooking into the kernel (using systemtap, ebpf or overryding the system libraries)</li>
+<li>Hooking into the kernel (using systemtap, ebpf or overryding the system
+libraries)</li>
 <li>Sniffing the host traffic</li>
 </ul>
-<p>I don&rsquo;t have much experience (hello world!) with systemtap and ebpf, and I had less than a week to complete the
-project, so I went with the network sniffing :)</p>
-<h1 id="sniffing-in-golang">Sniffing in golang</h1>
+<p>I don&rsquo;t have much experience (hello world!) with systemtap and ebpf, and I had
+less than a week to complete the project, so I went with the network sniffing :)</p>
+<h2 id="sniffing-in-golang">Sniffing in golang</h2>
 <p>This was way easier than I though it would be, there&rsquo;s a module named
-<a href="https://pkg.go.dev/github.com/google/gopacket">gopacket</a> that provides a quite easy API to do so, that will give you a
-channel where you can extract packets from:</p>
+<a href="https://pkg.go.dev/github.com/google/gopacket">gopacket</a> that provides a quite
+easy API to do so, that will give you a channel where you can extract packets
+from:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -164,119 +187,101 @@ channel where you can extract packets from:</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#e6db74">&#34;github.com/google/gopacket&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/google/gopacket/layers&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/google/gopacket/pcap&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#75715e">//...
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
-</span></span><span style="display:flex;"><span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> ( <span style="color:#75715e">//... &#34;github.com/google/gopacket&#34; &#34;github.com/google/gopacket/layers&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#e6db74">&#34;github.com/google/gopacket/pcap&#34;</span> <span style="color:#75715e">//... )
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Opening Device
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// for now capturing size 0, not interested in the contents
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// not interested in promiscuous listening either, only packets from this host
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">handle</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pcap</span>.<span style="color:#a6e22e">OpenLive</span>(<span style="color:#f92672">*</span><span style="color:#a6e22e">iface</span>, int32(<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">pcap</span>.<span style="color:#a6e22e">BlockForever</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Opening Device // for now capturing size 0, not interested in the contents //
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">not</span> <span style="color:#a6e22e">interested</span> <span style="color:#a6e22e">in</span> <span style="color:#a6e22e">promiscuous</span> <span style="color:#a6e22e">listening</span> <span style="color:#a6e22e">either</span>, <span style="color:#a6e22e">only</span> <span style="color:#a6e22e">packets</span> <span style="color:#a6e22e">from</span> <span style="color:#a6e22e">this</span> <span style="color:#a6e22e">host</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">handle</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">pcap</span>.<span style="color:#a6e22e">OpenLive</span>(<span style="color:#960050;background-color:#1e0010">\</span><span style="color:#f92672">*</span><span style="color:#a6e22e">iface</span>, int32(<span style="color:#ae81ff">0</span>), <span style="color:#66d9ef">false</span>, <span style="color:#a6e22e">pcap</span>.<span style="color:#a6e22e">BlockForever</span>) <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>) }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">handle</span>.<span style="color:#a6e22e">Close</span>()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">handle</span>.<span style="color:#a6e22e">SetBPFFilter</span>(<span style="color:#a6e22e">bpfFilter</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;error applying BPF Filter &#34;</span>, <span style="color:#a6e22e">bpfFilter</span>, <span style="color:#e6db74">&#34;  error:&#34;</span>, <span style="color:#a6e22e">err</span>)
-</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">handle</span>.<span style="color:#a6e22e">SetBPFFilter</span>(<span style="color:#a6e22e">bpfFilter</span>) <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalf</span>(<span style="color:#e6db74">&#34;error applying
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">BPF Filter &#34;</span>, <span style="color:#a6e22e">bpfFilter</span>, <span style="color:#e6db74">&#34; error:&#34;</span>, <span style="color:#a6e22e">err</span>) }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">packetSource</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gopacket</span>.<span style="color:#a6e22e">NewPacketSource</span>(<span style="color:#a6e22e">handle</span>, <span style="color:#a6e22e">handle</span>.<span style="color:#a6e22e">LinkType</span>())
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">packetChannel</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">packetSource</span>.<span style="color:#a6e22e">Packets</span>()</span></span></code></pre></td></tr></table>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">packetChannel</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">packetSource</span>.<span style="color:#a6e22e">Packets</span>() 
+</span></span></code></pre></td></tr></table>
 </div>
 </div>
 <p>Then all you have to do is receive from that channel the packages:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">select</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">packetChannel</span>:
-</span></span><span style="display:flex;"><span>           <span style="color:#75715e">// do something
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">default</span>:
-</span></span><span style="display:flex;"><span>           <span style="color:#75715e">// do something if there&#39;s no packages yet
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        }
-</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div></p>
-<p>Anyhow, from there, from the IP layer we can get the IPs involved, and from the TCP or UDP layers we can get the ports
-associated with each.</p>
-<p>From that information, how do we know which process is the one sending that package?</p>
-<h1 id="how-does-ss-do-it">How does <code>ss</code> do it?</h1>
-<p>I was curious to check what the <code>ss</code> command (the successor of <code>netstat</code>) does to get that information, so I went and
-straced it xd</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ strace ss -tnp 2&gt;&amp;<span style="color:#ae81ff">1</span> 1&gt;/dev/null | vim -</span></span></code></pre></div>
-<p>From there I was seeing that it&rsquo;s navigating the whole <code>/proc/&lt;pid&gt;</code> tree, and for each is checking the <code>fd</code>, and then
-doing a <code>readlink</code> on each of the entries, checking then where are they pointing too and using that info to get the
-sockets and ports:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>...  lots of permission denied, I was not root
-</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#e6db74">&#34;/proc/3105/fd/&#34;</span>, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span>readlink<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/proc/3105/fd/0&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, 63<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
-</span></span><span style="display:flex;"><span>readlink<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/proc/3105/fd/1&#34;</span>, <span style="color:#e6db74">&#34;socket:[31324]&#34;</span>, 63<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span>  <span style="color:#75715e"># this is a socket on port 31324</span>
-</span></span><span style="display:flex;"><span>...</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span> <span style="color:#66d9ef">for</span> { <span style="color:#66d9ef">select</span> { <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">packetChannel</span>: <span style="color:#75715e">// do
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">something</span> <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">default</span>: <span style="color:#75715e">// do something if there&#39;s no packages yet } }
+</span></span></span></code></pre></div></p>
+<p>Anyhow, from there, from the IP layer we can get the IPs involved, and from the
+TCP or UDP layers we can get the ports associated with each.</p>
+<p>From that information, how do we know which process is the one sending that
+package?</p>
+<h2 id="how-does-ss-do-it">How does <code>ss</code> do it?</h2>
+<p>I was curious to check what the <code>ss</code> command (the successor of <code>netstat</code>) does
+to get that information, so I went and straced it xd</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> $ strace ss -tnp 2&gt;&amp;<span style="color:#ae81ff">1</span> 1&gt;/dev/null | vim -</span></span></code></pre></div>
+<p>From there I was seeing that it&rsquo;s navigating the whole <code>/proc/&lt;pid&gt;</code> tree, and
+for each is checking the <code>fd</code>, and then doing a <code>readlink</code> on each of the
+entries, checking then where are they pointing too and using that info to get
+the sockets and ports:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> ... lots of permission denied, I was not root
+</span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#e6db74">&#34;/proc/3105/fd/&#34;</span>, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY<span style="color:#f92672">)</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> ... readlink<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/proc/3105/fd/0&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, 63<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>readlink<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/proc/3105/fd/1&#34;</span>, <span style="color:#e6db74">&#34;socket:[31324]&#34;</span>, 63<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">14</span> <span style="color:#75715e"># this is a socket on</span>
+</span></span><span style="display:flex;"><span>port <span style="color:#ae81ff">31324</span> ... </span></span></code></pre></div>
 <p>So that was interesting, <code>netstat</code> ends up doing the same too.</p>
-<h1 id="procnet">/proc/net</h1>
-<p>Another option is <code>/proc/net</code>, here you&rsquo;ll find all the network connections. So that&rsquo;s the first thing I tried.</p>
-<p>More info on it <a href="https://www.kernel.org/doc/html/latest/networking/proc_net_tcp.html">in the kernel docs here</a>.</p>
-<p>Easy enough, that was working really well when trying to sniff on simple processes (ex. on one terminal you start the
-sniffer, and on another you run a <code>curl</code> command), but you will not see things running on containers, here&rsquo;s why:</p>
-<p><code>/proc/net</code> is a link to <code>/proc/self/net</code>, and <code>/proc/self</code> is in itself a link to <code>/proc/&lt;pid&gt;</code> where <code>pid</code> is the
-process id of the current process.</p>
-<p>Now, anything under  <code>/proc/&lt;pid&gt;/net</code> show all the connections <strong>in that process network namespace</strong>, and well, in
-linux containers are implemented with those namespaces so what you are seeing is actually the network connections for
-the namespace of the current process, and that most probably does not include containers.</p>
-<p>Another thing to have into account, is that <code>/proc/&lt;pid&gt;/net</code> has <strong>all</strong> the network connections in the process network
-namespace, including the ones not started by that process, so you still have to filter them out.</p>
-<p>So on a quick note, here&rsquo;s how many processes are there on each network namespace on a k8s node (looking directly into
-<code>/proc/&lt;pid&gt;/ns</code> as docker does not add an entry in the global <code>/var/run/netns</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@tools-k8s-worker-32:~/netstnoop$ sudo ls -la /proc/*/ns/net | awk <span style="color:#e6db74">&#39;{print $11}&#39;</span> | sort | uniq -c | head
-</span></span><span style="display:flex;"><span>ls: cannot read symbolic link <span style="color:#e6db74">&#39;/proc/17747/ns/net&#39;</span>: No such file or directory
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">209</span> net:<span style="color:#f92672">[</span>4026531992<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1</span> net:<span style="color:#f92672">[</span>4026532222<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>     <span style="color:#ae81ff">20</span> net:<span style="color:#f92672">[</span>4026532352<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">6</span> net:<span style="color:#f92672">[</span>4026532449<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">9</span> net:<span style="color:#f92672">[</span>4026532534<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">6</span> net:<span style="color:#f92672">[</span>4026532607<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">7</span> net:<span style="color:#f92672">[</span>4026532807<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">9</span> net:<span style="color:#f92672">[</span>4026533066<span style="color:#f92672">]</span>
-</span></span><span style="display:flex;"><span>      ...</span></span></code></pre></div>
-<p>Note also that even the time between bash expanding <code>/proc/*/ns/net</code> and ls reading the files some processes don&rsquo;t
-exist anymore, giving the <code>No such file</code> error.</p>
-<h1 id="how-to-figure-all-that-out-then">How to figure all that out then?</h1>
+<h2 id="procnet">/proc/net</h2>
+<p>Another option is <code>/proc/net</code>, here you&rsquo;ll find all the network connections. So
+that&rsquo;s the first thing I tried.</p>
+<p>More info on it
+<a href="https://www.kernel.org/doc/html/latest/networking/proc_net_tcp.html">in the kernel docs here</a>.</p>
+<p>Easy enough, that was working really well when trying to sniff on simple
+processes (ex. on one terminal you start the sniffer, and on another you run a
+<code>curl</code> command), but you will not see things running on containers, here&rsquo;s why:</p>
+<p><code>/proc/net</code> is a link to <code>/proc/self/net</code>, and <code>/proc/self</code> is in itself a link
+to <code>/proc/&lt;pid&gt;</code> where <code>pid</code> is the process id of the current process.</p>
+<p>Now, anything under <code>/proc/&lt;pid&gt;/net</code> show all the connections <strong>in that process
+network namespace</strong>, and well, in linux containers are implemented with those
+namespaces so what you are seeing is actually the network connections for the
+namespace of the current process, and that most probably does not include
+containers.</p>
+<p>Another thing to have into account, is that <code>/proc/&lt;pid&gt;/net</code> has <strong>all</strong> the
+network connections in the process network namespace, including the ones not
+started by that process, so you still have to filter them out.</p>
+<p>So on a quick note, here&rsquo;s how many processes are there on each network
+namespace on a k8s node (looking directly into <code>/proc/&lt;pid&gt;/ns</code> as docker does
+not add an entry in the global <code>/var/run/netns</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> dcaro@tools-k8s-worker-32:~/netstnoop$ sudo ls -la
+</span></span><span style="display:flex;"><span>/proc/<span style="color:#ae81ff">\*</span>/ns/net | awk <span style="color:#e6db74">&#39;{print $11}&#39;</span> | sort | uniq -c | head ls: cannot read
+</span></span><span style="display:flex;"><span>symbolic link <span style="color:#e6db74">&#39;/proc/17747/ns/net&#39;</span>: No such file or directory <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">209</span>
+</span></span><span style="display:flex;"><span>net:<span style="color:#f92672">[</span>4026531992<span style="color:#f92672">]</span> <span style="color:#ae81ff">1</span> net:<span style="color:#f92672">[</span>4026532222<span style="color:#f92672">]</span> <span style="color:#ae81ff">20</span> net:<span style="color:#f92672">[</span>4026532352<span style="color:#f92672">]</span> <span style="color:#ae81ff">6</span> net:<span style="color:#f92672">[</span>4026532449<span style="color:#f92672">]</span> <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>net:<span style="color:#f92672">[</span>4026532534<span style="color:#f92672">]</span> <span style="color:#ae81ff">6</span> net:<span style="color:#f92672">[</span>4026532607<span style="color:#f92672">]</span> <span style="color:#ae81ff">7</span> net:<span style="color:#f92672">[</span>4026532807<span style="color:#f92672">]</span> <span style="color:#ae81ff">9</span> net:<span style="color:#f92672">[</span>4026533066<span style="color:#f92672">]</span> ...</span></span></code></pre></div>
+<p>Note also that even the time between bash expanding <code>/proc/*/ns/net</code> and ls
+reading the files some processes don&rsquo;t exist anymore, giving the <code>No such file</code>
+error.</p>
+<h2 id="how-to-figure-all-that-out-then">How to figure all that out then?</h2>
 <p>Given that:</p>
 <ul>
-<li>we don&rsquo;t care about that specific packet, just any &ldquo;user&rdquo; that has a namespace in which a process is contacting those services</li>
+<li>we don&rsquo;t care about that specific packet, just any &ldquo;user&rdquo; that has a namespace
+in which a process is contacting those services</li>
 <li>the process file owner is the same as the user we care about</li>
 </ul>
-<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode">for every pid in `/proc`, do
-    check the `net/*` directories for the services we are interested in
-    if any matches:
-        add user owner of the process and the namespace service counts to the stats</code></pre>
-<h1 id="how-could-you-find-out-the-specific-process-that-sent-the-package">How could you find out the specific process that sent the package?</h1>
+<pre tabindex="0"><code class="language-pseudocode" data-lang="pseudocode"> for every pid in `/proc`, do check the `net/*`
+directories for the services we are interested in if any matches: add user owner
+of the process and the namespace service counts to the stats </code></pre>
+<h2 id="how-could-you-find-out-the-specific-process-that-sent-the-package">How could you find out the specific process that sent the package?</h2>
 <p>That is a bit more complicated :/</p>
 <p>For that we have to:</p>
 <ul>
-<li>Follow the process above to get which namespace is the one that is contacting that IP/port</li>
-<li>Once you have the namespace, you can also extract the inode (from the same net file <code>/proc/&lt;pid&gt;/net/*</code>)</li>
-<li>With the inode, you can then look at all the open files for each process on that same namespace (<code>/proc/*/fd/*</code>)</li>
-<li>That will give you the specific processes that have that socket open (note that could be more than one!)</li>
+<li>Follow the process above to get which namespace is the one that is contacting
+that IP/port</li>
+<li>Once you have the namespace, you can also extract the inode (from the same net
+file <code>/proc/&lt;pid&gt;/net/*</code>)</li>
+<li>With the inode, you can then look at all the open files for each process on
+that same namespace (<code>/proc/*/fd/*</code>)</li>
+<li>That will give you the specific processes that have that socket open (note
+that could be more than one!)</li>
 </ul>
 <p>Enjoy!</p>
 

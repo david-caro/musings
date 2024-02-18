@@ -9,17 +9,20 @@
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
     <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
 
     
     <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Quantum Physics - Harmonic Oscillator 1d"/>
-<meta name="twitter:description" content="This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+<meta name="twitter:description" content="Harmonic oscillatoa This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
 In a classical frictionless harmonic oscillator, we had the force (Hooke&rsquo;s law):
 $$ F = -kx = m\frac{d^2x}{dt^2} $$
 The solution for this is (as we saw in the infinite well):
 $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$"/>
 
     <meta property="og:title" content="Quantum Physics - Harmonic Oscillator 1d" />
-<meta property="og:description" content="This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+<meta property="og:description" content="Harmonic oscillatoa This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
 In a classical frictionless harmonic oscillator, we had the force (Hooke&rsquo;s law):
 $$ F = -kx = m\frac{d^2x}{dt^2} $$
 The solution for this is (as we saw in the infinite well):
@@ -49,65 +52,76 @@ $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$" />
 
   </head>
   <body>
-    <header class="app-header">
-      <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-      <h1>David&#39;s musings and ramblings.</h1>
-      <nav class="app-header-menu">
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
-             - 
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Quantum Physics - Harmonic Oscillator 1d</h2>
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
-             - 
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#harmonic-oscillatoa">Harmonic oscillatoa</a></li>
+    <li><a href="#raising-and-lowering-operators">Raising and lowering operators</a></li>
+    <li><a href="#plots">Plots</a></li>
+  </ol>
+</nav> 
           
-          <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
-      </nav>
-      <p>Amateur yak shaver</p>
-      <div class="app-header-social">
-        
-          <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
   <title>My Github</title>
   <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>My Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
   <title>Work Gilab</title>
   <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
 </svg>
-          </a>
-        
-          <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
   <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
   <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 </svg>
-          </a>
-        
-          <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
   <title>My Twitter</title>
   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
 </svg>
-          </a>
-        
-          <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
   <title>My Linkedin</title>
   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
 </svg>
-          </a>
-        
-      </div>
-    </header>
+            </a>
+          
+        </div>
+      </header>
+    
     <main class="app-container">
       
   <article class="post">
@@ -139,8 +153,12 @@ $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$" />
       </div>
     </header>
     <div class="post-content">
-      <p>This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.</p>
-<p>In a classical frictionless harmonic oscillator, we had the force (<strong>Hooke&rsquo;s law</strong>):</p>
+      <h2 id="harmonic-oscillatoa">Harmonic oscillatoa</h2>
+<p>This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful
+case, as most curved potentials can be aproximated at their local minimums as
+harmonic oscillators.</p>
+<p>In a classical frictionless harmonic oscillator, we had the force (<strong>Hooke&rsquo;s
+law</strong>):</p>
 <p>$$
 F = -kx = m\frac{d^2x}{dt^2}
 $$</p>
@@ -148,8 +166,8 @@ $$</p>
 <p>$$
 x(t) = A\sin{\omega t} + B\cos{\omega t}
 $$</p>
-<p>with:
-$$
+<p>with:</p>
+<p>$$
 \omega \equiv \sqrt{\frac{k}{m}}
 $$</p>
 <p>This gives a potential (around $x_0$ for small oscillations):</p>
@@ -160,13 +178,17 @@ $$</p>
 <p>$$
 -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2\psi = E\psi
 $$</p>
-<p>Now, this can be solved analytically (change of variable + power of series, &hellip;) or using a slick fancy method using the <strong>raising</strong> and <strong>lowering</strong> operators.</p>
+<p>Now, this can be solved analytically (change of variable + power of series, &hellip;)
+or using a slick fancy method using the <strong>raising</strong> and <strong>lowering</strong> operators.</p>
+<h2 id="raising-and-lowering-operators">Raising and lowering operators</h2>
 <p>Let&rsquo;s go fancy :)</p>
 <p>First, we can define the operators:</p>
 <p>$$
 \hat{a}_\pm \equiv \frac{1}{\sqrt{2\hbar m \omega}}(\mp i\hat{p} + m\omega x)
 $$</p>
-<p>Now, these operators are such that if $\psi$ satisfies the Shrödinger equation with energy $E$, then $\hat{a}_\pm\psi$ also satisfies it with energy $E \pm \hbar\omega$.</p>
+<p>Now, these operators are such that if $\psi$ satisfies the Shrödinger equation
+with energy $E$, then $\hat{a}_\pm\psi$ also satisfies it with energy
+$E \pm \hbar\omega$.</p>
 <p>Essentially:</p>
 <p>$$\hat{H}(\hat{a_\pm} \psi) = (E \pm \hbar\omega)(\hat{a}_\pm \psi)$$</p>
 <p>There has to be a lower boundary though, as $E\nless 0$, this is:
@@ -174,12 +196,13 @@ $$\hbar{a}_-\psi_0 = 0$$</p>
 <p>This gives:</p>
 <p>$$
 \psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{m\omega}{2\hbar}x^2}
-$$
-Giving an energy (when plugging it into the Shrödinger equation):
-$$
+$$</p>
+<p>Giving an energy (when plugging it into the Shrödinger equation):</p>
+<p>$$
 E_0 = \frac{1}{2}\hbar\omega
 $$</p>
-<p>And now, given a lower boundary state (<strong>ground state</strong>), we can generate the rest of the states by just applying the <strong>raising</strong> operator:</p>
+<p>And now, given a lower boundary state (<strong>ground state</strong>), we can generate the
+rest of the states by just applying the <strong>raising</strong> operator:</p>
 <p>$$
 \psi_1 = \hbar{a}_+\psi_0
 $$</p>
@@ -187,33 +210,41 @@ $$</p>
 <p>$$
 \psi_n(x) = C_n(\hbar{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,&hellip;
 $$</p>
-<p>Where $C_n$ are normalization coefficients that after some extra work normalizing some of the states, we end up with:</p>
+<p>Where $C_n$ are normalization coefficients that after some extra work
+normalizing some of the states, we end up with:</p>
 <p>$$
 A_n = \frac{1}{\sqrt{n!}}
 $$</p>
-<p>This can be rewritten using <a href="https://en.wikipedia.org/wiki/Hermite_polynomials"><strong>Hermite polynomials</strong></a>, like:
-$$
+<p>This can be rewritten using
+<a href="https://en.wikipedia.org/wiki/Hermite_polynomials"><strong>Hermite polynomials</strong></a>,
+like:</p>
+<p>$$
 \psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}
 \frac{1}{\sqrt{2^nn!}}
 H_n(\xi)e^{-\frac{\xi^2}{2}}
-$$
-Where we have $H_n$ being the Hermitian polynomial of order $n$ and:
-$$
+$$</p>
+<p>Where we have $H_n$ being the Hermitian polynomial of order $n$ and:</p>
+<p>$$
 \xi = \sqrt{\frac{m\omega}{\hbar}}x
 $$</p>
-<p>So, putting it all together:
-$$
+<p>So, putting it all together:</p>
+<p>$$
 \psi_n(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}\frac{1}{\sqrt{2^nn!}}H_n(\xi)e^{-\frac{\xi^2}{2}} \hspace{1cm}\text{where }\xi = \sqrt{\frac{m\omega}{\hbar}}x
-$$
-$$
+$$</p>
+<p>$$
 E_n = \left(n+\frac{1}{2}\right)\hbar\omega
 $$</p>
-<p>Here are the plots of the energy levels, the wave functions and the probabilities against the potential.
-Note that again, the particle can&rsquo;t be found everywhere, and notice that at higher energy levels the outer sides of the probability are higher (eventually looking similar to the classical probability).</p>
+<h2 id="plots">Plots</h2>
+<p>Here are the plots of the energy levels, the wave functions and the
+probabilities against the potential. Note that again, the particle can&rsquo;t be
+found everywhere, and notice that at higher energy levels the outer sides of the
+probability are higher (eventually looking similar to the classical
+probability).</p>
 <p><img src="images/Harmonic_oscillator-First_5_energy_levels.png" alt="Energy levels"></p>
 <p><img src="images/Harmonic_oscillator-First_5_wave_functions.png" alt="Wave functions"></p>
 <p><img src="images/Harmonic_oscillator-First_5_probabilities.png" alt="Wave functions"></p>
-<p>You can find the code for the graphs <a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-21-Quantum-physics-harmonic-oscillator-1d/code/harmonic-oscillator-1d.ipynb">here</a>.</p>
+<p>You can find the code for the graphs
+<a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-21-Quantum-physics-harmonic-oscillator-1d/code/harmonic-oscillator-1d.ipynb">here</a>.</p>
 
     </div>
     <div class="post-footer">

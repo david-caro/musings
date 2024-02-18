@@ -1,0 +1,30 @@
+#TableOfContents {
+  text-align: left;
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(100% - 430px);
+  margin-right: 12px;
+}
+
+.app-header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 0;
+  z-index: 90;
+}
+
+.app-header-social {
+  position: absolute;
+  bottom: 0;
+}
+
+.app-header-menu {
+  justify-content: center;
+}
+
+.header-contents {
+  margin-top: 10px;
+  height: calc(100% - 60px);
+}
