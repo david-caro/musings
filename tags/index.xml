@@ -7,122 +7,136 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sat, 17 Feb 2024 23:58:16 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 19 Feb 2024 22:57:55 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ceph</title>
+      <title>General Relativity</title>
+      <link>https://musings.dcaro.es/tags/general-relativity/</link>
+      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/general-relativity/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Maths</title>
+      <link>https://musings.dcaro.es/tags/maths/</link>
+      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/maths/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Physics</title>
+      <link>https://musings.dcaro.es/tags/physics/</link>
+      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/physics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://musings.dcaro.es/tags/python/</link>
+      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ceph</title>
       <link>https://musings.dcaro.es/tags/ceph/</link>
       <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/ceph/</guid>
       <description></description>
     </item>
     <item>
-      <title>envoy</title>
+      <title>Envoy</title>
       <link>https://musings.dcaro.es/tags/envoy/</link>
       <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/envoy/</guid>
       <description></description>
     </item>
     <item>
-      <title>homelab</title>
+      <title>Homelab</title>
       <link>https://musings.dcaro.es/tags/homelab/</link>
       <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
-      <title>rpi</title>
+      <title>Rpi</title>
       <link>https://musings.dcaro.es/tags/rpi/</link>
       <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/rpi/</guid>
       <description></description>
     </item>
     <item>
-      <title>jupyter notebook</title>
+      <title>Jupyter Notebook</title>
       <link>https://musings.dcaro.es/tags/jupyter-notebook/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/jupyter-notebook/</guid>
       <description></description>
     </item>
     <item>
-      <title>physics</title>
-      <link>https://musings.dcaro.es/tags/physics/</link>
-      <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
-      <guid>https://musings.dcaro.es/tags/physics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>python</title>
-      <link>https://musings.dcaro.es/tags/python/</link>
-      <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
-      <guid>https://musings.dcaro.es/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>quantum physics</title>
+      <title>Quantum Physics</title>
       <link>https://musings.dcaro.es/tags/quantum-physics/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/quantum-physics/</guid>
       <description></description>
     </item>
     <item>
-      <title>kernel</title>
+      <title>Kernel</title>
       <link>https://musings.dcaro.es/tags/kernel/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/kernel/</guid>
       <description></description>
     </item>
     <item>
-      <title>prometheus</title>
+      <title>Prometheus</title>
       <link>https://musings.dcaro.es/tags/prometheus/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/prometheus/</guid>
       <description></description>
     </item>
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>https://musings.dcaro.es/tags/golang/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/golang/</guid>
       <description></description>
     </item>
     <item>
-      <title>netsnoop</title>
+      <title>Netsnoop</title>
       <link>https://musings.dcaro.es/tags/netsnoop/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/netsnoop/</guid>
       <description></description>
     </item>
     <item>
-      <title>network</title>
+      <title>Network</title>
       <link>https://musings.dcaro.es/tags/network/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/network/</guid>
       <description></description>
     </item>
     <item>
-      <title>systems</title>
+      <title>Systems</title>
       <link>https://musings.dcaro.es/tags/systems/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/systems/</guid>
       <description></description>
     </item>
     <item>
-      <title>blog</title>
+      <title>Blog</title>
       <link>https://musings.dcaro.es/tags/blog/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/blog/</guid>
       <description></description>
     </item>
     <item>
-      <title>hugo</title>
+      <title>Hugo</title>
       <link>https://musings.dcaro.es/tags/hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
-      <title>jekyll</title>
+      <title>Jekyll</title>
       <link>https://musings.dcaro.es/tags/jekyll/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/jekyll/</guid>

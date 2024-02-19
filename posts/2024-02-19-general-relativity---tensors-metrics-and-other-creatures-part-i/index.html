@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>General relativity - Tensors, metrics and other creatures part I // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.123.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="General relativity - Tensors, metrics and other creatures part I"/>
+<meta name="twitter:description" content="Lately, I have started learning a bit about general relativity, and one of the most basic concepts is a tensor, in this post I&rsquo;ll try to write down some basic concepts.
+Some definitions Note that all these definitions are of geometric entities that are independent of the coordinates chosen to describe them. This will be very important as will allow us to describe physics the same way independently of the coordinates and generalize the results."/>
+
+    <meta property="og:title" content="General relativity - Tensors, metrics and other creatures part I" />
+<meta property="og:description" content="Lately, I have started learning a bit about general relativity, and one of the most basic concepts is a tensor, in this post I&rsquo;ll try to write down some basic concepts.
+Some definitions Note that all these definitions are of geometric entities that are independent of the coordinates chosen to describe them. This will be very important as will allow us to describe physics the same way independently of the coordinates and generalize the results." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-19T22:57:55+01:00" />
+<meta property="article:modified_time" content="2024-02-19T22:57:55+01:00" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>General relativity - Tensors, metrics and other creatures part I</h2>
+          
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#some-definitions">Some definitions</a></li>
+    <li><a href="#tensors">Tensors</a>
+      <ol>
+        <li><a href="#tensor-product-and-tensor-vector-space">Tensor product and tensor vector space</a></li>
+        <li><a href="#some-common-tensors">Some common tensors</a></li>
+      </ol>
+    </li>
+    <li><a href="#spacetime---minkowski-space">Spacetime - Minkowski space</a>
+      <ol>
+        <li><a href="#metric">Metric</a></li>
+        <li><a href="#proper-time">Proper time</a></li>
+        <li><a href="#line-elements">Line elements</a></li>
+        <li><a href="#translations-rotations-and-boosts-lorentz-transformations">Translations, rotations and boosts: Lorentz transformations</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">General relativity - Tensors, metrics and other creatures part I</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Feb 19, 2024
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          9 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/general-relativity/">General Relativity</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/python/">Python</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Lately, I have started learning a bit about general relativity, and one of the
+most basic concepts is a <code>tensor</code>, in this post I&rsquo;ll try to write down some
+basic concepts.</p>
+<h2 id="some-definitions">Some definitions</h2>
+<p>Note that all these definitions are of geometric entities that are independent
+of the coordinates chosen to describe them. This will be very important as will
+allow us to describe physics the same way independently of the coordinates and
+generalize the results.</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Field_(mathematics)">Field</a>: We can
+informally define as a set of elements and two operations that given two
+elements of the set, return another one, being those operations addition and
+multiplication, with some properties:</p>
+<ul>
+<li>Associativity:
+<ul>
+<li>$a + (b + c) = (a + b) + c$</li>
+<li>$a*( b*c )=( a * b)*c$</li>
+</ul>
+</li>
+<li>Commutativity:
+<ul>
+<li>$a + b = b + a$</li>
+<li>$a * b = b * a$</li>
+</ul>
+</li>
+<li>Distributivity:
+<ul>
+<li>$a * (b + c) = a * b + a * c$</li>
+</ul>
+</li>
+<li>Identity:
+<ul>
+<li>$\forall a \in F ; \exists \text{ } 0 \in F | 0 + a = a$</li>
+<li>$\forall a \in F ; \exists \text{ } 1 \in F | 1 * a = a$</li>
+</ul>
+</li>
+<li>Inverse:
+<ul>
+<li>$\forall a \in F ; \exists \text{ } -a \in F | a + (-a) = 0$</li>
+<li>$\forall a \in F ; \exists \text{ } a^{-1} \in F | a * a^{-1} = 1$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Scalar_(mathematics)">Scalar</a>: This is each
+of the elements of a field, for example a complex number, or a real number.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Vector_(mathematics_and_physics)">Vector</a>:
+It&rsquo;s a geometric entity that is defined by a magnitude and a direction,
+usually represented as a coordinate vector (set of coordinates from their
+field), for example a vector of dimension 4 would be
+$U = (3.5, 6.8i, 8.1 + 3i, 0)$ and often I&rsquo;ll refer to them with the symbol of
+the vector, and a superindex $U^\mu$ where the superindex goes from
+$0&hellip;\text{dim}(U)-1$ as a short version of the set of coordinates in a basis
+of the vector space ($U = U^\mu \hat{e}_{(\mu)}$)</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Vector_space#Definition_and_basic_properties">Vector space $V$ over a field $F$</a>:
+This is, similar to a field, it&rsquo;s a non-empty set of vectors, one binary
+operation, vector addition, $V\times V \rightarrow V$, that has the following
+properties (using arrows for vectors to avoid confusing them with scalars):</p>
+<ul>
+<li>Associativity:
+$\vec{i} + (\vec{j} + \vec{k}) = (\vec{i} + \vec{j}) + \vec{k}$</li>
+<li>Commutativity: $\vec{i} + \vec{j} = \vec{j} + \vec{i}$</li>
+<li>Identity:
+$\forall \vec{k} \in V, \exists \text{ } \vec{0} \in V \text{ }| \vec{0} + \vec{k} = \vec{k}$</li>
+<li>Inverse:
+$\forall \vec{v} \in V, \exists -\vec{v} \in V | \vec{v} + (-\vec{v}) = \vec{0}$</li>
+</ul>
+<p>And a binary function (scalar multiplication, $F\times V\rightarrow V$), with
+the properties:</p>
+<ul>
+<li>Compatibility with scalar multiplication: $(ab)\vec{v} = a(b\vec{v})$</li>
+<li>Identity: $1\vec{v}=\vec{v}$</li>
+<li>Distributive with respective of vector addition:
+$a(\vec{v} + \vec{u}) = a\vec{v} + a\vec{u}$</li>
+<li>Distributive with respective of field addition:
+$(a + b)\vec{v}=a\vec{v} + b\vec{v}$</li>
+</ul>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Linear_form">One-form, covector, dual vector or linear form</a>:
+It&rsquo;s a linear map from a vector space to it&rsquo;s field $\omega:V \rightarrow F$.
+Similarly as vectors, we usually will write them down as $\omega_\mu$, as the
+coordinates of that one-form in a basis of the dual space
+($\omega = \omega_\mu\hat\theta^{(\mu)}$). Acting on a vector we have
+$\omega(V) = V^\mu\omega_\mu$.</p>
+<p>Note that we can now define vectors as a map from dual space to it&rsquo;s field
+$V(\omega)\equiv \omega(V) = V^\mu\omega_\mu \in \real$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Dual_space">Dual space</a>: Is the space generated
+by all the dual vectors.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Manifold">Manifold</a>: In an informal way, a
+manifold is a topological space that resembles the Euclidean space (our common
+flat space) when you look closely. It has to be differentiable at any point.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tangent_vector">Tangent vector of a curve on a manifold at a point</a>:
+Given a parameterized curve on a manifold $x^\mu(\lambda)$ the tangent vector
+is: $V^\mu = \frac{dx^\mu}{d\lambda}$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tangent_space">Tangent space of a manifold at a point</a>:
+This is the vector space generated by all the tangent vectors of the manifold
+at that point.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tangent_bundle">Tangent bundle of a manifold</a>:
+this is the manifold created from the set of all the tangent spaces for each
+point in the manifold.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tangent_vector">Coangent vector of a curve on a manifold at a point</a>:
+This is just the dual vector of the tangent vector at that point.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tangent_space">Cotangent space of a manifold at a point</a>:
+And this as expected, the space generated by the cotangent vectors.</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Cotangent_bundle">Cotangent bundle of a manifold</a>:
+this is the manifold created from the set of all the cotangent spaces for each
+point in the manifold.</p>
+</li>
+</ul>
+<h2 id="tensors">Tensors</h2>
+<p>We can now generalize the concepts of vector, one-form and scalar into a tensor,
+and define it as a multi-linear mapping, from 0 or more one-forms ($T^*$), and
+0 or more vectors ($T$), to a scalar in the field $F$:</p>
+<p>$$
+T : T^{*}_1 \times &hellip; \times T^{*}_k \times T_1 \times &hellip; \times T_l \rightarrow F
+$$</p>
+<p>We will say that the tensor if of rank (or type) $(k, l)$, where $k$ is the
+number of one-forms, and $l$ the number of vectors it maps.</p>
+<p>We can show the multi-linearity with the following equality for a $(1,1)$
+tensor:</p>
+<p>$$
+T(a\omega + b\eta, cV + dW) = acT(\omega, V) + adT(\omega, W) + bcT(\eta, V) + bdT(\eta, W)
+$$</p>
+<h3 id="tensor-product-and-tensor-vector-space">Tensor product and tensor vector space</h3>
+<p>We can defined the tensor product of two tensors, $T$ of rank $(k, l)$, and S of
+rank $(m, n)$:</p>
+<p>$$
+T \otimes S (\omega^{(1)}, &hellip;, \omega^{(k)}, &hellip;, \omega^{(k+m)}, V^{(1}, &hellip;, V^{(l)}, &hellip;, V^{(l+n)})
+\newline
+= T(\omega^{(1)}, &hellip;, \omega^{(k)}, V^{(1)}, &hellip;, V^{(l)}) \times V(\omega^{(k+1)}, &hellip;, \omega^{(K+m)}, V^{(l+1)}, &hellip;, V^{(l+n)})
+$$</p>
+<p>With this, we can construct a vector space of all the tensors of a given rank
+$(k, l)$, by taking the tensor product of the basis vector and the dual vectors:</p>
+<p>$$
+\hat{e}_{(\mu_1)}\otimes&hellip;\otimes \hat{e}_{(\mu_k)} \otimes \hat\theta^{(\nu_1)} \otimes &hellip; \otimes \hat\theta^{(\nu_l)}
+$$</p>
+<p>Then we have that in component notation, a tensor is:</p>
+<p>$$
+T = {T^{\mu_1 &hellip; \mu_k}}_{\nu_1 &hellip; \nu_l}
+\hat{e}_{(\mu_1)}\otimes&hellip;\otimes \hat{e}_{(\mu_k)} \otimes \hat\theta^{(\nu_1)} \otimes
+&hellip; \otimes \hat\theta^{(\nu_l)}
+$$</p>
+<p>And the shortcut notation will be ${T^{\mu_1 &hellip; \mu_k}}_{\nu_1 &hellip; \nu_l}$.</p>
+<h3 id="some-common-tensors">Some common tensors</h3>
+<p>There&rsquo;s a bunch of examples, here&rsquo;s a few that we have introduced already and a
+few we will look into in the future:</p>
+<ul>
+<li>
+<p>$(0, 0)$: this would be just <strong>a scalar</strong>.</p>
+</li>
+<li>
+<p>$(0, 1)$: this is any vector, like <strong>velocity</strong>.</p>
+</li>
+<li>
+<p>$(1, 0)$: this is any one-form, a common one-form would be <strong>the gradient</strong> of
+a scalar (in several notations):
+$$
+d\phi=\frac{\partial{\phi}}{\partial{x_\mu}}\hat\theta_\mu
+= \nabla\phi
+= \begin{pmatrix}
+\frac{\partial{\phi}}{\partial{x_0}}, \\
+&hellip;, \\
+\frac{\partial{\phi}}{\partial{x_\mu}}
+\end{pmatrix}
+\equiv \phi_{,\mu}
+$$</p>
+</li>
+<li>
+<p>$(1, 1)$: an example of this kind of tensor is the <strong>kronecker delta</strong> (note
+that the order of the subindex and the superindex in this case does not
+matter),</p>
+<p>$$
+\delta^\mu_\nu =
+\begin{cases}
+1, &amp; \text{if }\mu=\nu \\
+0, &amp; \text{if }\mu\ne\nu \
+\end{cases}
+$$</p>
+<p>Given a one-form, returns the same one-form, or given a vector returns the
+same vector (like the identity), and given a one-form and a vector returns a
+scalar.</p>
+</li>
+<li>
+<p>$(0, 2)$: The <strong>metric</strong> (that we&rsquo;ll see in a bit) is a very common example of
+this kind of tensor, and allows us to define the inner product (in different
+notations):</p>
+<p>$$
+\eta(V, W) = \eta_{\mu\nu}V^\mu W^\nu = \langle V, W \rangle = \langle V | W \rangle = V \cdot W
+$$</p>
+</li>
+<li>
+<p>$(2, 0)$: This could be the <strong>inverse of the metric</strong>, that we can define
+using the kronecker delta:
+$$
+\eta^{\mu\nu}\eta_{\nu\rho} = \eta_{\rho\nu}\eta^{\nu\mu} = \delta^\mu_\rho
+$$</p>
+</li>
+</ul>
+<h2 id="spacetime---minkowski-space">Spacetime - Minkowski space</h2>
+<p>Let&rsquo;s stop for a second, and get some physics in the mix. We can consider now
+Euclidean space-time, where our coordinates are:</p>
+<p>$$
+x^\mu: \begin{cases}
+x^0=ct \\
+x^1=x \\
+x^2=y \\
+x^3=z \\
+\end{cases}
+$$</p>
+<p>Here we choose to use units where $c=1$, then we can write a spacetime interval
+between two events like:</p>
+<p>$$
+(\Delta s)^2 = -(c\Delta t)^2 + (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2
+$$</p>
+<h3 id="metric">Metric</h3>
+<p>Defining the following tensor:</p>
+<p>$$
+\eta_{\mu\nu} = \begin{pmatrix}
+-1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+$$</p>
+<p>We can simplify the formula for the interval between two events like:</p>
+<p>$$
+(\Delta s)^2 = \eta_{\mu\nu}\Delta x^\mu\Delta x^\nu
+$$</p>
+<p>We call that tensor the <strong>metric</strong> tensor, and specifically, the metric tensor
+for the Euclidean space-time will be represented with $\eta$ (we&rsquo;ll use $g$ for
+other spaces).</p>
+<h3 id="proper-time">Proper time</h3>
+<p>Now, one of the annoying things about our current definition of interval is that
+it is negative for anything that moves slower than light, so we define instead
+the <strong>proper time</strong>:</p>
+<p>$$
+(\Delta\tau)^2 = -(\Delta s)^2 = -\eta_{\mu\nu}x^\mu x^\nu
+$$</p>
+<p>This might look silly, but a great property of this proper time, is that it
+<strong>measures the time elapsed between two events as seen by an observer that is
+moving between those events in a straight path</strong>, and as such, it&rsquo;s independent
+of the inertial reference frame chosen :)</p>
+<p>It&rsquo;s also very interesting that <strong>in spacetime, a straight path is the
+longest</strong>, that&rsquo;s where the paradox of the twins comes from, as the twin that
+travels (and thus goes in a non-straight path) is the one that ages the
+<strong>least</strong>, and it&rsquo;s the one that stays (that travels in a straight line, just
+through time) is the one that agest the <strong>most</strong>.</p>
+<h3 id="line-elements">Line elements</h3>
+<p>But what about traveling in curves?</p>
+<p>In order to travel in curves, just $\Delta s$ will not be enough, we have to get
+infinitesimals of it, so we can define the <strong>line element</strong>:</p>
+<p>$$
+ds^2 = \eta_{\mu\nu}dx^\mu dx^\nu
+$$</p>
+<p>And we integrate over the prametrized curve $x^\mu(\lambda)$ (in Newtonian
+physics we use $t$, but now we can use anything):</p>
+<p>$$
+\Delta s = \int{\sqrt{\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
+$$</p>
+<p>As $\eta_{\mu\nu}$ is negative for timelike paths, we use the proper time
+instead:</p>
+<p>$$
+\Delta s = \int{\sqrt{-\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
+$$</p>
+<h3 id="translations-rotations-and-boosts-lorentz-transformations">Translations, rotations and boosts: Lorentz transformations</h3>
+<p>We can change to different frames in three different ways:</p>
+<ul>
+<li>Translations: shifting coordinates</li>
+<li>Rotations: just rotating in space, what it sounds like :)</li>
+<li>Boosts: adding a velocity</li>
+</ul>
+<p>For translations, things are easy, as all we have to do is sum the difference to
+get to the new coordinates (a prime index means a different frame/basis):</p>
+<p>$$
+x^\mu \rightarrow x^{\mu\prime} = \delta^{\mu\prime}_\mu(x^\mu + a^\mu)
+$$</p>
+<p>Where $a^\mu$ is the shift. And this keeps the intervals the same.</p>
+<p>For rotations and boosts, for those we will have to use <strong>Lorentz
+transformations</strong>, that are all the matrices that when multiplied by $x^\mu$
+keep the interval invariant, this is:</p>
+<p>$$
+x^{\mu\prime} = \Lambda^{\mu\prime}_\nu x^\nu
+$$</p>
+<p>$$
+(\Delta s)^2 = \eta_{\mu\nu}x^\mu x^\nu
+= \eta_{\mu\prime\nu\prime}x^{\mu\prime}x^{\nu\prime} \\
+= \eta_{\mu\prime\nu\prime}\Lambda^{\mu\prime}_\sigma x^\sigma \Lambda^{\nu\prime}_{\rho} x^\rho
+$$</p>
+<p>So we have:</p>
+<p>$$
+\eta_{\mu\nu} = \Lambda^{\mu\prime}_\sigma \Lambda^{\nu\prime}_{\rho} \eta_{\mu\prime\nu\prime}
+$$</p>
+<p>A couple example Lorentz transformations:</p>
+<ul>
+<li>Rotation on the x-y plane:
+$$
+\Lambda^{\mu\prime}_\nu = \begin{pmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \cos{\theta} &amp; \sin{\theta} &amp; 0 \\
+0 &amp; -\sin{\theta} &amp; \cos{\theta} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+$$</li>
+</ul>
+<ul>
+<li>
+<p>Boost by $v = \tanh{\phi}$ (looks like a rotation on the time-x plane):</p>
+<p>$$
+\Lambda^{\mu\prime}_\nu = \begin{pmatrix}
+\cosh{\phi} &amp; -\sinh{\phi} &amp; 0 &amp; 0 \\
+-\sinh{\phi} &amp; \cosh{\phi} &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+$$</p>
+<p>This can be rewritten in a more usual way, where
+$\gamma = \frac{1}{\sqrt{1 - v^2}}$:</p>
+<p>$$
+\Lambda^{\mu\prime}_\nu = \begin{pmatrix}
+\gamma &amp; -\gamma v &amp; 0 &amp; 0 \\
+-\gamma v &amp; \gamma &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1 \\
+\end{pmatrix}
+$$</p>
+</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+© 2023 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </footer>
+  </body>
+</html>

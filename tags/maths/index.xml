@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maths on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/maths/</link>
+    <description>Recent content in Maths on David&#39;s musings and ramblings.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© David Caro 2024</copyright>
+    <lastBuildDate>Mon, 19 Feb 2024 22:57:55 +0100</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/maths/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General relativity - Tensors, metrics and other creatures part I</title>
+      <link>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</link>
+      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</guid>
+      <description>Lately, I have started learning a bit about general relativity, and one of the most basic concepts is a tensor, in this post I&amp;rsquo;ll try to write down some basic concepts.&#xA;Some definitions Note that all these definitions are of geometric entities that are independent of the coordinates chosen to describe them. This will be very important as will allow us to describe physics the same way independently of the coordinates and generalize the results.</description>
+    </item>
+  </channel>
+</rss>

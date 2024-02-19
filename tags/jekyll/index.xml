@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>jekyll on David&#39;s musings and ramblings.</title>
+    <title>Jekyll on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/tags/jekyll/</link>
-    <description>Recent content in jekyll on David&#39;s musings and ramblings.</description>
+    <description>Recent content in Jekyll on David&#39;s musings and ramblings.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
