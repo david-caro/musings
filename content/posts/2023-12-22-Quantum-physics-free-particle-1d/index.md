@@ -8,7 +8,7 @@ math: true
 Today let's have a look to a single particle, going around without any
 potential. So we get the same time-independent Schrödinger equation as we got
 inside the [infinite square
-well]({{<ref "2023-12-19-quantum-physics-infinite-well-1d/index.md#inside">}}):
+well]({{<ref "/posts/2023-12-19-quantum-physics-infinite-well-1d/index.md#inside">}}):
 
 $$
 -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
