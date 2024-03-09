@@ -1,1 +1,7 @@
 {{ if .Params.math }}{{ partial "helpers/katex.html" . }}{{ end }}
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="{{.Site.BaseURL }}/index.xml"
+  title="{{ .Site.Title }}"
+/>
