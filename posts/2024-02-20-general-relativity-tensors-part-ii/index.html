@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Conditionally Rewriting Prometheus Instance Label // David&#39;s musings and ramblings.</title>
+    <title>General relativity - Tensors, metrics and other creatures part II // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.123.8">
@@ -14,20 +14,39 @@
     <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
 
     
-    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Conditionally Rewriting Prometheus Instance Label"/>
-<meta name="twitter:description" content="Something curious found ot today, and I don&rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.
-But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname."/>
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="General relativity - Tensors, metrics and other creatures part II"/>
+<meta name="twitter:description" content="Tensors, revisited Playing with tensors Now can can start operating with the tensors \o/
+Contraction: Given a tensor of rank $(k, l)$, we can convert it into a tensor of rank $(k-1, l-1)$ by summing over one upper index with a lower index:
+$$ {S^{\mu\rho}}_{\sigma} = {T^{\mu\nu\rho}}_{\sigma\nu} $$
+We will do this for many things, like multiplying matrices or the interior product. Note that in general, it does matter which of the upper indices is contracted with which of the lower indices:"/>
 
-    <meta property="og:title" content="Conditionally Rewriting Prometheus Instance Label" />
-<meta property="og:description" content="Something curious found ot today, and I don&rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.
-But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname." />
+    <meta property="og:title" content="General relativity - Tensors, metrics and other creatures part II" />
+<meta property="og:description" content="Tensors, revisited Playing with tensors Now can can start operating with the tensors \o/
+Contraction: Given a tensor of rank $(k, l)$, we can convert it into a tensor of rank $(k-1, l-1)$ by summing over one upper index with a lower index:
+$$ {S^{\mu\rho}}_{\sigma} = {T^{\mu\nu\rho}}_{\sigma\nu} $$
+We will do this for many things, like multiplying matrices or the interior product. Note that in general, it does matter which of the upper indices is contracted with which of the lower indices:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-10-04T09:29:48+02:00" />
-<meta property="article:modified_time" content="2022-10-04T09:29:48+02:00" />
+<meta property="og:url" content="https://musings.dcaro.es/posts/2024-02-20-general-relativity-tensors-part-ii/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-19T22:25:35+01:00" />
+<meta property="article:modified_time" content="2024-02-19T22:25:35+01:00" />
 
 
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
 <link
   rel="alternate"
   type="application/rss+xml"
@@ -41,9 +60,28 @@ But for several reasons when dealing with the metrics we only filter by instance
       <header class="app-header">
         <div class="header-contents">
           <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-          <h2>Conditionally Rewriting Prometheus Instance Label</h2>
+          <h2>General relativity - Tensors, metrics and other creatures part II</h2>
           
-          <nav id="TableOfContents"></nav> 
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#tensors-revisited">Tensors, revisited</a>
+      <ol>
+        <li><a href="#playing-with-tensors">Playing with tensors</a></li>
+      </ol>
+    </li>
+    <li><a href="#flat-manifolds">Flat manifolds</a>
+      <ol>
+        <li><a href="#covariant-derivative">Covariant derivative</a></li>
+      </ol>
+    </li>
+    <li><a href="#curved-manifolds">Curved manifolds</a>
+      <ol>
+        <li><a href="#parallel-transport-lie-transport-covariant-derivative-and-killings-vector">Parallel transport, Lie transport, Covariant derivative and Killing&rsquo;s vector</a></li>
+        <li><a href="#geodesics">Geodesics</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav> 
           
           <nav class="app-header-menu">
               <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
@@ -106,79 +144,73 @@ But for several reasons when dealing with the metrics we only filter by instance
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Conditionally Rewriting Prometheus Instance Label</h1>
+      <h1 class ="post-title">General relativity - Tensors, metrics and other creatures part II</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Oct 4, 2022
+          Feb 19, 2024
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          2 min read
+          1 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://musings.dcaro.es/tags/prometheus/">Prometheus</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/general-relativity/">General Relativity</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/python/">Python</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <p>Something curious found ot today, and I don&rsquo;t want to lose, is how to overwrite
-the <code>instance</code> label in prometheus, specifically, we have an exporter
-(openstack-exporter) that exposes some metrics, and it populates one label
-<strong>sometimes</strong> named <code>hostname</code>.</p>
-<p>But for several reasons when dealing with the metrics we only filter by
-<code>instance</code>, problem is, that the <code>instance</code> metric is usually the address/name
-of the target prometheus is pulling the metrics from, and is this case that does
-not match the <code>hostname</code>.</p>
-<p>Now, it seems simple right? What I what to do is (in pseudopython):</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> hostname <span style="color:#f92672">in</span> labels:
-</span></span><span style="display:flex;"><span>labels[<span style="color:#e6db74">&#34;instance&#34;</span>] <span style="color:#f92672">=</span> hostname </span></span></code></pre></td></tr></table>
-</div>
-</div>
-<p>Well&hellip; it is not that simple xd, but found a relatively nice way of doing it.</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>- <span style="color:#f92672">job_name: myjob scheme</span>: <span style="color:#f92672">http file_sd_configs</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">files</span>:
-</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;/srv/prometheus/labs/targets/myjob.yaml&#34;</span> <span style="color:#f92672">metric_relabel_configs</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">source_labels: - hostname - instance regex</span>: <span style="color:#e6db74">&#34;^([^;:]+);._|^;(._)&#34;</span> <span style="color:#f92672">separator</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;;&#34;</span> <span style="color:#f92672">target_label: instance replacement</span>: <span style="color:#e6db74">&#34;$1&#34;</span> </span></span></code></pre></td></tr></table>
-</div>
-</div>
-<p>Some things to highlight:</p>
+      <h2 id="tensors-revisited">Tensors, revisited</h2>
+<h3 id="playing-with-tensors">Playing with tensors</h3>
+<p>Now can can start operating with the tensors \o/</p>
 <ul>
-<li>Using <code>relabel_configs</code> instead of <code>metric_relabel_configs</code> would not work, as
-the first runs <strong>before</strong> the metrics are gathered, so the <code>hostname</code> label is
-not there yet.</li>
-<li>The order of the labels in the <code>source_labels</code> array will match the order in
-which they are concatenated.</li>
-<li>The regex is applied to the concatenated labels.</li>
-<li>I&rsquo;m implementing the fallback behavior with regexes (ouch!), by using the
-seprator (<code>;</code>) as an anchor to match one group or the other as <code>$1</code>.</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tensor_contraction">Contraction</a>: Given a
+tensor of rank $(k, l)$, we can convert it into a tensor of rank $(k-1, l-1)$
+by summing over one upper index with a lower index:</p>
+<p>$$
+{S^{\mu\rho}}_{\sigma} = {T^{\mu\nu\rho}}_{\sigma\nu}
+$$</p>
+<p>We will do this for many things, like multiplying matrices or the interior
+product. Note that in general, it does matter which of the upper indices is
+contracted with which of the lower indices:</p>
+<p>$$
+{T^{\mu\nu\rho}}_{\sigma\nu} \neq {T^{\mu\rho\nu}}_{\sigma\nu}
+$$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Raising_and_lowering_indices">Raising and lowering indices</a>:
+Using contraction and the metric, we can raise or lower an index from a
+tensor:
+$$
+{T^{\mu\nu\rho}}_{\sigma} = {\eta^{\mu\gamma}}{T^{\nu\rho}}_{\gamma\sigma}
+$$
+This with the inverse of the metric, gives an easy way to turn vectors into
+one-forms and viceversa:
+$$
+V_\mu = \eta_{\rho\mu}V^\rho \\
+\omega^\mu = \eta^{\rho\mu}\omega_\mu
+$$</p>
+</li>
 </ul>
+<h2 id="flat-manifolds">Flat manifolds</h2>
+<h3 id="covariant-derivative">Covariant derivative</h3>
+<h2 id="curved-manifolds">Curved manifolds</h2>
+<h3 id="parallel-transport-lie-transport-covariant-derivative-and-killings-vector">Parallel transport, Lie transport, Covariant derivative and Killing&rsquo;s vector</h3>
+<h3 id="geodesics">Geodesics</h3>
 
     </div>
     <div class="post-footer">
