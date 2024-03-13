@@ -7,21 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Mon, 19 Feb 2024 22:57:55 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 22:20:20 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/general-relativity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>General relativity - Tensors, metrics and other creatures part II</title>
+      <link>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</link>
+      <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</guid>
+      <description>Previous post in the series If you did not check it out, the first part of this post is here.&#xA;Tensors, revisited Playing with tensors Some tensor definitions:&#xA;Symmetric tensor: Is a tensor in which the coordinates are the same by swapping any set of indices, for the first two indices:&#xA;$$ T_{\mu\nu\rho} = T_{\nu\mu\rho} $$&#xA;For the last two:&#xA;$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} $$&#xA;For all of them:&#xA;$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu} $$</description>
+    </item>
     <item>
       <title>General relativity - Tensors, metrics and other creatures part I</title>
       <link>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</link>
       <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</guid>
       <description>Lately, I have started learning a bit about general relativity, and one of the most basic concepts is a tensor, in this post I&amp;rsquo;ll try to write down some basic concepts.&#xA;Some definitions Note that all these definitions are of geometric entities that are independent of the coordinates chosen to describe them. This will be very important as will allow us to describe physics the same way independently of the coordinates and generalize the results.</description>
-    </item>
-    <item>
-      <title>General relativity - Tensors, metrics and other creatures part II</title>
-      <link>https://musings.dcaro.es/posts/2024-02-20-general-relativity-tensors-part-ii/</link>
-      <pubDate>Mon, 19 Feb 2024 22:25:35 +0100</pubDate>
-      <guid>https://musings.dcaro.es/posts/2024-02-20-general-relativity-tensors-part-ii/</guid>
-      <description>Tensors, revisited Playing with tensors Now can can start operating with the tensors \o/&#xA;Contraction: Given a tensor of rank $(k, l)$, we can convert it into a tensor of rank $(k-1, l-1)$ by summing over one upper index with a lower index:&#xA;$$ {S^{\mu\rho}}_{\sigma} = {T^{\mu\nu\rho}}_{\sigma\nu} $$&#xA;We will do this for many things, like multiplying matrices or the interior product. Note that in general, it does matter which of the upper indices is contracted with which of the lower indices:</description>
     </item>
   </channel>
 </rss>

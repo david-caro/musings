@@ -67,7 +67,7 @@ Some definitions Note that all these definitions are of geometric entities that 
         <li><a href="#some-common-tensors">Some common tensors</a></li>
       </ol>
     </li>
-    <li><a href="#spacetime---minkowski-space">Spacetime - Minkowski space</a>
+    <li><a href="#flat-spacetime---minkowski-space">Flat spacetime - Minkowski space</a>
       <ol>
         <li><a href="#metric">Metric</a></li>
         <li><a href="#proper-time">Proper time</a></li>
@@ -75,6 +75,7 @@ Some definitions Note that all these definitions are of geometric entities that 
         <li><a href="#translations-rotations-and-boosts-lorentz-transformations">Translations, rotations and boosts: Lorentz transformations</a></li>
       </ol>
     </li>
+    <li><a href="#next-post-in-the-series">Next post in the series</a></li>
   </ol>
 </nav> 
           
@@ -153,7 +154,7 @@ Some definitions Note that all these definitions are of geometric entities that 
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-          9 min read
+          10 min read
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
@@ -163,7 +164,6 @@ Some definitions Note that all these definitions are of geometric entities that 
               <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
               <a class="tag" href="https://musings.dcaro.es/tags/general-relativity/">General Relativity</a>
               <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
-              <a class="tag" href="https://musings.dcaro.es/tags/python/">Python</a>
         </div>
       </div>
     </header>
@@ -261,7 +261,7 @@ coordinates of that one-form in a basis of the dual space
 ($\omega = \omega_\mu\hat\theta^{(\mu)}$). Acting on a vector we have
 $\omega(V) = V^\mu\omega_\mu$.</p>
 <p>Note that we can now define vectors as a map from dual space to it&rsquo;s field
-$V(\omega)\equiv \omega(V) = V^\mu\omega_\mu \in \real$</p>
+$V(\omega)= \omega(V) = V^\mu\omega_\mu \in \real$</p>
 </li>
 <li>
 <p><a href="https://en.wikipedia.org/wiki/Dual_space">Dual space</a>: Is the space generated
@@ -356,7 +356,7 @@ d\phi=\frac{\partial{\phi}}{\partial{x_\mu}}\hat\theta_\mu
 &hellip;, \\
 \frac{\partial{\phi}}{\partial{x_\mu}}
 \end{pmatrix}
-\equiv \phi_{,\mu}
+= \phi_{,\mu}
 $$</p>
 </li>
 <li>
@@ -390,7 +390,7 @@ $$
 $$</p>
 </li>
 </ul>
-<h2 id="spacetime---minkowski-space">Spacetime - Minkowski space</h2>
+<h2 id="flat-spacetime---minkowski-space">Flat spacetime - Minkowski space</h2>
 <p>Let&rsquo;s stop for a second, and get some physics in the mix. We can consider now
 Euclidean space-time, where our coordinates are:</p>
 <p>$$
@@ -438,7 +438,7 @@ of the inertial reference frame chosen :)</p>
 longest</strong>, that&rsquo;s where the paradox of the twins comes from, as the twin that
 travels (and thus goes in a non-straight path) is the one that ages the
 <strong>least</strong>, and it&rsquo;s the one that stays (that travels in a straight line, just
-through time) is the one that agest the <strong>most</strong>.</p>
+through time) is the one that ages the <strong>most</strong>.</p>
 <h3 id="line-elements">Line elements</h3>
 <p>But what about traveling in curves?</p>
 <p>In order to travel in curves, just $\Delta s$ will not be enough, we have to get
@@ -447,14 +447,14 @@ infinitesimals of it, so we can define the <strong>line element</strong>:</p>
 ds^2 = \eta_{\mu\nu}dx^\mu dx^\nu
 $$</p>
 <p>And we integrate over the prametrized curve $x^\mu(\lambda)$ (in Newtonian
-physics we use $t$, but now we can use anything):</p>
+physics we use $t$ as the parameter, but now we can use anything):</p>
 <p>$$
 \Delta s = \int{\sqrt{\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
 $$</p>
 <p>As $\eta_{\mu\nu}$ is negative for timelike paths, we use the proper time
 instead:</p>
 <p>$$
-\Delta s = \int{\sqrt{-\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
+\Delta \tau = \int{\sqrt{-\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
 $$</p>
 <h3 id="translations-rotations-and-boosts-lorentz-transformations">Translations, rotations and boosts: Lorentz transformations</h3>
 <p>We can change to different frames in three different ways:</p>
@@ -519,6 +519,9 @@ $\gamma = \frac{1}{\sqrt{1 - v^2}}$:</p>
 $$</p>
 </li>
 </ul>
+<h2 id="next-post-in-the-series">Next post in the series</h2>
+<p>You can find the next part of this post
+<a href="https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/">here</a>.</p>
 
     </div>
     <div class="post-footer">

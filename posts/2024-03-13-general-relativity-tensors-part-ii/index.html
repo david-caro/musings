@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>General relativity - Tensors, metrics and other creatures part II // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.123.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="General relativity - Tensors, metrics and other creatures part II"/>
+<meta name="twitter:description" content="Previous post in the series If you did not check it out, the first part of this post is here.
+Tensors, revisited Playing with tensors Some tensor definitions:
+Symmetric tensor: Is a tensor in which the coordinates are the same by swapping any set of indices, for the first two indices:
+$$ T_{\mu\nu\rho} = T_{\nu\mu\rho} $$
+For the last two:
+$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} $$
+For all of them:
+$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu} $$"/>
+
+    <meta property="og:title" content="General relativity - Tensors, metrics and other creatures part II" />
+<meta property="og:description" content="Previous post in the series If you did not check it out, the first part of this post is here.
+Tensors, revisited Playing with tensors Some tensor definitions:
+Symmetric tensor: Is a tensor in which the coordinates are the same by swapping any set of indices, for the first two indices:
+$$ T_{\mu\nu\rho} = T_{\nu\mu\rho} $$
+For the last two:
+$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} $$
+For all of them:
+$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu} $$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-03-13T22:20:20+01:00" />
+<meta property="article:modified_time" content="2024-03-13T22:20:20+01:00" />
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://musings.dcaro.es//index.xml"
+  title="David&#39;s musings and ramblings."
+/>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>General relativity - Tensors, metrics and other creatures part II</h2>
+          
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#previous-post-in-the-series">Previous post in the series</a></li>
+    <li><a href="#tensors-revisited">Tensors, revisited</a>
+      <ol>
+        <li><a href="#playing-with-tensors">Playing with tensors</a></li>
+      </ol>
+    </li>
+    <li><a href="#curved-space">Curved space</a>
+      <ol>
+        <li><a href="#riemann-manifoldshttpsenwikipediaorgwikiriemannian_manifold"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></a></li>
+        <li><a href="#christoffel-symbolhttpsenwikipediaorgwikichristoffel_symbols"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></a></li>
+        <li><a href="#covariant-derivativehttpsenwikipediaorgwikicovariant_derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></a></li>
+        <li><a href="#parallel-transporthttpsenwikipediaorgwikiparallel_transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></a></li>
+        <li><a href="#geodesicshttpsenwikipediaorgwikigeodesic"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></a></li>
+        <li><a href="#riemann-curvature-tensorhttpsenwikipediaorgwikiriemann_curvature_tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></a></li>
+        <li><a href="#bianchi-identitieshttpsenwikipediaorgwikicurvature_formbianchi_identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></a></li>
+        <li><a href="#ricci-tensor-and-scalarhttpsenwikipediaorgwikiricci_curvature"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></a></li>
+        <li><a href="#einstein-tensorhttpsenwikipediaorgwikieinstein_tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></a></li>
+      </ol>
+    </li>
+  </ol>
+</nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">General relativity - Tensors, metrics and other creatures part II</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Mar 13, 2024
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          9 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/general-relativity/">General Relativity</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="previous-post-in-the-series">Previous post in the series</h2>
+<p>If you did not check it out, the first part of this post is
+<a href="https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/">here</a>.</p>
+<h2 id="tensors-revisited">Tensors, revisited</h2>
+<h3 id="playing-with-tensors">Playing with tensors</h3>
+<p>Some tensor definitions:</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Symmetric_tensor">Symmetric tensor</a>: Is a
+tensor in which the coordinates are the same by swapping any set of indices,
+for the first two indices:</p>
+<p>$$
+T_{\mu\nu\rho} = T_{\nu\mu\rho}
+$$</p>
+<p>For the last two:</p>
+<p>$$
+T_{\mu\nu\rho} = T_{\mu\rho\nu}
+$$</p>
+<p>For all of them:</p>
+<p>$$
+T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu}
+$$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Antisymmetric_tensor">Antisymmetric tensor</a>:
+similar to a symmetric tensor, but when one of the indices is swapped, the
+sign swaps too:</p>
+<p>$$
+T_{\mu\nu\rho} = - T_{\mu\rho\nu}
+$$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Trace_(linear_algebra)">Trace</a>: This is the
+sum of all the diagonal coordinates (that is, the contraction on it&rsquo;s indices)
+of a $(1, 1)$ tensor, and it&rsquo;s denoted by the tensor letter without indices:</p>
+<p>$$
+T = {T^\nu}_\nu
+$$</p>
+<p>And for a $(0, 2)$ tensor it means the sum of the diagonal of the tensor
+<strong>after raising one index</strong>:</p>
+<p>$$
+T = {T^{\sigma}}_{\sigma} = g^{\nu\sigma}T_{\nu\sigma}
+$$</p>
+</li>
+</ul>
+<p>And some operations:</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Tensor_contraction">Contraction</a>: Given a
+tensor of rank $(k, l)$, we can convert it into a tensor of rank $(k-1, l-1)$
+by summing over one upper index with a lower index:</p>
+<p>$$
+{S^{\mu\rho}}_{\sigma} = {T^{\mu\nu\rho}}_{\sigma\nu}
+$$</p>
+<p>We will do this for many things, like multiplying matrices or the interior
+product. Note that in general, it does matter which of the upper indices is
+contracted with which of the lower indices:</p>
+<p>$$
+{T^{\mu\nu\rho}}_{\sigma\nu} \neq {T^{\mu\rho\nu}}_{\sigma\nu}
+$$</p>
+</li>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Raising_and_lowering_indices">Raising and lowering indices</a>:
+Using contraction and the metric, we can raise or lower an index from a
+tensor:</p>
+<p>$$
+{T^{\mu\nu\rho}}_{\sigma} = {\eta^{\mu\gamma}}{T^{\nu\rho}}_{\gamma\sigma}
+$$</p>
+<p>This with the inverse of the metric, gives an easy way to turn vectors into
+one-forms and viceversa:</p>
+<p>$$
+V_\mu = \eta_{\rho\mu}V^\rho \\
+\omega^\mu = \eta^{\rho\mu}\omega_\mu
+$$</p>
+</li>
+<li>
+<p>Symmetrization: You take the sum of all the permutations, and divide by the
+number of elements, denoted by $\left(&hellip;\right)$ around the symmetrized
+indices:
+$$
+{T_{(\nu_1\nu_2&hellip;\nu_{n})\mu}}^{\rho}
+= \frac{1}{!n}\left(
+{T_{\nu_1\nu_2&hellip;\nu_{n}\mu}}^{\rho} + {T_{\nu_2\nu_1&hellip;\nu_{n}\mu}}^{\rho} + &hellip;
+\right)
+$$</p>
+</li>
+<li>
+<p>Antisymmetrization: Similar to symmetrization, but substracting the elements
+with odd number of changes in the indices, denoted by $[&hellip;]$ around the
+antisymmetrized indices:
+$$
+{T_{[\nu_1\nu_2&hellip;\nu_{n}]\mu}}^{\rho}
+= \frac{1}{!n}\left(
+{T_{\nu_1\nu_2\nu_3&hellip;\nu_{n}\mu}}^{\rho} - {T_{\nu_2\nu_1\nu_3&hellip;\nu_{n}\mu}}^{\rho} + {T_{\nu_2\nu_3\nu_1&hellip;\nu_{n}\mu}}^{\rho} &hellip;
+\right)
+$$</p>
+</li>
+</ul>
+<h2 id="curved-space">Curved space</h2>
+<h3 id="riemann-manifoldshttpsenwikipediaorgwikiriemannian_manifold"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></h3>
+<p>We introduced a manifold as a space that when looked closely resembles euclidean
+space. But we could think of it also as a set (of anything) that can be
+parametrized in a continuous way, of which the parameters are the coordinates,
+and the number of parameters the dimension of the manifold.</p>
+<p>For general relativity, we will focus only on differentiable manifolds, and from
+those, the ones that have a metric defined, these are called <strong>Riemann
+manifolds</strong>.</p>
+<p>This metric has to be a $
+\begin{pmatrix}
+0 \\
+2
+\end{pmatrix}
+$ symmetric tensor,
+and as our metric is indefinite ($g(V,V)$ can be positive, negative or 0), this
+would actually be a <strong>pseudo-Riemann manifold</strong>.</p>
+<p>We want that when looked closely, the space should resemble the flat space. To
+achieve that, the metric should have the same trace than the $\eta$ of flat
+space (that is, ${g^\alpha}_\alpha = +2$), that way, as the metric is
+symmetric, we can always find a coordinate transformation that will give the
+flat space metric.</p>
+<p>But, this does not extend to the whole space, so we will have that at any point
+$P$ we can find a metric that resembles the flat space metric up to the second
+derivative:</p>
+<p>$$
+g_{\alpha\beta}(P) = \eta_{\alpha\beta} \\
+g_{\alpha\beta,\gamma}(P) = 0 \\
+g_{\alpha\beta,\gamma\lambda}(P) \neq 0 \
+$$</p>
+<h3 id="christoffel-symbolhttpsenwikipediaorgwikichristoffel_symbols"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></h3>
+<p>There&rsquo;s several things that get more complicated in a curved space, and one of
+them is the partial derivatives. These are very useful, but they are not
+tensorial, thus they can&rsquo;t be generalized to any coordinate system inside the
+curved manifold (our goal with most of our objects).</p>
+<p>So we want a tensorial expression of the partial derivative, that in flat
+spacetime gives the partial derivative as we know it. To do so, we have to
+introduce first the <strong>Christoffel symbol</strong>, this is what wil give us a way to
+connect vectors from different tangent spaces in nearby points of the manifold
+(what is called a <strong>connection</strong>).</p>
+<p>These can be defined from the metric $g$:</p>
+<p>$$
+\begin{align}
+\Gamma^\lambda_{\mu\nu} = \frac{1}{2}g^{\lambda\sigma}(\partial_\mu g_{\nu\sigma} + \partial_\nu g_{\sigma\mu} - \partial_\sigma g_{\mu\nu}) = \frac{1}{2}g^{\lambda\sigma}(g_{\nu\sigma,\mu} + g_{\sigma\mu,\nu} - g_{\mu\nu,\sigma})
+\end{align}
+$$</p>
+<p>Note that the Christoffel symbol is <strong>not</strong> a tensor, that&rsquo;s why it&rsquo;s called
+<em>symbol</em>.</p>
+<h3 id="covariant-derivativehttpsenwikipediaorgwikicovariant_derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></h3>
+<p>With the Christoffel symbol at hand, we can define a generalized version of the
+partial derivative, that will be a tensorial object (note the two different
+notations, some books will use one or the other). The covariant derivative for a
+vector is:</p>
+<p>$$
+{{V^\lambda}_{;\mu}} = \nabla_\mu V^\lambda = {V^\lambda}_{,\mu} + V^\sigma\Gamma^\lambda_{\sigma\mu}
+$$</p>
+<p>The second term comes from the fact that in a curved spacetime, the basis
+vectors of a space do not remain constant, so in a flat spacetime with cartesian
+coordinates, we will have that the Christoffel symbols vanish
+$\Gamma^\lambda_{\mu\nu} = 0$ (in polar coordinates the basis vectors are not
+constant, so they Christoffel symbols don&rsquo;t vanish).</p>
+<p>For a one-form we will have:</p>
+<p>$$
+{p_{\lambda;\mu}} = \nabla_\mu p = p_{\lambda,\mu} - p_\nu\Gamma^\nu_{\lambda\mu}
+$$</p>
+<p>Essentially, for every upper index, we get a positive Christoffel symbol, and
+for each lower a negative one, so we can generalize it for any tensor:</p>
+<p>$$
+{T^{\mu_1\mu_2&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k;\lambda} = {T^{\mu_1\mu_2&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k,\lambda} \\
++ {T^{\rho\mu_2&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k}\Gamma^{\mu_1}_{\lambda\rho} + {T^{\mu_1\rho&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k}\Gamma^{\mu_2}_{\lambda\rho} + &hellip; \\
+- {T^{\mu_1\mu_2&hellip;\mu_j}}_{\rho\nu_2&hellip;\nu_k}\Gamma^{\rho}_{\lambda\nu_1} - {T^{\mu_1\mu_2&hellip;\mu_j}}_{\nu_1\rho&hellip;\nu_k}\Gamma^{\rho}_{\lambda\nu_2} - &hellip;
+$$</p>
+<h3 id="parallel-transporthttpsenwikipediaorgwikiparallel_transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></h3>
+<p>Now, in a curved manifold, the usual notion of parallel vectors loses meaning.
+To regain a more generic sense of parallelism, we will have to introduce what&rsquo;s
+called <strong>parallel transport</strong>, this takes advantage that we can still talk about
+local parallelism and that a curve has infinite points that are together close
+enough so we can consider them in the same flat space.</p>
+<p>A bit more clearly, we would say that a vector $\vec{V}$ is parallel transported
+along a curve if for infinitesimally close points we move the vector in a way
+that makes the previous and next steps parallel to each other, and of the same
+magnitude. Note that it might still be that for non-infinitesimally close
+points, the vectors might change direction and/or magnitude.</p>
+<p>Putting this in equations, given then a tangent vector to a parametrized curve
+at a point $P$, $\vec{T} = \frac{d\vec{x}}{d\lambda}$, and a vector at that
+point $\vec{V}$:</p>
+<p>$$
+\frac{dV^\mu}{d\lambda} = T^\nu {V^\mu}_{,\nu} = T^\nu {V^\mu}_{;\nu} = 0 \quad \text{at} \quad P
+$$</p>
+<p>Where the first two equalities depend on the coordinates chosen, but the last
+equality is a tensorial expression, valid on all basis.</p>
+<h3 id="geodesicshttpsenwikipediaorgwikigeodesic"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></h3>
+<p>Given the last equality in the parallel transport, we can define a new type of
+curves, the ones that are as &ldquo;straight&rdquo; as possible, by demanding that they
+parallel transport their own tangent vector. This is a generalization of a
+straight line in flat space.</p>
+<p>Put in formula, for a tangent vector $T$ and a parameter $\lambda$ we have:</p>
+<p>$$
+T^\mu = \frac{dx^\mu}{d\lambda} \\
+T^\nu\frac{\partial}{\partial{x^\nu}} = \frac{d}{d\lambda} \\
+T^\mu{T^\nu}_{;\mu} = 0 \quad \text{; parallel transport of T} \\
+\frac{d}{d\lambda}\left(\frac{dx^\mu}{d\lambda}\right) + {\Gamma^\mu}_{\rho\nu}\frac{dx^\rho}{d\lambda}\frac{dx^\mu}{d\lambda} = 0
+$$</p>
+<p>And this last formula is called the <strong>geodesic formula</strong>. Given a set of initial
+conditions (position and direction), you get only one solution, a geodesic.
+Though you can define many different parameters $\lambda$ that solve this
+equation, but all of them will be linear transformations of each other, and all
+are called <strong>affine</strong> parameters.</p>
+<h3 id="riemann-curvature-tensorhttpsenwikipediaorgwikiriemann_curvature_tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></h3>
+<p>Imagine now that we have a two curves that intersect, and we duplicate both of
+them creating two more curves very close to the original ones, giving a small
+&ldquo;square&rdquo;. And that we have a vector on one of the corners. If we parallel
+transport it around the &ldquo;square&rdquo; shape, we find that the change in the vector
+after the transport, is linearly dependent on the area of the &ldquo;square&rdquo;, and the
+magnitude of the original vector by the proportion:</p>
+<p>$$
+\begin{align}
+{R^\mu}_{\nu\rho\sigma} :=
+{\Gamma^\mu}_{\nu\sigma,\rho}
+- {\Gamma^\mu}_{\nu\rho,\sigma}
++ {\Gamma^\mu}_{\alpha\rho}{\Gamma^\alpha}_{\nu\sigma}
+- {\Gamma^\mu}_{\alpha\sigma}{\Gamma^\alpha}_{\nu\rho}
+\end{align}
+$$</p>
+<p>And this is characteristic of the curvature of the space, so much that we&rsquo;ll
+call it <strong>Riemann curvature tensor</strong>. Note that ${R^\mu}_{\nu\sigma\rho} = 0$
+for flat manifolds</p>
+<p>Another way of expressing the Riemann curvature tensor, is as the commutator of
+the covariant derivatives of the tensor, for a $ \begin{pmatrix} 1 \\ 1
+\end{pmatrix} $ tensor:</p>
+<p>$$
+\begin{align}
+\left[\nabla_\mu , \nabla_\nu\right]{T^{\rho}}_\sigma
+= {R^{\rho}}_{\lambda\mu\nu}{T^{\lambda}}_{\sigma}
++ {{R_\sigma}^\lambda}_{\mu\nu}{T^{\rho}}_\lambda
+\end{align}
+$$</p>
+<p>Where we have one Riemann tensor for each index in the tensor $T$.</p>
+<p>We can derive some identities out of it, if we look at it at the local inertial
+frame at point $P$, and taking advantage that the Christoffel symbols vanish
+(not the derivatives though), the symmetry of the metric and the fact that
+partial derivatives commute, we end up with:</p>
+<p>$$
+R_{\mu\nu\rho\sigma}
+= g_{\mu\lambda}{R^\lambda}_{\nu\rho\sigma}
+= \frac{1}{2}\left(
+g_{\mu\sigma,\nu\rho}
+- g_{\mu\rho,\nu\sigma}
++ g_{\nu\rho,\mu\sigma}
+- g_{\nu\sigma,\mu\rho}
+\right)
+$$</p>
+<p>and in this form, we easily get:</p>
+<p>$$
+\begin{align}
+R_{\mu\nu\rho\sigma} = -R_{\nu\mu\rho\sigma} = -R_{\mu\nu\sigma\rho} = R_{\sigma\rho\mu\nu} \\
+R_{\mu\nu\rho\sigma} + R_{\mu\sigma\nu\rho} + R_{\mu\rho\sigma\nu} = 0
+\end{align}
+$$</p>
+<h4 id="geodesic-deviationhttpsenwikipediaorgwikigeodesic_deviation"><a href="https://en.wikipedia.org/wiki/Geodesic_deviation">Geodesic deviation</a></h4>
+<p>When you have two geodesics that start parallel in a curved space, they do not
+remain parallel in general, and the deviation of the two can be summarized with
+the <strong>geodesic deviation equation</strong> as follows:</p>
+<p>$$
+\begin{align}
+\nabla_T\nabla_T X^\mu = {R^\mu}_{\nu\rho\sigma}T^\nu T^\rho X^\sigma
+\end{align}
+$$</p>
+<p>Where $T$ is the tangent vector of the geodesic and $X$ is the vector connecting
+one geodesic to the other at regular intervals of the affine parameter $\lambda$
+($X^\mu = dx^\mu/d\lambda$).</p>
+<h3 id="bianchi-identitieshttpsenwikipediaorgwikicurvature_formbianchi_identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></h3>
+<p>If we do the partial derivative of the Riemann tensor ($(2)$) with respect to
+$x^\lambda$, keeping the result in a local lorentz frame
+(${\Gamma^\mu}_{\nu\rho} = 0$), keeping in mind that
+$g_{\mu\nu} = g_{\nu\mu}$, and that partial derivatives commute, we end up
+with:</p>
+<p>$$
+\begin{align}
+R_{\mu\nu\rho\sigma;\lambda} + R_{\mu\nu\lambda\rho;\sigma} + R_{\mu\nu\sigma\lambda;\rho} = 0
+\end{align}
+$$</p>
+<p>This is the a tensor equation called <strong>Bianchi identities</strong>, and as such is
+valid in any system.</p>
+<h3 id="ricci-tensor-and-scalarhttpsenwikipediaorgwikiricci_curvature"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></h3>
+<p>When contracting the Riemann tensor on the first and thrird indices, we get the
+<strong>Ricci tensor</strong>:</p>
+<p>$$
+\begin{align}
+R_{\mu\nu} = {R^{\rho}}_{\mu\rho\nu} = R_{\nu\mu}
+\end{align}
+$$</p>
+<p>Other contractions give either $0$, or $\pm R_{\mu\nu}$.</p>
+<p>When contracting the Ricci tensor with the metric, we get the <strong>Ricci scalar</strong>:</p>
+<p>$$
+\begin{align}
+R = g^{\mu\nu}R_{\mu\nu} = g^{\mu\nu}g^{\rho\sigma}R_{\rho\mu\sigma\nu}
+\end{align}
+$$</p>
+<h3 id="einstein-tensorhttpsenwikipediaorgwikieinstein_tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></h3>
+<p>By using the Ricci contractions on the Bianchi identities twice, we end up with
+the
+<a href="https://en.wikipedia.org/wiki/Contracted_Bianchi_identities"><strong>twice-contacted Bianchi identities</strong></a>:</p>
+<p>$$
+\begin{align}
+(2{R^\mu}_\nu - {\delta^\mu}_\nu R)_{;\mu} = 0
+\end{align}
+$$</p>
+<p>And looking at these, we can come up with a symmetric tensor:</p>
+<p>$$
+G^{\mu\nu} = R^{\mu\nu} - \frac{1}{2}g^{\mu\nu}R = G^{\nu\mu}
+$$</p>
+<p>That makes $(10)$ end up:</p>
+<p>$$
+{G^{\nu\mu}}_{;\mu} = 0
+$$</p>
+<p>Telling us that $G^{\mu\nu}$, that we call <strong>Einstein tensor</strong> is divergence
+free, and constructed directly from the Riemann tensor and the metric.</p>
+<p>This will be very important when solving the Einstein field equations.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+© 2023 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </footer>
+  </body>
+</html>

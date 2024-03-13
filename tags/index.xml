@@ -7,34 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Mon, 19 Feb 2024 22:57:55 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 13 Mar 2024 22:20:20 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>General Relativity</title>
       <link>https://musings.dcaro.es/tags/general-relativity/</link>
-      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/general-relativity/</guid>
       <description></description>
     </item>
     <item>
       <title>Maths</title>
       <link>https://musings.dcaro.es/tags/maths/</link>
-      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/maths/</guid>
       <description></description>
     </item>
     <item>
       <title>Physics</title>
       <link>https://musings.dcaro.es/tags/physics/</link>
-      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+      <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/physics/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://musings.dcaro.es/tags/python/</link>
-      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
-      <guid>https://musings.dcaro.es/tags/python/</guid>
       <description></description>
     </item>
     <item>
@@ -70,6 +63,13 @@
       <link>https://musings.dcaro.es/tags/jupyter-notebook/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/jupyter-notebook/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://musings.dcaro.es/tags/python/</link>
+      <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/python/</guid>
       <description></description>
     </item>
     <item>
