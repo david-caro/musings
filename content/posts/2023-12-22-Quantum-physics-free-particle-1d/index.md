@@ -18,7 +18,7 @@ A single solution for this is the same as for the infinite well, but this time
 we will use the exponential form, as that will help us later:
 
 $$
-\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k\equiv\frac{\sqrt{2mE}}{\hbar}
+\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar}
 $$
 
 Now adding the time dependent bits (the "wiggle factor"):
@@ -66,7 +66,7 @@ $$
 \omega(k) \approx \omega_0 + \omega'_0(k - k_0)
 $$
 
-Now centering the integral ($r \equiv k - k_0$) at $k_0$, and doing a bit of
+Now centering the integral ($r = k - k_0$) at $k_0$, and doing a bit of
 mangling, we get:
 
 $$

@@ -1,7 +1,7 @@
 ---
 title: "General relativity - Tensors, metrics and other creatures part I"
 date: 2024-02-19T22:57:55+01:00
-tags: [physics, "general relativity", maths, python]
+tags: [physics, "general relativity", maths]
 math: true
 ---
 
@@ -79,7 +79,7 @@ generalize the results.
   $\omega(V) = V^\mu\omega_\mu$.
 
   Note that we can now define vectors as a map from dual space to it's field
-  $V(\omega)\equiv \omega(V) = V^\mu\omega_\mu \in \real$
+  $V(\omega)= \omega(V) = V^\mu\omega_\mu \in \real$
 
 - [Dual space](https://en.wikipedia.org/wiki/Dual_space): Is the space generated
   by all the dual vectors.
@@ -175,7 +175,7 @@ few we will look into in the future:
   ..., \\\\
   \frac{\partial{\phi}}{\partial{x_\mu}}
   \end{pmatrix}
-  \equiv \phi_{,\mu}
+  = \phi_{,\mu}
   $$
 - $(1, 1)$: an example of this kind of tensor is the **kronecker delta** (note
   that the order of the subindex and the superindex in this case does not
@@ -207,7 +207,7 @@ few we will look into in the future:
   \eta^{\mu\nu}\eta_{\nu\rho} = \eta_{\rho\nu}\eta^{\nu\mu} = \delta^\mu_\rho
   $$
 
-## Spacetime - Minkowski space
+## Flat spacetime - Minkowski space
 
 Let's stop for a second, and get some physics in the mix. We can consider now
 Euclidean space-time, where our coordinates are:
@@ -270,7 +270,7 @@ It's also very interesting that **in spacetime, a straight path is the
 longest**, that's where the paradox of the twins comes from, as the twin that
 travels (and thus goes in a non-straight path) is the one that ages the
 **least**, and it's the one that stays (that travels in a straight line, just
-through time) is the one that agest the **most**.
+through time) is the one that ages the **most**.
 
 ### Line elements
 
@@ -284,7 +284,7 @@ ds^2 = \eta_{\mu\nu}dx^\mu dx^\nu
 $$
 
 And we integrate over the prametrized curve $x^\mu(\lambda)$ (in Newtonian
-physics we use $t$, but now we can use anything):
+physics we use $t$ as the parameter, but now we can use anything):
 
 $$
 \Delta s = \int{\sqrt{\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
@@ -294,7 +294,7 @@ As $\eta_{\mu\nu}$ is negative for timelike paths, we use the proper time
 instead:
 
 $$
-\Delta s = \int{\sqrt{-\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
+\Delta \tau = \int{\sqrt{-\eta_{\mu\nu}\frac{dx^\mu}{d\lambda}\frac{dx^\nu}{d\lambda}}d\lambda}
 $$
 
 ### Translations, rotations and boosts: Lorentz transformations
@@ -368,3 +368,8 @@ A couple example Lorentz transformations:
   0 & 0 & 0 & 1 \\\\
   \end{pmatrix}
   $$
+
+## Next post in the series
+
+You can find the next part of this post
+[here]({{<ref "/posts/2024-03-13-General-relativity-Tensors-part-II.md">}}).

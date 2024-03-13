@@ -50,7 +50,7 @@ $$
 This can be rewritten as a simple harmonic oscillator:
 
 $$
-\frac{d^2\psi}{dx^2}=k^2\psi, \hspace{1cm} \text{where} \hspace{0.5cm} k \equiv \frac{\sqrt{2mE}}{\hbar}
+\frac{d^2\psi}{dx^2}=k^2\psi, \hspace{1cm} \text{where} \hspace{0.5cm} k = \frac{\sqrt{2mE}}{\hbar}
 $$
 
 This has the canonical solution:

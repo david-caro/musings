@@ -27,7 +27,7 @@ $$
 with:
 
 $$
-\omega \equiv \sqrt{\frac{k}{m}}
+\omega = \sqrt{\frac{k}{m}}
 $$
 
 This gives a potential (around $x_0$ for small oscillations):
@@ -52,7 +52,7 @@ Let's go fancy :)
 First, we can define the operators:
 
 $$
-\hat{a}_\pm \equiv \frac{1}{\sqrt{2\hbar m \omega}}(\mp i\hat{p} + m\omega x)
+\hat{a}_\pm = \frac{1}{\sqrt{2\hbar m \omega}}(\mp i\hat{p} + m\omega x)
 $$
 
 Now, these operators are such that if $\psi$ satisfies the Shrödinger equation
