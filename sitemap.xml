@@ -2,8 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/tags/bioloogy/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/books/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/chemistry/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/</loc>
-    <lastmod>2024-03-13T22:20:20+01:00</lastmod>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/oxford-landmark-science/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/general-relativity/</loc>
     <lastmod>2024-03-13T22:20:20+01:00</lastmod>
@@ -15,12 +36,6 @@
     <lastmod>2024-03-13T22:20:20+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/physics/</loc>
-    <lastmod>2024-03-13T22:20:20+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2024-03-13T22:20:20+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2024-03-13T22:20:20+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</loc>
