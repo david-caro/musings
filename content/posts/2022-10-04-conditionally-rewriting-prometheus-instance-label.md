@@ -17,18 +17,28 @@ not match the `hostname`.
 
 Now, it seems simple right? What I what to do is (in pseudopython):
 
-{{< highlight python "linenos=table" >}} if hostname in labels:
-labels["instance"] = hostname {{< / highlight >}}
+{{< highlight python "linenos=table" >}}
+if hostname in labels:
+    labels["instance"] = hostname
+{{< / highlight >}}
 
 Well... it is not that simple xd, but found a relatively nice way of doing it.
 
 {{< highlight yaml "linenos=table" >}}
-
-- job_name: myjob scheme: http file_sd_configs:
-  - files:
-    - "/srv/prometheus/labs/targets/myjob.yaml" metric_relabel_configs:
-  - source_labels: - hostname - instance regex: "^([^;:]+);._|^;(._)" separator:
-    ";" target_label: instance replacement: "$1" {{< / highlight >}}
+- job_name: myjob
+  scheme: http
+  file_sd_configs:
+    - files:
+      - "/srv/prometheus/labs/targets/myjob.yaml"
+  metric_relabel_configs:
+    - source_labels:
+        - hostname
+        - instance
+      regex: "^([^;:]+);._|^;(._)"
+      separator: ";"
+      target_label: instance
+      replacement: "$1"
+{{< / highlight >}}
 
 Some things to highlight:
 
