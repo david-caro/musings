@@ -29,6 +29,21 @@
   height: calc(100% - 60px);
 }
 
+.katex-display {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background: #22272d;
+  padding: 10px;
+  border: 1px dashed grey;
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.highlight {
+  overflow-x: scroll;
+  max-width: 100%;
+}
+
 @media only screen and (max-width: 940px) {
   .app-header {
     height: 50vh;
@@ -51,20 +66,5 @@
     height: 0;
     max-height: unset;
     margin-right: 12px;
-  }
-
-  .katex-display {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    background: #22272d;
-    padding: 10px;
-    border: 1px dashed grey;
-    max-width: 100%;
-    border-radius: 4px;
-  }
-
-  .highlight {
-    overflow-x: scroll;
-    max-width: 100%;
   }
 }
