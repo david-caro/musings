@@ -4,7 +4,7 @@
     <title>Systems on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/tags/systems/</link>
     <description>Recent content in Systems on David&#39;s musings and ramblings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
     <lastBuildDate>Sat, 17 Sep 2022 12:01:53 +0200</lastBuildDate>
@@ -14,7 +14,7 @@
       <link>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</guid>
-      <description>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.&#xA;This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it&amp;rsquo;s containers run as that user).&#xA;To do so, I wrote a small golang script. Here&amp;rsquo;s some notes on trying to get that information.</description>
+      <description>&lt;p&gt;Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to&#xA;discover and expose dependencies between services.&lt;/p&gt;&#xA;&lt;p&gt;This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user&#xA;has a linux user, and it&amp;rsquo;s containers run as that user).&lt;/p&gt;&#xA;&lt;p&gt;To do so, I wrote a &lt;a href=&#34;https://github.com/david-caro/netsnoop&#34;&gt;small golang script&lt;/a&gt;. Here&amp;rsquo;s some notes on trying to get&#xA;that information.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

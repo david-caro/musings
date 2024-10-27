@@ -4,7 +4,7 @@
     <title>Prometheus on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/tags/prometheus/</link>
     <description>Recent content in Prometheus on David&#39;s musings and ramblings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
     <lastBuildDate>Tue, 04 Oct 2022 09:29:48 +0200</lastBuildDate>
@@ -14,7 +14,7 @@
       <link>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</guid>
-      <description>Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.&#xA;But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname.</description>
+      <description>&lt;p&gt;Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite&#xA;the &lt;code&gt;instance&lt;/code&gt; label in prometheus, specifically, we have an exporter&#xA;(openstack-exporter) that exposes some metrics, and it populates one label&#xA;&lt;strong&gt;sometimes&lt;/strong&gt; named &lt;code&gt;hostname&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;But for several reasons when dealing with the metrics we only filter by&#xA;&lt;code&gt;instance&lt;/code&gt;, problem is, that the &lt;code&gt;instance&lt;/code&gt; metric is usually the address/name&#xA;of the target prometheus is pulling the metrics from, and is this case that does&#xA;not match the &lt;code&gt;hostname&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

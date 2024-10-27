@@ -4,7 +4,7 @@
     <title>Quantum Physics on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/tags/quantum-physics/</link>
     <description>Recent content in Quantum Physics on David&#39;s musings and ramblings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
     <lastBuildDate>Fri, 22 Dec 2023 11:17:27 +0100</lastBuildDate>
@@ -14,21 +14,21 @@
       <link>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</guid>
-      <description>Today let&amp;rsquo;s have a look to a single particle, going around without any potential. So we get the same time-independent Schrödinger equation as we got inside the infinite square well:&#xA;$$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi $$&#xA;A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:&#xA;$$ \psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar} $$</description>
+      <description>&lt;p&gt;Today let&amp;rsquo;s have a look to a single particle, going around without any&#xA;potential. So we get the same time-independent Schrödinger equation as we got&#xA;inside the &lt;a href=&#34;https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/#inside&#34;&gt;infinite square&#xA;well&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;A single solution for this is the same as for the infinite well, but this time&#xA;we will use the exponential form, as that will help us later:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quantum Physics - Harmonic Oscillator 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</link>
       <pubDate>Thu, 21 Dec 2023 12:01:18 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</guid>
-      <description>Harmonic oscillatoa This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.&#xA;In a classical frictionless harmonic oscillator, we had the force (Hooke&amp;rsquo;s law):&#xA;$$ F = -kx = m\frac{d^2x}{dt^2} $$&#xA;The solution for this is (as we saw in the infinite well):&#xA;$$ x(t) = A\sin{\omega t} + B\cos{\omega t} $$</description>
+      <description>&lt;h2 id=&#34;harmonic-oscillatoa&#34;&gt;Harmonic oscillatoa&lt;/h2&gt;&#xA;&lt;p&gt;This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful&#xA;case, as most curved potentials can be aproximated at their local minimums as&#xA;harmonic oscillators.&lt;/p&gt;&#xA;&lt;p&gt;In a classical frictionless harmonic oscillator, we had the force (&lt;strong&gt;Hooke&amp;rsquo;s&#xA;law&lt;/strong&gt;):&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;F = -kx = m\frac{d^2x}{dt^2}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The solution for this is (as we saw in the infinite well):&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;x(t) = A\sin{\omega t} + B\cos{\omega t}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quantum Physics - Infinite Well 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</link>
       <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</guid>
-      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
+      <description>&lt;p&gt;Lately I have had some extra quiet time due to medical conditions, and I took on&#xA;some quantum mechanics. I followed the&#xA;&lt;a href=&#34;https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013&#34;&gt;MIT 8.04&lt;/a&gt;&#xA;course on OCW, but I&amp;rsquo;m also following the great&#xA;&lt;a href=&#34;https://doi.org/10.1017/9781316995433&#34;&gt;&amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;That made me rediscover my local library, and also&#xA;&lt;a href=&#34;https://doi.org/10.1017/9781108772310&#34;&gt;&amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis&lt;/a&gt;&#xA;and that combination gives this series of articles on both, python and physics&#xA;with some summaries, exercises and musings on the subject.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

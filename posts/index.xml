@@ -4,87 +4,94 @@
     <title>Posts on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/posts/</link>
     <description>Recent content in Posts on David&#39;s musings and ramblings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Fri, 15 Mar 2024 20:59:24 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2024 16:37:53 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Happy Birthday: Messing Around With Gdb and Golang</title>
+      <link>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</guid>
+      <description>&lt;p&gt;Some time ago (my last birthday), my nephew gave me a really nice little game as&#xA;a present :}&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s a simple and fun question-and-answer kind of game. He wrote it in golang&#xA;with my brother&amp;rsquo;s help (he&amp;rsquo;s father).&lt;/p&gt;&#xA;&lt;p&gt;Point being, that in all this time, I had been able to solve all but the last&#xA;question, and /me being who I am, decided to hack it for the fun of it \o/&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Book: What Is Life? ★★★☆☆</title>
       <link>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</link>
       <pubDate>Fri, 15 Mar 2024 20:59:24 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</guid>
-      <description>For my birthday I got a bunch of books from the oxford landmark science, and this is the second one that I&amp;rsquo;ve read so far.&#xA;In the book, the author introduces several of the main properties of life as we know it:&#xA;Complex: alive entities are really complex Purposeful: living things seem to follow a goal, birds build nests, parents care for their offspring, etc. Dynamic: life is always moving, old cells are dying and new ones get created all the time, it&amp;rsquo;s a bubbling non-stop.</description>
+      <description>&lt;p&gt;For my birthday I got a bunch of books from the&#xA;&lt;a href=&#34;https://global.oup.com/academic/content/series/o/oxford-landmark-science-ols/&#34;&gt;oxford landmark science&lt;/a&gt;,&#xA;and this is the second one that I&amp;rsquo;ve read so far.&lt;/p&gt;&#xA;&lt;p&gt;In the book, the author introduces several of the main properties of life as we&#xA;know it:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complex: alive entities are really complex&lt;/li&gt;&#xA;&lt;li&gt;Purposeful: living things seem to follow a goal, birds build nests, parents&#xA;care for their offspring, etc.&lt;/li&gt;&#xA;&lt;li&gt;Dynamic: life is always moving, old cells are dying and new ones get created&#xA;all the time, it&amp;rsquo;s a bubbling non-stop.&lt;/li&gt;&#xA;&lt;li&gt;Diverse: life adapts, changes, and continues adapting. Change seems to be&#xA;inherent to all this process.&lt;/li&gt;&#xA;&lt;li&gt;Out of equilibrium: it seems that life, with all the dynamism and change,&#xA;creates systems that are quite far from energetic equilibrium as we understand&#xA;it, seemingly breaking the second law of thermodynamics.&lt;/li&gt;&#xA;&lt;li&gt;Chiral: there&amp;rsquo;s many molecules involved in life as we know it, that have a&#xA;&amp;ldquo;handedness&amp;rdquo; to them, like DNA, and for some reason, the vast majority of them&#xA;are only find with the same handedness in living beings, like amino-acids are&#xA;left handed, while sugars are right handed. But the question is, given that&#xA;the inorganic world is a mixture of both, why does the biological world become&#xA;homochiral?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The author then elucidates that in order to know what is life, we have to&#xA;understand it, understand how it happened. Now, &amp;ldquo;how it happened&amp;rdquo; gets divided&#xA;in two questions, one historical, and one a-historical:&lt;/p&gt;</description>
     </item>
     <item>
       <title>General relativity - Tensors, metrics and other creatures part II</title>
       <link>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</link>
       <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</guid>
-      <description>Previous post in the series If you did not check it out, the first part of this post is here.&#xA;Tensors, revisited Playing with tensors Some tensor definitions:&#xA;Symmetric tensor: Is a tensor in which the coordinates are the same by swapping any set of indices, for the first two indices:&#xA;$$ T_{\mu\nu\rho} = T_{\nu\mu\rho} $$&#xA;For the last two:&#xA;$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} $$&#xA;For all of them:&#xA;$$ T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu} $$</description>
+      <description>&lt;h2 id=&#34;previous-post-in-the-series&#34;&gt;Previous post in the series&lt;/h2&gt;&#xA;&lt;p&gt;If you did not check it out, the first part of this post is&#xA;&lt;a href=&#34;https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tensors-revisited&#34;&gt;Tensors, revisited&lt;/h2&gt;&#xA;&lt;h3 id=&#34;playing-with-tensors&#34;&gt;Playing with tensors&lt;/h3&gt;&#xA;&lt;p&gt;Some tensor definitions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_tensor&#34;&gt;Symmetric tensor&lt;/a&gt;: Is a&#xA;tensor in which the coordinates are the same by swapping any set of indices,&#xA;for the first two indices:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\nu\mu\rho}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For the last two:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For all of them:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>General relativity - Tensors, metrics and other creatures part I</title>
       <link>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</link>
       <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</guid>
-      <description>Lately, I have started learning a bit about general relativity, and one of the most basic concepts is a tensor, in this post I&amp;rsquo;ll try to write down some basic concepts.&#xA;Some definitions Note that all these definitions are of geometric entities that are independent of the coordinates chosen to describe them. This will be very important as will allow us to describe physics the same way independently of the coordinates and generalize the results.</description>
+      <description>&lt;p&gt;Lately, I have started learning a bit about general relativity, and one of the&#xA;most basic concepts is a &lt;code&gt;tensor&lt;/code&gt;, in this post I&amp;rsquo;ll try to write down some&#xA;basic concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;some-definitions&#34;&gt;Some definitions&lt;/h2&gt;&#xA;&lt;p&gt;Note that all these definitions are of geometric entities that are independent&#xA;of the coordinates chosen to describe them. This will be very important as will&#xA;allow us to describe physics the same way independently of the coordinates and&#xA;generalize the results.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Adding USB Osd to Rpi Ceph Cluster</title>
       <link>https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/</link>
       <pubDate>Sat, 17 Feb 2024 23:58:16 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/</guid>
-      <description>I was trying to add some new USB disks to my ceph cluster, and then I remembered that ceph-volume does not support to use removable USB devices for OSDs :/&#xA;To do so, I had to go to the host with the new drives, and then open a cephadm shell and modify the ceph-volume library:&#xA;root@node1:~# cephadm shell Inferring fsid d49b287a-b680-11eb-95d4-e45f010c03a8 Inferring config /var/lib/ceph/d49b287a-b680-11eb-95d4-e45f010c03a8/mon.node1/config Using recent ceph image quay.io/ceph/ceph@sha256:6d83dc7540a56ba51c05f412c3def8e2d7e624501b25e5a00e31f3d53d4cf578 root@node1:/# vi /usr/lib/python3.</description>
+      <description>&lt;p&gt;I was trying to add some new USB disks to my ceph cluster, and then I remembered&#xA;that ceph-volume&#xA;&lt;a href=&#34;https://tracker.ceph.com/issues/38833&#34;&gt;does not support to use removable USB devices for OSDs&lt;/a&gt;&#xA;:/&lt;/p&gt;&#xA;&lt;p&gt;To do so, I had to go to the host with the new drives, and then open a&#xA;&lt;code&gt;cephadm shell&lt;/code&gt; and modify the &lt;code&gt;ceph-volume&lt;/code&gt; library:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;root@node1:~# cephadm shell&#xA;Inferring fsid d49b287a-b680-11eb-95d4-e45f010c03a8&#xA;Inferring config /var/lib/ceph/d49b287a-b680-11eb-95d4-e45f010c03a8/mon.node1/config&#xA;Using recent ceph image quay.io/ceph/ceph@sha256:6d83dc7540a56ba51c05f412c3def8e2d7e624501b25e5a00e31f3d53d4cf578&#xA;&#xA;root@node1:/# vi /usr/lib/python3.6/site-packages/ceph_volume/util/disk.py&#xA;# remove the following lines:&#xA;804         if get_file_contents(os.path.join(_sys_block_path, dev, &amp;#39;removable&amp;#39;)) == &amp;#34;1&amp;#34;:&#xA;805             continue&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That allows you to then zap and prepare the osds, but we have to set the keyring&#xA;first:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quantum Physics - Free Particle 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/</guid>
-      <description>Today let&amp;rsquo;s have a look to a single particle, going around without any potential. So we get the same time-independent Schrödinger equation as we got inside the infinite square well:&#xA;$$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi $$&#xA;A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:&#xA;$$ \psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar} $$</description>
+      <description>&lt;p&gt;Today let&amp;rsquo;s have a look to a single particle, going around without any&#xA;potential. So we get the same time-independent Schrödinger equation as we got&#xA;inside the &lt;a href=&#34;https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/#inside&#34;&gt;infinite square&#xA;well&lt;/a&gt;:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;A single solution for this is the same as for the infinite well, but this time&#xA;we will use the exponential form, as that will help us later:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quantum Physics - Harmonic Oscillator 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</link>
       <pubDate>Thu, 21 Dec 2023 12:01:18 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/</guid>
-      <description>Harmonic oscillatoa This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.&#xA;In a classical frictionless harmonic oscillator, we had the force (Hooke&amp;rsquo;s law):&#xA;$$ F = -kx = m\frac{d^2x}{dt^2} $$&#xA;The solution for this is (as we saw in the infinite well):&#xA;$$ x(t) = A\sin{\omega t} + B\cos{\omega t} $$</description>
+      <description>&lt;h2 id=&#34;harmonic-oscillatoa&#34;&gt;Harmonic oscillatoa&lt;/h2&gt;&#xA;&lt;p&gt;This time let&amp;rsquo;s give a look at the harmonic oscillator. This is a very useful&#xA;case, as most curved potentials can be aproximated at their local minimums as&#xA;harmonic oscillators.&lt;/p&gt;&#xA;&lt;p&gt;In a classical frictionless harmonic oscillator, we had the force (&lt;strong&gt;Hooke&amp;rsquo;s&#xA;law&lt;/strong&gt;):&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;F = -kx = m\frac{d^2x}{dt^2}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;The solution for this is (as we saw in the infinite well):&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;x(t) = A\sin{\omega t} + B\cos{\omega t}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Quantum Physics - Infinite Well 1d</title>
       <link>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</link>
       <pubDate>Tue, 19 Dec 2023 12:44:45 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/</guid>
-      <description>Lately I have had some extra quiet time due to medical conditions, and I took on some quantum mechanics. I followed the MIT 8.04 course on OCW, but I&amp;rsquo;m also following the great &amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter.&#xA;That made me rediscover my local library, and also &amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis and that combination gives this series of articles on both, python and physics with some summaries, exercises and musings on the subject.</description>
+      <description>&lt;p&gt;Lately I have had some extra quiet time due to medical conditions, and I took on&#xA;some quantum mechanics. I followed the&#xA;&lt;a href=&#34;https://ocw.mit.edu/courses/8-04-quantum-physics-i-spring-2013&#34;&gt;MIT 8.04&lt;/a&gt;&#xA;course on OCW, but I&amp;rsquo;m also following the great&#xA;&lt;a href=&#34;https://doi.org/10.1017/9781316995433&#34;&gt;&amp;lsquo;Introduction to Quantum Mechanics&amp;rsquo; book by David Griffiths and Darrell Schroeter&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;That made me rediscover my local library, and also&#xA;&lt;a href=&#34;https://doi.org/10.1017/9781108772310&#34;&gt;&amp;lsquo;Numerical Methods in Physycs with Python&amp;rsquo; by Alex Gerzerlis&lt;/a&gt;&#xA;and that combination gives this series of articles on both, python and physics&#xA;with some summaries, exercises and musings on the subject.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Starting envoy on Rpi 4 - recompiling a new kernel</title>
       <link>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</link>
       <pubDate>Mon, 17 Apr 2023 13:38:17 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/</guid>
-      <description>My main server died the other day, and it was the one running envoy for the rest of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I have idling around.&#xA;First try Now, these raspberries are running debian bullseye, but it seems that envoy does not build packages for debian, and Tetrate (the ones that build some) stopped building them in 2021 :/</description>
+      <description>&lt;p&gt;My main server died the other day, and it was the one running envoy for the rest&#xA;of the lab hosts, so I decided to move envoy to one of the raspberry pi 4 that I&#xA;have idling around.&lt;/p&gt;&#xA;&lt;h2 id=&#34;first-try&#34;&gt;First try&lt;/h2&gt;&#xA;&lt;p&gt;Now, these raspberries are running debian bullseye, but it seems that envoy&#xA;&lt;a href=&#34;https://github.com/envoyproxy/envoy/issues/16867&#34;&gt;does not build packages for debian&lt;/a&gt;,&#xA;and Tetrate (the ones that build some) stopped building them in 2021 :/&lt;/p&gt;</description>
     </item>
     <item>
       <title>Conditionally Rewriting Prometheus Instance Label</title>
       <link>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2022-10-04-conditionally-rewriting-prometheus-instance-label/</guid>
-      <description>Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite the instance label in prometheus, specifically, we have an exporter (openstack-exporter) that exposes some metrics, and it populates one label sometimes named hostname.&#xA;But for several reasons when dealing with the metrics we only filter by instance, problem is, that the instance metric is usually the address/name of the target prometheus is pulling the metrics from, and is this case that does not match the hostname.</description>
+      <description>&lt;p&gt;Something curious found ot today, and I don&amp;rsquo;t want to lose, is how to overwrite&#xA;the &lt;code&gt;instance&lt;/code&gt; label in prometheus, specifically, we have an exporter&#xA;(openstack-exporter) that exposes some metrics, and it populates one label&#xA;&lt;strong&gt;sometimes&lt;/strong&gt; named &lt;code&gt;hostname&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;But for several reasons when dealing with the metrics we only filter by&#xA;&lt;code&gt;instance&lt;/code&gt;, problem is, that the &lt;code&gt;instance&lt;/code&gt; metric is usually the address/name&#xA;of the target prometheus is pulling the metrics from, and is this case that does&#xA;not match the &lt;code&gt;hostname&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fooling around with the proc directory and network connections</title>
       <link>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</link>
       <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</guid>
-      <description>Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.&#xA;This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it&amp;rsquo;s containers run as that user).&#xA;To do so, I wrote a small golang script. Here&amp;rsquo;s some notes on trying to get that information.</description>
+      <description>&lt;p&gt;Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to&#xA;discover and expose dependencies between services.&lt;/p&gt;&#xA;&lt;p&gt;This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user&#xA;has a linux user, and it&amp;rsquo;s containers run as that user).&lt;/p&gt;&#xA;&lt;p&gt;To do so, I wrote a &lt;a href=&#34;https://github.com/david-caro/netsnoop&#34;&gt;small golang script&lt;/a&gt;. Here&amp;rsquo;s some notes on trying to get&#xA;that information.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting up a space to write some stuff</title>
       <link>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</link>
       <pubDate>Sun, 12 Jun 2022 16:47:56 +0200</pubDate>
       <guid>https://musings.dcaro.es/posts/2022-06-12-fooling-around-with-hugo/</guid>
-      <description>I have decided to setup a little space for myself to write down some stuff I might want to refer to at a later time, hoping that it might be helpful for someone also at some point.&#xA;I have decided to do it with Hugo, so far so good :)&#xA;Some of the things I&amp;rsquo;m enjoying:&#xA;hugo serve that starts the server locally autoreloads when any changes are made (nice) it was simpler to get started than Jekyll </description>
+      <description>&lt;p&gt;I have decided to setup a little space for myself to write down some stuff I&#xA;might want to refer to at a later time, hoping that it might be helpful for&#xA;someone also at some point.&lt;/p&gt;&#xA;&lt;p&gt;I have decided to do it with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, so far so good :)&lt;/p&gt;&#xA;&lt;p&gt;Some of the things I&amp;rsquo;m enjoying:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;hugo serve&lt;/code&gt; that starts the server locally autoreloads when any changes are&#xA;made (nice)&lt;/li&gt;&#xA;&lt;li&gt;it was simpler to get started than &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

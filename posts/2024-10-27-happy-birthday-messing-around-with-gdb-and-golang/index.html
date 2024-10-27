@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Happy Birthday: Messing Around With Gdb and Golang // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.136.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Happy Birthday: Messing Around With Gdb and Golang">
+  <meta name="twitter:description" content="Some time ago (my last birthday), my nephew gave me a really nice little game as a present :}
+It’s a simple and fun question-and-answer kind of game. He wrote it in golang with my brother’s help (he’s father).
+Point being, that in all this time, I had been able to solve all but the last question, and /me being who I am, decided to hack it for the fun of it \o/">
+
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/">
+  <meta property="og:site_name" content="David&#39;s musings and ramblings.">
+  <meta property="og:title" content="Happy Birthday: Messing Around With Gdb and Golang">
+  <meta property="og:description" content="Some time ago (my last birthday), my nephew gave me a really nice little game as a present :}
+It’s a simple and fun question-and-answer kind of game. He wrote it in golang with my brother’s help (he’s father).
+Point being, that in all this time, I had been able to solve all but the last question, and /me being who I am, decided to hack it for the fun of it \o/">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-10-27T16:37:53+01:00">
+    <meta property="article:modified_time" content="2024-10-27T16:37:53+01:00">
+    <meta property="article:tag" content="Gdb">
+    <meta property="article:tag" content="Golang">
+    <meta property="article:tag" content="Computer Science">
+    <meta property="article:tag" content="Programming">
+
+    
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://musings.dcaro.es//index.xml"
+  title="David&#39;s musings and ramblings."
+/>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Happy Birthday: Messing Around With Gdb and Golang</h2>
+          
+          <nav id="TableOfContents"></nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Happy Birthday: Messing Around With Gdb and Golang</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 27, 2024
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          10 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/gdb/">Gdb</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/golang/">Golang</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/computer-science/">Computer Science</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/programming/">Programming</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Some time ago (my last birthday), my nephew gave me a really nice little game as
+a present :}</p>
+<p>It&rsquo;s a simple and fun question-and-answer kind of game. He wrote it in golang
+with my brother&rsquo;s help (he&rsquo;s father).</p>
+<p>Point being, that in all this time, I had been able to solve all but the last
+question, and /me being who I am, decided to hack it for the fun of it \o/</p>
+<p>First , I decided to use the linux command <code>strings</code> to see if anything would
+pop up easily, and well, yes it did :), though it showed way way more stuff than
+what I wanted :/, and well, seemed not too elegant:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@urcuchillay$ strings --data --encoding<span style="color:#f92672">=</span>S elprograma | wc
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">41757</span>   <span style="color:#ae81ff">46655</span>  <span style="color:#ae81ff">507317</span>
+</span></span></code></pre></div><p>So my second approach was using <code>gdb</code>, but I&rsquo;m quite unfamiliar with it (though
+I used it some 20+ years ago for some university exercises), so I had to brush
+up.</p>
+<p>I also don&rsquo;t have the source code, so that complicates things a little bit, as I
+had to brush up on some assembler too. Anyhow, attaching to the running program
+was easy:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@urcuchillay$ gdb elprograma
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>Then you have to run the program:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> run
+</span></span></code></pre></div><p>Another option is starting the program by itself, and attaching to the running
+one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@urcuchillay$ gdb elprograma
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> attach &lt;pid_of_program&gt;
+</span></span></code></pre></div><p>Once started and when it&rsquo;s asking for an answer, you can drop to the gdb prompt
+by hitting <code>Ctrl+Z</code>, or sending <code>SIGSTOP</code> using kill or similar:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>^Z
+</span></span><span style="display:flex;"><span>Thread <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;elprograma&#34;</span> received signal SIGTSTP, Stopped <span style="color:#f92672">(</span>user<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>runtime/internal/syscall.Syscall6 <span style="color:#f92672">()</span> at /home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/asm_linux_amd64.s:36
+</span></span><span style="display:flex;"><span>warning: 36	/home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/asm_linux_amd64.s: No such file or directory
+</span></span></code></pre></div><p>As you can see it&rsquo;s trying to get to the source code, but not finding it as that
+was built in my brother&rsquo;s computer xd</p>
+<p>Now you can check where you are in the stack, from here, you can extract the
+file name and the line the code is running from (note though that as I don&rsquo;t
+have the source code, it will not show the source code of the line):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> where
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#0  runtime/internal/syscall.Syscall6 () at /home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/asm_linux_amd64.s:36</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#1  0x000000000040314d in syscall.RawSyscall6 (num=18446744073709551104, a1=0, a2=4206958, a3=0, a4=824634863616, a5=0, a6=0, r1=&lt;optimized out&gt;, r2=&lt;optimized out&gt;, errno=&lt;optimized out&gt;)</span>
+</span></span><span style="display:flex;"><span>    at /home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/syscall_linux.go:38
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#2  0x0000000000471e46 in syscall.Syscall (trap=0, a1=0, a2=824634863616, a3=4096, r1=&lt;optimized out&gt;, r2=&lt;optimized out&gt;, err=&lt;optimized out&gt;) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/syscall/syscall_linux.go:82</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#3  0x0000000000471858 in syscall.read (fd=&lt;optimized out&gt;, p=..., n=&lt;optimized out&gt;, err=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/syscall/zsyscall_linux_amd64.go:721</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#4  0x000000000047320e in syscall.Read (fd=0, n=&lt;optimized out&gt;, err=..., p=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/syscall/syscall_unix.go:181</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#5  internal/poll.ignoringEINTRIO (fd=0, fn=&lt;optimized out&gt;, p=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/poll/fd_unix.go:736</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#6  internal/poll.(*FD).Read (fd=0xc00018c000, p=..., ~r0=&lt;optimized out&gt;, ~r0=&lt;optimized out&gt;, ~r1=..., ~r1=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/poll/fd_unix.go:160</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#7  0x0000000000473a12 in os.(*File).read (f=0xc00018a000, b=..., n=&lt;optimized out&gt;, err=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/os/file_posix.go:29</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#8  os.(*File).Read (f=0xc00018a000, b=..., n=&lt;optimized out&gt;, err=...) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/os/file.go:118</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#9  0x00000000004633fb in bufio.(*Scanner).Scan (s=0xc0001a2e40, ~r0=&lt;optimized out&gt;) at /home/ruben/.asdf/installs/golang/1.21.4/go/src/bufio/scan.go:214</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#10 0x000000000047d76f in main.presentarAdivinanza (enunciado=..., ~r0=...) at /home/ruben/Documents/elprograma/main.go:30</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#11 0x000000000047d645 in main.main () at /home/ruben/Documents/elprograma/main.go:15</span>
+</span></span></code></pre></div><p>Ok, that&rsquo;s good, so the original file was
+<code>/home/ruben/Documents/elprograma/main.go</code>, and I can see also that the method
+I&rsquo;m in is <code>main.presentarAdivinanza</code>, nice :), but I want to see the code it&rsquo;s
+running, even if it&rsquo;s only the assembler code itself, so I can figure out how
+it&rsquo;s working.</p>
+<p>To do so, you can use the <code>x</code> command from gdb, that will show data, passing to
+it the <code>$pc</code> registry (current instruction&rsquo;s memory address):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/10i $pc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x40316e &lt;runtime/internal/syscall.Syscall6+14&gt;:	cmp    $0xfffffffffffff001,%rax
+</span></span><span style="display:flex;"><span>   0x403174 &lt;runtime/internal/syscall.Syscall6+20&gt;:	jbe    0x40318b &lt;runtime/internal/syscall.Syscall6+43&gt;
+</span></span><span style="display:flex;"><span>   0x403176 &lt;runtime/internal/syscall.Syscall6+22&gt;:	neg    %rax
+</span></span><span style="display:flex;"><span>   0x403179 &lt;runtime/internal/syscall.Syscall6+25&gt;:	mov    %rax,%rcx
+</span></span><span style="display:flex;"><span>   0x40317c &lt;runtime/internal/syscall.Syscall6+28&gt;:	mov    $0xffffffffffffffff,%rax
+</span></span><span style="display:flex;"><span>   0x403183 &lt;runtime/internal/syscall.Syscall6+35&gt;:	mov    $0x0,%rbx
+</span></span><span style="display:flex;"><span>   0x40318a &lt;runtime/internal/syscall.Syscall6+42&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x40318b &lt;runtime/internal/syscall.Syscall6+43&gt;:	mov    %rdx,%rbx
+</span></span><span style="display:flex;"><span>   0x40318e &lt;runtime/internal/syscall.Syscall6+46&gt;:	mov    $0x0,%rcx
+</span></span><span style="display:flex;"><span>   0x403195 &lt;runtime/internal/syscall.Syscall6+53&gt;:	ret
+</span></span></code></pre></div><p>Hmm, that&rsquo;s the syscall internal code, let me go instead to the source code
+stack almost at the top, and check there.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> up
+</span></span><span style="display:flex;"><span>...  as many times as needed
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#10 0x000000000047d76f in main.presentarAdivinanza (enunciado=..., ~r0=...) at /home/ruben/Documents/elprograma/main.go:30</span>
+</span></span><span style="display:flex;"><span>warning: 30	/home/ruben/Documents/elprograma/main.go: No such file or directory
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/10i $pc
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d76f &lt;main.presentarAdivinanza+207&gt;:	mov    0x68<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d774 &lt;main.presentarAdivinanza+212&gt;:	mov    0x70<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rcx
+</span></span><span style="display:flex;"><span>   0x47d779 &lt;main.presentarAdivinanza+217&gt;:	xor    %eax,%eax
+</span></span><span style="display:flex;"><span>   0x47d77b &lt;main.presentarAdivinanza+219&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d780 &lt;main.presentarAdivinanza+224&gt;:	call   0x44a060 &lt;runtime.slicebytetostring&gt;
+</span></span><span style="display:flex;"><span>   0x47d785 &lt;main.presentarAdivinanza+229&gt;:	add    $0xc8,%rsp
+</span></span><span style="display:flex;"><span>   0x47d78c &lt;main.presentarAdivinanza+236&gt;:	pop    %rbp
+</span></span><span style="display:flex;"><span>   0x47d78d &lt;main.presentarAdivinanza+237&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x47d78e &lt;main.presentarAdivinanza+238&gt;:	mov    %rax,0x8<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d793 &lt;main.presentarAdivinanza+243&gt;:	mov    %rbx,0x10<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>That is more interesting :), I can see there also that there&rsquo;s a return little
+after, but I&rsquo;m missing the current executed function too, let&rsquo;s use <code>$pc - 0x8</code>,
+see what we get (the 0x8 is a guess, note that the size of the assembler
+instruction is variable):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d767 &lt;main.presentarAdivinanza+199&gt;:	rex.R and $0x48,%al
+</span></span><span style="display:flex;"><span>   0x47d76a &lt;main.presentarAdivinanza+202&gt;:	call   0x462be0 &lt;bufio.<span style="color:#f92672">(</span>*Scanner<span style="color:#f92672">)</span>.Scan&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d76f &lt;main.presentarAdivinanza+207&gt;:	mov    0x68<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d774 &lt;main.presentarAdivinanza+212&gt;:	mov    0x70<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rcx
+</span></span><span style="display:flex;"><span>   0x47d779 &lt;main.presentarAdivinanza+217&gt;:	xor    %eax,%eax
+</span></span><span style="display:flex;"><span>   0x47d77b &lt;main.presentarAdivinanza+219&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax,%rax,1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d780 &lt;main.presentarAdivinanza+224&gt;:	call   0x44a060 &lt;runtime.slicebytetostring&gt;
+</span></span><span style="display:flex;"><span>   0x47d785 &lt;main.presentarAdivinanza+229&gt;:	add    $0xc8,%rsp
+</span></span><span style="display:flex;"><span>   0x47d78c &lt;main.presentarAdivinanza+236&gt;:	pop    %rbp
+</span></span><span style="display:flex;"><span>   0x47d78d &lt;main.presentarAdivinanza+237&gt;:	ret
+</span></span></code></pre></div><p>Oooh, so we are in <code>bufio.(*Scanner).Scan</code>, that&rsquo;s the one that reads the
+screen, makes sense.</p>
+<p><code>gdb</code> has a nice command to add an expression that will be run on every prompt
+refresh, let&rsquo;s add the one showing the current assembly code to it, so we don&rsquo;t
+need to manually enter it every time:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> display /10i $pc - 0x8
+</span></span></code></pre></div><p>Neat, now, let&rsquo;s try to add a breakpoint on the next instructions, so we can
+follow after we enter our <strong>wrong</strong> solution, as I don&rsquo;t have the source code,
+let&rsquo;s try putting it on the next line in the file, so first let&rsquo;s get the
+current frame (stack level):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> frame
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#10 0x000000000047d76f in main.presentarAdivinanza (enunciado=..., ~r0=...) at /home/ruben/Documents/elprograma/main.go:30</span>
+</span></span><span style="display:flex;"><span>30	in /home/ruben/Documents/elprograma/main.go
+</span></span></code></pre></div><p>And just breakpoint at line+1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> b /home/ruben/Documents/elprograma/main.go:31
+</span></span><span style="display:flex;"><span>Breakpoint <span style="color:#ae81ff">1</span> at 0x47d785: file /home/ruben/Documents/elprograma/main.go, line 31.
+</span></span></code></pre></div><p>And let&rsquo;s continue the execution :)</p>
+<p>Here comes a first weird thing, it turns out that <code>continue</code> is not enough!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>Continuing.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Thread <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;elprograma&#34;</span> received signal SIGTSTP, Stopped <span style="color:#f92672">(</span>user<span style="color:#f92672">)</span>.
+</span></span><span style="display:flex;"><span>runtime/internal/syscall.Syscall6 <span style="color:#f92672">()</span> at /home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/asm_linux_amd64.s:36
+</span></span><span style="display:flex;"><span>36	in /home/ruben/.asdf/installs/golang/1.21.4/go/src/runtime/internal/syscall/asm_linux_amd64.s
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x403166 &lt;runtime/internal/syscall.Syscall6+6&gt;:	mov    %rcx,%rsi
+</span></span><span style="display:flex;"><span>   0x403169 &lt;runtime/internal/syscall.Syscall6+9&gt;:	mov    %rbx,%rdi
+</span></span><span style="display:flex;"><span>   0x40316c &lt;runtime/internal/syscall.Syscall6+12&gt;:	syscall
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x40316e &lt;runtime/internal/syscall.Syscall6+14&gt;:	cmp    $0xfffffffffffff001,%rax
+</span></span><span style="display:flex;"><span>   0x403174 &lt;runtime/internal/syscall.Syscall6+20&gt;:	jbe    0x40318b &lt;runtime/internal/syscall.Syscall6+43&gt;
+</span></span><span style="display:flex;"><span>   0x403176 &lt;runtime/internal/syscall.Syscall6+22&gt;:	neg    %rax
+</span></span><span style="display:flex;"><span>   0x403179 &lt;runtime/internal/syscall.Syscall6+25&gt;:	mov    %rax,%rcx
+</span></span><span style="display:flex;"><span>   0x40317c &lt;runtime/internal/syscall.Syscall6+28&gt;:	mov    $0xffffffffffffffff,%rax
+</span></span><span style="display:flex;"><span>   0x403183 &lt;runtime/internal/syscall.Syscall6+35&gt;:	mov    $0x0,%rbx
+</span></span><span style="display:flex;"><span>   0x40318a &lt;runtime/internal/syscall.Syscall6+42&gt;:	ret
+</span></span></code></pre></div><p>It turns out, that you need to hit <code>continue</code> <strong>for each thread</strong> so they get
+the SIGCONT properly, so let&rsquo;s do that, eventually you get back to the program:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>Continuing.
+</span></span></code></pre></div><p>Now when we enter any answer, it gets to the breakpoint:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Bad answer.
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>Switching to LWP 2256393<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Thread <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;elprograma&#34;</span> hit Breakpoint 1, main.presentarAdivinanza <span style="color:#f92672">(</span>enunciado<span style="color:#f92672">=</span>..., ~r0<span style="color:#f92672">=</span>...<span style="color:#f92672">)</span> at /home/ruben/Documents/elprograma/main.go:31
+</span></span><span style="display:flex;"><span>warning: 31	/home/ruben/Documents/elprograma/main.go: No such file or directory
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d77d &lt;main.presentarAdivinanza+221&gt;:	add    %r8b,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d780 &lt;main.presentarAdivinanza+224&gt;:	call   0x44a060 &lt;runtime.slicebytetostring&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d785 &lt;main.presentarAdivinanza+229&gt;:	add    $0xc8,%rsp
+</span></span><span style="display:flex;"><span>   0x47d78c &lt;main.presentarAdivinanza+236&gt;:	pop    %rbp
+</span></span><span style="display:flex;"><span>   0x47d78d &lt;main.presentarAdivinanza+237&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x47d78e &lt;main.presentarAdivinanza+238&gt;:	mov    %rax,0x8<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d793 &lt;main.presentarAdivinanza+243&gt;:	mov    %rbx,0x10<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d798 &lt;main.presentarAdivinanza+248&gt;:	call   0x45aa20 &lt;runtime.morestack_noctxt&gt;
+</span></span><span style="display:flex;"><span>   0x47d79d &lt;main.presentarAdivinanza+253&gt;:	mov    0x8<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rax
+</span></span><span style="display:flex;"><span>   0x47d7a2 &lt;main.presentarAdivinanza+258&gt;:	mov    0x10<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span></code></pre></div><p>You can see now that the process state is in <code>t</code>, that means stopped for
+debugger:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@urcuchillay$ ps aux | grep elprograma
+</span></span><span style="display:flex;"><span>dcaro    <span style="color:#ae81ff">2256393</span>  0.0  0.0 <span style="color:#ae81ff">1226320</span> <span style="color:#ae81ff">1604</span> pts/4    tl   16:52   0:00 /home/dcaro/elprograma
+</span></span></code></pre></div><p>Awesome, so now let&rsquo;s start following the code :), note that <code>next/step</code> will
+work for &ldquo;source lines of code&rdquo;, but we don&rsquo;t have source code, so it&rsquo;s better
+to move around using <code>nexti/stepi</code>, that will go to the next instruction, or
+step into a call instruction instead. After a few <code>ni</code> we get to return from
+that function, back to the main:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>17	in /home/ruben/Documents/elprograma/main.go
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d63d &lt;main.main+157&gt;:	add    %r8b,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d640 &lt;main.main+160&gt;:	call   0x47d6a0 &lt;main.presentarAdivinanza&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d645 &lt;main.main+165&gt;:	mov    0x40<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rcx
+</span></span><span style="display:flex;"><span>   0x47d64a &lt;main.main+170&gt;:	cmp    %rcx,%rbx
+</span></span><span style="display:flex;"><span>   0x47d64d &lt;main.main+173&gt;:	jne    0x47d664 &lt;main.main+196&gt;
+</span></span><span style="display:flex;"><span>   0x47d64f &lt;main.main+175&gt;:	mov    %rbx,%rcx
+</span></span><span style="display:flex;"><span>   0x47d652 &lt;main.main+178&gt;:	mov    0x48<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d657 &lt;main.main+183&gt;:	call   0x402f00 &lt;runtime.memequal&gt;
+</span></span><span style="display:flex;"><span>   0x47d65c &lt;main.main+188&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d660 &lt;main.main+192&gt;:	test   %al,%al
+</span></span></code></pre></div><p>Hmm, there&rsquo;s an interesting jump <code>jne</code> there but what would that be?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> ni
+</span></span><span style="display:flex;"><span>0x000000000047d64a	17	in /home/ruben/Documents/elprograma/main.go
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d642 &lt;main.main+162&gt;:	add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d644 &lt;main.main+164&gt;:	add    %cl,-0x75<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d647 &lt;main.main+167&gt;:	rex.WR and $0x40,%al
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d64a &lt;main.main+170&gt;:	cmp    %rcx,%rbx
+</span></span><span style="display:flex;"><span>   0x47d64d &lt;main.main+173&gt;:	jne    0x47d664 &lt;main.main+196&gt;
+</span></span><span style="display:flex;"><span>   0x47d64f &lt;main.main+175&gt;:	mov    %rbx,%rcx
+</span></span><span style="display:flex;"><span>   0x47d652 &lt;main.main+178&gt;:	mov    0x48<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d657 &lt;main.main+183&gt;:	call   0x402f00 &lt;runtime.memequal&gt;
+</span></span><span style="display:flex;"><span>   0x47d65c &lt;main.main+188&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d660 &lt;main.main+192&gt;:	test   %al,%al
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> info registers rcx rbx
+</span></span><span style="display:flex;"><span>rcx            0x5                 <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>rbx            0xb                 <span style="color:#ae81ff">11</span>
+</span></span></code></pre></div><p>Hmm, after some trial and error, I found that those are the string lengths of
+the input string, and the correct answer!</p>
+<p>It turns out that
+<a href="https://github.com/northbright/Notes/blob/master/Golang/string/golang-string-compare-internals.md">golang will do a first check for the lengths to be the same</a>.
+Awesome, first clue :)</p>
+<p>Okok, let&rsquo;s then send an answer with that same length:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Tu respuesta: <span style="color:#ae81ff">12345678901</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Thread <span style="color:#ae81ff">1</span> <span style="color:#e6db74">&#34;elprograma&#34;</span> hit Breakpoint 1, main.presentarAdivinanza <span style="color:#f92672">(</span>enunciado<span style="color:#f92672">=</span>..., ~r0<span style="color:#f92672">=</span>...<span style="color:#f92672">)</span> at /home/ruben/Documents/elprograma/main.go:31
+</span></span><span style="display:flex;"><span>31	in /home/ruben/Documents/elprograma/main.go
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d77d &lt;main.presentarAdivinanza+221&gt;:	add    %r8b,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d780 &lt;main.presentarAdivinanza+224&gt;:	call   0x44a060 &lt;runtime.slicebytetostring&gt;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d785 &lt;main.presentarAdivinanza+229&gt;:	add    $0xc8,%rsp
+</span></span><span style="display:flex;"><span>   0x47d78c &lt;main.presentarAdivinanza+236&gt;:	pop    %rbp
+</span></span><span style="display:flex;"><span>   0x47d78d &lt;main.presentarAdivinanza+237&gt;:	ret
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Let&rsquo;s continue for a bit&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>0x000000000047d64a	17	in /home/ruben/Documents/elprograma/main.go
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d642 &lt;main.main+162&gt;:	add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d644 &lt;main.main+164&gt;:	add    %cl,-0x75<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d647 &lt;main.main+167&gt;:	rex.WR and $0x40,%al
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d64a &lt;main.main+170&gt;:	cmp    %rcx,%rbx
+</span></span><span style="display:flex;"><span>   0x47d64d &lt;main.main+173&gt;:	jne    0x47d664 &lt;main.main+196&gt;
+</span></span><span style="display:flex;"><span>   0x47d64f &lt;main.main+175&gt;:	mov    %rbx,%rcx
+</span></span><span style="display:flex;"><span>   0x47d652 &lt;main.main+178&gt;:	mov    0x48<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d657 &lt;main.main+183&gt;:	call   0x402f00 &lt;runtime.memequal&gt;
+</span></span><span style="display:flex;"><span>   0x47d65c &lt;main.main+188&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d660 &lt;main.main+192&gt;:	test   %al,%al
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> info registers rcx rbx
+</span></span><span style="display:flex;"><span>rcx            0x5                 <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>rbx            0x5                 <span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>Awesome, let&rsquo;s continue&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d64f &lt;main.main+175&gt;:	mov    %rbx,%rcx
+</span></span><span style="display:flex;"><span>   0x47d652 &lt;main.main+178&gt;:	mov    0x48<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d657 &lt;main.main+183&gt;:	call   0x402f00 &lt;runtime.memequal&gt;
+</span></span><span style="display:flex;"><span>   0x47d65c &lt;main.main+188&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d660 &lt;main.main+192&gt;:	test   %al,%al
+</span></span><span style="display:flex;"><span>   0x47d662 &lt;main.main+194&gt;:	jne    0x47d673 &lt;main.main+211&gt;
+</span></span><span style="display:flex;"><span>   0x47d664 &lt;main.main+196&gt;:	call   0x47d7c0 &lt;main.defeat&gt;
+</span></span><span style="display:flex;"><span>   0x47d669 &lt;main.main+201&gt;:	mov    0x38<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rax
+</span></span><span style="display:flex;"><span>   0x47d66e &lt;main.main+206&gt;:	jmp    0x47d5b4 &lt;main.main+20&gt;
+</span></span><span style="display:flex;"><span>   0x47d673 &lt;main.main+211&gt;:	call   0x47d880 &lt;main.victory&gt;
+</span></span></code></pre></div><p>Hmm, it seems that is calling that <code>memequal</code>, that&rsquo;s promising, a quick search
+reveals that that function is
+<a href="https://github.com/golang/gofrontend/blob/master/libgo/runtime/go-memequal.c">internal to golang too</a>,
+but it&rsquo;s just a facade for the actual architecture specific function, if we step
+into it (using <code>stepi</code>) we see the actual file and line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> si
+</span></span><span style="display:flex;"><span>runtime.memequal <span style="color:#f92672">()</span> at /home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/bytealg/equal_amd64.s:14
+</span></span><span style="display:flex;"><span>warning: 14	/home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/bytealg/equal_amd64.s: No such file or directory
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x402ef8 &lt;memeqbody+312&gt;:	shl    %cl,%edi
+</span></span><span style="display:flex;"><span>   0x402efa &lt;memeqbody+314&gt;:	sete   %al
+</span></span><span style="display:flex;"><span>   0x402efd &lt;memeqbody+317&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x402efe:	int3
+</span></span><span style="display:flex;"><span>   0x402eff:	int3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x402f00 &lt;runtime.memequal&gt;:	cmp    %rbx,%rax
+</span></span><span style="display:flex;"><span>   0x402f03 &lt;runtime.memequal+3&gt;:	jne    0x402f0d &lt;runtime.memequal+13&gt;
+</span></span><span style="display:flex;"><span>   0x402f05 &lt;runtime.memequal+5&gt;:	mov    $0x1,%rax
+</span></span><span style="display:flex;"><span>   0x402f0c &lt;runtime.memequal+12&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x402f0d &lt;runtime.memequal+13&gt;:	mov    %rax,%rsi
+</span></span></code></pre></div><p>Yep, we have it
+<a href="https://github.com/golang/go/blob/master/src/internal/bytealg/equal_amd64.s#L10">here</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-asm" data-lang="asm"><span style="display:flex;"><span><span style="color:#75715e">// memequal(a, b unsafe.Pointer, size uintptr) bool
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">TEXT</span> <span style="color:#66d9ef">runtime</span><span style="color:#960050;background-color:#1e0010">·</span><span style="color:#66d9ef">memequal</span><span style="color:#960050;background-color:#1e0010">&lt;</span><span style="color:#66d9ef">ABIInternal</span><span style="color:#960050;background-color:#1e0010">&gt;</span>(<span style="color:#66d9ef">SB</span>),<span style="color:#66d9ef">NOSPLIT</span>,<span style="color:#66d9ef">$0-25</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// AX = a    (want in SI)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// BX = b    (want in DI)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#75715e">// CX = size (want in BX)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">CMPQ</span>	<span style="color:#66d9ef">AX</span>, <span style="color:#66d9ef">BX</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">JNE</span>	<span style="color:#66d9ef">neq</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MOVQ</span>	<span style="color:#66d9ef">$1</span>, <span style="color:#66d9ef">AX</span>	<span style="color:#75715e">// return 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">RET</span>
+</span></span><span style="display:flex;"><span>neq:
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MOVQ</span>	<span style="color:#66d9ef">AX</span>, <span style="color:#66d9ef">SI</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MOVQ</span>	<span style="color:#66d9ef">BX</span>, <span style="color:#66d9ef">DI</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MOVQ</span>	<span style="color:#66d9ef">CX</span>, <span style="color:#66d9ef">BX</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">JMP</span>	<span style="color:#66d9ef">memeqbody</span><span style="color:#960050;background-color:#1e0010">&lt;&gt;</span>(<span style="color:#66d9ef">SB</span>)
+</span></span></code></pre></div><p>There&rsquo;s some nice helper comments there, main ones being that it has the strings
+in <code>AX</code> and <code>BX</code> registries, that was the key :), now all I have to do is to
+print out the contents of those registries \o/, okok, so I&rsquo;m going to the last
+question, and then stopping at the breakpoint we put before, I see I got the
+right string length:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> ni
+</span></span><span style="display:flex;"><span>0x000000000047d64a	17	in /home/ruben/Documents/elprograma/main.go
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x47d642 &lt;main.main+162&gt;:	add    %al,<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d644 &lt;main.main+164&gt;:	add    %cl,-0x75<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d647 &lt;main.main+167&gt;:	rex.WR and $0x40,%al
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x47d64a &lt;main.main+170&gt;:	cmp    %rcx,%rbx
+</span></span><span style="display:flex;"><span>   0x47d64d &lt;main.main+173&gt;:	jne    0x47d664 &lt;main.main+196&gt;
+</span></span><span style="display:flex;"><span>   0x47d64f &lt;main.main+175&gt;:	mov    %rbx,%rcx
+</span></span><span style="display:flex;"><span>   0x47d652 &lt;main.main+178&gt;:	mov    0x48<span style="color:#f92672">(</span>%rsp<span style="color:#f92672">)</span>,%rbx
+</span></span><span style="display:flex;"><span>   0x47d657 &lt;main.main+183&gt;:	call   0x402f00 &lt;runtime.memequal&gt;
+</span></span><span style="display:flex;"><span>   0x47d65c &lt;main.main+188&gt;:	nopl   0x0<span style="color:#f92672">(</span>%rax<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   0x47d660 &lt;main.main+192&gt;:	test   %al,%al
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> info registers rbx rcx
+</span></span><span style="display:flex;"><span>rbx            0x1e                <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>rcx            0x1e                <span style="color:#ae81ff">30</span>
+</span></span></code></pre></div><p>Continuing&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>runtime.memequal <span style="color:#f92672">()</span> at /home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/bytealg/equal_amd64.s:14
+</span></span><span style="display:flex;"><span>warning: 14	/home/ruben/.asdf/installs/golang/1.21.4/go/src/internal/bytealg/equal_amd64.s: No such file or directory
+</span></span><span style="display:flex;"><span>1: x/10i $pc - 0x8
+</span></span><span style="display:flex;"><span>   0x402ef8 &lt;memeqbody+312&gt;:	shl    %cl,%edi
+</span></span><span style="display:flex;"><span>   0x402efa &lt;memeqbody+314&gt;:	sete   %al
+</span></span><span style="display:flex;"><span>   0x402efd &lt;memeqbody+317&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x402efe:	int3
+</span></span><span style="display:flex;"><span>   0x402eff:	int3
+</span></span><span style="display:flex;"><span><span style="color:#f92672">=</span>&gt; 0x402f00 &lt;runtime.memequal&gt;:	cmp    %rbx,%rax
+</span></span><span style="display:flex;"><span>   0x402f03 &lt;runtime.memequal+3&gt;:	jne    0x402f0d &lt;runtime.memequal+13&gt;
+</span></span><span style="display:flex;"><span>   0x402f05 &lt;runtime.memequal+5&gt;:	mov    $0x1,%rax
+</span></span><span style="display:flex;"><span>   0x402f0c &lt;runtime.memequal+12&gt;:	ret
+</span></span><span style="display:flex;"><span>   0x402f0d &lt;runtime.memequal+13&gt;:	mov    %rax,%rsi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/30s $rax
+</span></span><span style="display:flex;"><span>0xc0001be000:	<span style="color:#e6db74">&#34;123456789012345678901234567890&#34;</span>
+</span></span></code></pre></div><p>That&rsquo;s my answer, and finally:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/s $rbx
+</span></span><span style="display:flex;"><span>0x49a78a:	<span style="color:#e6db74">&#34;Escribe la respuesta correcta.227373675443232059478759765625reflect: Elem of invalid type MapIter.Key called before Nextsync: inconsistent mutex statesync: unlock of unlocked mutexSIGUSR1: user-define&#34;</span>...
+</span></span></code></pre></div><p>Yay!! That&rsquo;s what we want! Just the first 30 chars of it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#f92672">(</span>gdb<span style="color:#f92672">)</span> x/30c $rbx
+</span></span><span style="display:flex;"><span>0x49a78a:	<span style="color:#ae81ff">69</span> <span style="color:#e6db74">&#39;E&#39;</span>	<span style="color:#ae81ff">115</span> <span style="color:#e6db74">&#39;s&#39;</span>	<span style="color:#ae81ff">99</span> <span style="color:#e6db74">&#39;c&#39;</span>	<span style="color:#ae81ff">114</span> <span style="color:#e6db74">&#39;r&#39;</span>	<span style="color:#ae81ff">105</span> <span style="color:#e6db74">&#39;i&#39;</span>	<span style="color:#ae81ff">98</span> <span style="color:#e6db74">&#39;b&#39;</span>	<span style="color:#ae81ff">101</span> <span style="color:#e6db74">&#39;e&#39;</span>	<span style="color:#ae81ff">32</span> <span style="color:#e6db74">&#39; &#39;</span>
+</span></span><span style="display:flex;"><span>0x49a792:	<span style="color:#ae81ff">108</span> <span style="color:#e6db74">&#39;l&#39;</span>	<span style="color:#ae81ff">97</span> <span style="color:#e6db74">&#39;a&#39;</span>	<span style="color:#ae81ff">32</span> <span style="color:#e6db74">&#39; &#39;</span>	<span style="color:#ae81ff">114</span> <span style="color:#e6db74">&#39;r&#39;</span>	<span style="color:#ae81ff">101</span> <span style="color:#e6db74">&#39;e&#39;</span>	<span style="color:#ae81ff">115</span> <span style="color:#e6db74">&#39;s&#39;</span>	<span style="color:#ae81ff">112</span> <span style="color:#e6db74">&#39;p&#39;</span>	<span style="color:#ae81ff">117</span> <span style="color:#e6db74">&#39;u&#39;</span>
+</span></span><span style="display:flex;"><span>0x49a79a:	<span style="color:#ae81ff">101</span> <span style="color:#e6db74">&#39;e&#39;</span>	<span style="color:#ae81ff">115</span> <span style="color:#e6db74">&#39;s&#39;</span>	<span style="color:#ae81ff">116</span> <span style="color:#e6db74">&#39;t&#39;</span>	<span style="color:#ae81ff">97</span> <span style="color:#e6db74">&#39;a&#39;</span>	<span style="color:#ae81ff">32</span> <span style="color:#e6db74">&#39; &#39;</span>	<span style="color:#ae81ff">99</span> <span style="color:#e6db74">&#39;c&#39;</span>	<span style="color:#ae81ff">111</span> <span style="color:#e6db74">&#39;o&#39;</span>	<span style="color:#ae81ff">114</span> <span style="color:#e6db74">&#39;r&#39;</span>
+</span></span><span style="display:flex;"><span>0x49a7a2:	<span style="color:#ae81ff">114</span> <span style="color:#e6db74">&#39;r&#39;</span>	<span style="color:#ae81ff">101</span> <span style="color:#e6db74">&#39;e&#39;</span>	<span style="color:#ae81ff">99</span> <span style="color:#e6db74">&#39;c&#39;</span>	<span style="color:#ae81ff">116</span> <span style="color:#e6db74">&#39;t&#39;</span>	<span style="color:#ae81ff">97</span> <span style="color:#e6db74">&#39;a&#39;</span>	<span style="color:#ae81ff">46</span> <span style="color:#e6db74">&#39;.&#39;</span>
+</span></span></code></pre></div><pre tabindex="0"><code>-&gt; Nivel 12 &lt;-
+
+Cómo hacer que este programa explote?
+
+Tu respuesta: Escribe la respuesta correcta.
+
+🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂🙂....
+
+Perfect!!   ᕙ(`▽´)ᕗ
+
+-&gt; Nivel 13 &lt;-panic: runtime error: index out of range [13] with length 13
+
+goroutine 1 [running]:
+main.main()
+	/home/ruben/Documents/elprograma/main.go:14 +0xef
+</code></pre><p>That was an awesome present, that made me have a good time for a loooong time xd</p>
+<p>And a nice reference to a very nice movie
+<a href="https://www.imdb.com/title/tt0139809/">&ldquo;The thirteenth floor&rdquo;</a></p>
+<p>Thanks nephew! (and brother)</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+© 2023 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </footer>
+  </body>
+</html>

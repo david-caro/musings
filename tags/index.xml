@@ -4,11 +4,39 @@
     <title>Tags on David&#39;s musings and ramblings.</title>
     <link>https://musings.dcaro.es/tags/</link>
     <description>Recent content in Tags on David&#39;s musings and ramblings.</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Fri, 15 Mar 2024 20:59:24 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2024 16:37:53 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Computer Science</title>
+      <link>https://musings.dcaro.es/tags/computer-science/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/computer-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gdb</title>
+      <link>https://musings.dcaro.es/tags/gdb/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/gdb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Golang</title>
+      <link>https://musings.dcaro.es/tags/golang/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/golang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://musings.dcaro.es/tags/programming/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/programming/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Bioloogy</title>
       <link>https://musings.dcaro.es/tags/bioloogy/</link>
@@ -119,13 +147,6 @@
       <link>https://musings.dcaro.es/tags/prometheus/</link>
       <pubDate>Tue, 04 Oct 2022 09:29:48 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/prometheus/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Golang</title>
-      <link>https://musings.dcaro.es/tags/golang/</link>
-      <pubDate>Sat, 17 Sep 2022 12:01:53 +0200</pubDate>
-      <guid>https://musings.dcaro.es/tags/golang/</guid>
       <description></description>
     </item>
     <item>

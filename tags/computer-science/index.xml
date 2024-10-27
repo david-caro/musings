@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Science on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/computer-science/</link>
+    <description>Recent content in Computer Science on David&#39;s musings and ramblings.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© David Caro 2024</copyright>
+    <lastBuildDate>Sun, 27 Oct 2024 16:37:53 +0100</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Happy Birthday: Messing Around With Gdb and Golang</title>
+      <link>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</link>
+      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</guid>
+      <description>&lt;p&gt;Some time ago (my last birthday), my nephew gave me a really nice little game as&#xA;a present :}&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s a simple and fun question-and-answer kind of game. He wrote it in golang&#xA;with my brother&amp;rsquo;s help (he&amp;rsquo;s father).&lt;/p&gt;&#xA;&lt;p&gt;Point being, that in all this time, I had been able to solve all but the last&#xA;question, and /me being who I am, decided to hack it for the fun of it \o/&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

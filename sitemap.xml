@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/tags/computer-science/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/gdb/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/golang/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/programming/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/tags/bioloogy/</loc>
     <lastmod>2024-03-15T20:59:24+01:00</lastmod>
   </url><url>
@@ -14,16 +38,7 @@
     <loc>https://musings.dcaro.es/tags/chemistry/</loc>
     <lastmod>2024-03-15T20:59:24+01:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/</loc>
-    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/tags/oxford-landmark-science/</loc>
-    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2024-03-15T20:59:24+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2024-03-15T20:59:24+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/general-relativity/</loc>
@@ -87,9 +102,6 @@
     <lastmod>2022-10-04T09:29:48+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/</loc>
-    <lastmod>2022-09-17T12:01:53+02:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/golang/</loc>
     <lastmod>2022-09-17T12:01:53+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/netsnoop/</loc>
