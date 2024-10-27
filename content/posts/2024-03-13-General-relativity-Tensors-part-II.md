@@ -397,3 +397,7 @@ Telling us that $G^{\mu\nu}$, that we call **Einstein tensor** is divergence
 free, and constructed directly from the Riemann tensor and the metric.
 
 This will be very important when solving the Einstein field equations.
+
+## Next post in the series
+
+Will be delayed a bit, but it's being worked on!
