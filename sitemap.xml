@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://musings.dcaro.es/tags/computer-science/</loc>
-    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/programming/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/remarkable/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/computer-science/</loc>
     <lastmod>2024-10-27T16:37:53+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/gdb/</loc>
@@ -15,15 +30,6 @@
     <lastmod>2024-10-27T16:37:53+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</loc>
-    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/programming/</loc>
-    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2024-10-27T16:37:53+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/bioloogy/</loc>

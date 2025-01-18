@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on David&#39;s musings and ramblings.</title>
-    <link>https://musings.dcaro.es/tags/programming/</link>
-    <description>Recent content in Programming on David&#39;s musings and ramblings.</description>
+    <title>Remarkable on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/remarkable/</link>
+    <description>Recent content in Remarkable on David&#39;s musings and ramblings.</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
     <lastBuildDate>Sat, 18 Jan 2025 16:29:54 +0100</lastBuildDate>
-    <atom:link href="https://musings.dcaro.es/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://musings.dcaro.es/tags/remarkable/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing ReMarkable Desktop on Fedora 41</title>
       <link>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</link>
       <pubDate>Sat, 18 Jan 2025 16:29:54 +0100</pubDate>
       <guid>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</guid>
       <description>&lt;p&gt;I was able today to get installed (finally) the reMarkable Desktop app (3.16.1)&#xA;on my fedora 41 machine, this post is to write down the shenanigans I had to do&#xA;to get it working :)&lt;/p&gt;&#xA;&lt;p&gt;So first of all, make sure you have a clean wine installation (I had been&#xA;messing with wine and had some custom things going on):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; sudo dnf remove wine&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; sudo dnf remove winetricks  &lt;span style=&#34;color:#75715e&#34;&gt;# optional&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; rm -rf ~/.wine  &lt;span style=&#34;color:#75715e&#34;&gt;# careful if you have more stuff installed in the default wine prefix&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reinstall:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Happy Birthday: Messing Around With Gdb and Golang</title>
-      <link>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</link>
-      <pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
-      <guid>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</guid>
-      <description>&lt;p&gt;Some time ago (my last birthday), my nephew gave me a really nice little game as&#xA;a present :}&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s a simple and fun question-and-answer kind of game. He wrote it in golang&#xA;with my brother&amp;rsquo;s help (he&amp;rsquo;s father).&lt;/p&gt;&#xA;&lt;p&gt;Point being, that in all this time, I had been able to solve all but the last&#xA;question, and /me being who I am, decided to hack it for the fun of it \o/&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

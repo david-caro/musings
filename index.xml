@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sun, 27 Oct 2024 16:37:53 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2025 16:29:54 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing ReMarkable Desktop on Fedora 41</title>
+      <link>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</link>
+      <pubDate>Sat, 18 Jan 2025 16:29:54 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</guid>
+      <description>&lt;p&gt;I was able today to get installed (finally) the reMarkable Desktop app (3.16.1)&#xA;on my fedora 41 machine, this post is to write down the shenanigans I had to do&#xA;to get it working :)&lt;/p&gt;&#xA;&lt;p&gt;So first of all, make sure you have a clean wine installation (I had been&#xA;messing with wine and had some custom things going on):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; sudo dnf remove wine&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; sudo dnf remove winetricks  &lt;span style=&#34;color:#75715e&#34;&gt;# optional&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt; rm -rf ~/.wine  &lt;span style=&#34;color:#75715e&#34;&gt;# careful if you have more stuff installed in the default wine prefix&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reinstall:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Happy Birthday: Messing Around With Gdb and Golang</title>
       <link>https://musings.dcaro.es/posts/2024-10-27-happy-birthday-messing-around-with-gdb-and-golang/</link>

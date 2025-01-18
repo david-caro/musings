@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Quantum Physics - Free Particle 1d // David&#39;s musings and ramblings.</title>
+    <title>Installing ReMarkable Desktop on Fedora 41 // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.141.0">
@@ -16,45 +16,26 @@
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Quantum Physics - Free Particle 1d">
-  <meta name="twitter:description" content="Today let’s have a look to a single particle, going around without any potential. So we get the same time-independent Schrödinger equation as we got inside the infinite square well:
-$$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi $$
-A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:
-$$ \psi(x) = Ae^{ikx} &#43; Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar} $$">
+  <meta name="twitter:title" content="Installing ReMarkable Desktop on Fedora 41">
+  <meta name="twitter:description" content="I was able today to get installed (finally) the reMarkable Desktop app (3.16.1) on my fedora 41 machine, this post is to write down the shenanigans I had to do to get it working :)
+So first of all, make sure you have a clean wine installation (I had been messing with wine and had some custom things going on):
+&gt; sudo dnf remove wine &gt; sudo dnf remove winetricks # optional &gt; rm -rf ~/.wine # careful if you have more stuff installed in the default wine prefix Reinstall:">
 
-    <meta property="og:url" content="https://musings.dcaro.es/posts/2023-12-22-quantum-physics-free-particle-1d/">
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/">
   <meta property="og:site_name" content="David&#39;s musings and ramblings.">
-  <meta property="og:title" content="Quantum Physics - Free Particle 1d">
-  <meta property="og:description" content="Today let’s have a look to a single particle, going around without any potential. So we get the same time-independent Schrödinger equation as we got inside the infinite square well:
-$$ -\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi $$
-A single solution for this is the same as for the infinite well, but this time we will use the exponential form, as that will help us later:
-$$ \psi(x) = Ae^{ikx} &#43; Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar} $$">
+  <meta property="og:title" content="Installing ReMarkable Desktop on Fedora 41">
+  <meta property="og:description" content="I was able today to get installed (finally) the reMarkable Desktop app (3.16.1) on my fedora 41 machine, this post is to write down the shenanigans I had to do to get it working :)
+So first of all, make sure you have a clean wine installation (I had been messing with wine and had some custom things going on):
+&gt; sudo dnf remove wine &gt; sudo dnf remove winetricks # optional &gt; rm -rf ~/.wine # careful if you have more stuff installed in the default wine prefix Reinstall:">
   <meta property="og:locale" content="en_us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-12-22T11:17:27+01:00">
-    <meta property="article:modified_time" content="2023-12-22T11:17:27+01:00">
-    <meta property="article:tag" content="Physics">
-    <meta property="article:tag" content="Quantum Physics">
-    <meta property="article:tag" content="Jupyter Notebook">
-    <meta property="article:tag" content="Python">
+    <meta property="article:published_time" content="2025-01-18T16:29:54+01:00">
+    <meta property="article:modified_time" content="2025-01-18T16:29:54+01:00">
+    <meta property="article:tag" content="Remarkable">
+    <meta property="article:tag" content="Programming">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        renderMathInElement(document.body, {
-            delimiters: [
-                {left: "$$", right: "$$", display: true},
-                {left: "$", right: "$", display: false}
-            ]
-        });
-    });
-</script>
-
+    
 <link
   rel="alternate"
   type="application/rss+xml"
@@ -68,7 +49,7 @@ $$ \psi(x) = Ae^{ikx} &#43; Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2
       <header class="app-header">
         <div class="header-contents">
           <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-          <h2>Quantum Physics - Free Particle 1d</h2>
+          <h2>Installing ReMarkable Desktop on Fedora 41</h2>
           
           <nav id="TableOfContents"></nav> 
           
@@ -133,14 +114,14 @@ $$ \psi(x) = Ae^{ikx} &#43; Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Quantum Physics - Free Particle 1d</h1>
+      <h1 class ="post-title">Installing ReMarkable Desktop on Fedora 41</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-          Dec 22, 2023
+          Jan 18, 2025
         </div>
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
@@ -154,78 +135,37 @@ $$ \psi(x) = Ae^{ikx} &#43; Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2
   <title>tag</title>
   <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
-              <a class="tag" href="https://musings.dcaro.es/tags/quantum-physics/">Quantum Physics</a>
-              <a class="tag" href="https://musings.dcaro.es/tags/jupyter-notebook/">Jupyter Notebook</a>
-              <a class="tag" href="https://musings.dcaro.es/tags/python/">Python</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/remarkable/">Remarkable</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/programming/">Programming</a>
         </div>
       </div>
     </header>
     <div class="post-content">
-      <p>Today let&rsquo;s have a look to a single particle, going around without any
-potential. So we get the same time-independent Schrödinger equation as we got
-inside the <a href="https://musings.dcaro.es/posts/2023-12-19-quantum-physics-infinite-well-1d/#inside">infinite square
-well</a>:</p>
-<p>$$
--\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi
-$$</p>
-<p>A single solution for this is the same as for the infinite well, but this time
-we will use the exponential form, as that will help us later:</p>
-<p>$$
-\psi(x) = Ae^{ikx} + Be^{-ikx} \hspace{0.5cm}\text{where }k=\frac{\sqrt{2mE}}{\hbar}
-$$</p>
-<p>Now adding the time dependent bits (the &ldquo;wiggle factor&rdquo;):</p>
-<p>$$
-\psi(x) = Ae^{ik\left(x - \frac{\hbar k}{2m}t\right)} + Be^{-ik\left(x-\frac{\hbar k}{2m}t\right)}
-$$</p>
-<p>Here we recognize this as two waves, one moving right and one moving left.</p>
-<p>But, this is a function that can&rsquo;t be normalized, this means that <strong>there&rsquo;s no
-such thing as a free particle with a specific energy</strong>.</p>
-<p>But lucky us, we can normalize an infinite sum of them, so we can use exactly
-that :)</p>
-<p>This is what we call a <strong>wave packet</strong>.</p>
-<p>Then, using an integral instead (and keeping only one of the waves, as the other
-is just a ):</p>
-<p>$$
-\psi(x, t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\phi(k)e^{i\left(kx-\frac{\hbar k^2}{2m}t\right)}
-$$</p>
-<p>And, using the
-<a href="https://en.wikipedia.org/wiki/Plancherel_theorem"><strong>Plancherel&rsquo;s theorem</strong></a>
-(and the
-<a href="https://en.wikipedia.org/wiki/Fourier_transform"><strong>Fourier transform</strong></a>), we
-end up with the solution for $\phi(k)$:</p>
-<p>$$
-\phi(k) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\psi(x, 0)e^{-ikx}dx
-$$</p>
-<p>And now we only depend on $\psi(x, 0)$ to have the whole system defined, win!</p>
-<p>Given all this, let&rsquo;s assume that we have a wave packet that has a peak at a
-$k_0$ value (if there&rsquo;s no distinguishable shape for the packet, the notion of
-&ldquo;packet velocity&rdquo; has no meaning). Given that, we can then approximate $\omega$
-by <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor expansion</strong></a> and we
-can keep only the first two terms:</p>
-<p>$$
-\omega(k) \approx \omega_0 + \omega&rsquo;_0(k - k_0)
-$$</p>
-<p>Now centering the integral ($r = k - k_0$) at $k_0$, and doing a bit of
-mangling, we get:</p>
-<p>$$
-\psi(x, t) \approx \frac{1}{\sqrt{2\pi}}e^{i(k_0x-\omega_0t)}\int_{-\infty}^{+\infty}\phi(k_0 + r)e^{ir(x-\omega&rsquo;_0r)t}dr
-$$</p>
-<p>$$
-\omega = \frac{\hbar k^2}{2m}
-$$</p>
-<p>And this can be recognized as a wave (the left exponential) traveling at speed
-$\frac{\omega_0}{k}$, bundled in an envelop wave (the right exponential) that
-travels at the speed $\omega&rsquo;_0$. So we have (at $k=k_0$):</p>
-<p>$$
-v_\text{phase} = \frac{\omega}{k} = \frac{\hbar k}{2m}
-$$</p>
-<p>$$
-v_\text{group} = \omega&rsquo;(k) = \frac{\hbar k}{m} = 2 v_\text{phase}
-$$</p>
-<p>You can find an animation on the jupyter notebook
-<a href="https://github.com/david-caro/musings/blob/main/content/posts/2023-12-22-Quantum-physics-free-particle-1d/code/free-particle.ipynb">here</a>.</p>
-<p>Note that you might have to run locally for the interactive plot to show.</p>
+      <p>I was able today to get installed (finally) the reMarkable Desktop app (3.16.1)
+on my fedora 41 machine, this post is to write down the shenanigans I had to do
+to get it working :)</p>
+<p>So first of all, make sure you have a clean wine installation (I had been
+messing with wine and had some custom things going on):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; sudo dnf remove wine
+</span></span><span style="display:flex;"><span>&gt; sudo dnf remove winetricks  <span style="color:#75715e"># optional</span>
+</span></span><span style="display:flex;"><span>&gt; rm -rf ~/.wine  <span style="color:#75715e"># careful if you have more stuff installed in the default wine prefix</span>
+</span></span></code></pre></div><p>Reinstall:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; sudo dnf install wine winetricks
+</span></span></code></pre></div><p>Run the reMarkable installer (you&rsquo;ll have to download it from their page):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; wine reMarkable-3.16.1.901-win64.exe
+</span></span></code></pre></div><p>And install it, make sure to remember the path you install it in.</p>
+<p>If you are getting an error there, maybe you are using the wrong wine prefix,
+make sure you are using a clean one.</p>
+<p>After installation, when trying to run it you&rsquo;ll be getting an error like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>wine: Unhandled page fault on read access to <span style="color:#ae81ff">0000000000000000</span> at address 00006FFFF3B04A48 <span style="color:#f92672">(</span>thread 01cc<span style="color:#f92672">)</span>, starting debugger...
+</span></span><span style="display:flex;"><span>01ec:fixme:dbghelp:elf_search_auxv can<span style="color:#e6db74">&#39;t find symbol in module
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">01ec:fixme:dbghelp:elf_search_auxv can&#39;</span>t find symbol in module
+</span></span></code></pre></div><p>What you have to do, is disable the offending libraries from the reMarkable
+installation:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt; cd &lt;path_where_you_installed_reMarkable&gt;
+</span></span><span style="display:flex;"><span>&gt; mv ./networkinformation/qnetworklistmanager.dll ./networkinformation/qnetworklistmanager.dll.disabled
+</span></span></code></pre></div><p>Try to run it again and voila! \o/</p>
+<p>Even sharing the device screen works like a charm :)</p>
 
     </div>
     <div class="post-footer">
