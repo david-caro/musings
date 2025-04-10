@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Waves on David&#39;s musings and ramblings.</title>
+    <link>https://musings.dcaro.es/tags/waves/</link>
+    <description>Recent content in Waves on David&#39;s musings and ramblings.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© David Caro 2024</copyright>
+    <lastBuildDate>Thu, 10 Apr 2025 11:31:53 +0200</lastBuildDate>
+    <atom:link href="https://musings.dcaro.es/tags/waves/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>One Dimensional Wave Equation</title>
+      <link>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</link>
+      <pubDate>Thu, 10 Apr 2025 11:31:53 +0200</pubDate>
+      <guid>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</guid>
+      <description>&lt;p&gt;As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment of it.&lt;/p&gt;&#xA;&lt;p&gt;If we draw the diagram of forces we&amp;rsquo;ll get:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/rope_force_diagram.png&#34; alt=&#34;Rope force diagram&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

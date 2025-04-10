@@ -3,21 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://musings.dcaro.es/</loc>
-    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</loc>
-    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
+    <loc>https://musings.dcaro.es/tags/maths/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/physics/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/waves/</loc>
+    <lastmod>2025-04-10T11:31:53+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</loc>
     <lastmod>2025-01-18T16:29:54+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/programming/</loc>
     <lastmod>2025-01-18T16:29:54+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/remarkable/</loc>
-    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2025-01-18T16:29:54+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/computer-science/</loc>
@@ -51,12 +63,6 @@
     <lastmod>2024-03-13T22:20:20+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</loc>
-    <lastmod>2024-03-13T22:20:20+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/maths/</loc>
-    <lastmod>2024-03-13T22:20:20+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/physics/</loc>
     <lastmod>2024-03-13T22:20:20+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</loc>

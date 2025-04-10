@@ -4,7 +4,7 @@
     <title>General relativity - Tensors, metrics and other creatures part II // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.141.0">
+    <meta name="generator" content="Hugo 0.145.0">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
@@ -87,15 +87,15 @@ $$ T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu
     </li>
     <li><a href="#curved-space">Curved space</a>
       <ol>
-        <li><a href="#riemann-manifoldshttpsenwikipediaorgwikiriemannian_manifold"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></a></li>
-        <li><a href="#christoffel-symbolhttpsenwikipediaorgwikichristoffel_symbols"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></a></li>
-        <li><a href="#covariant-derivativehttpsenwikipediaorgwikicovariant_derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></a></li>
-        <li><a href="#parallel-transporthttpsenwikipediaorgwikiparallel_transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></a></li>
-        <li><a href="#geodesicshttpsenwikipediaorgwikigeodesic"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></a></li>
-        <li><a href="#riemann-curvature-tensorhttpsenwikipediaorgwikiriemann_curvature_tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></a></li>
-        <li><a href="#bianchi-identitieshttpsenwikipediaorgwikicurvature_formbianchi_identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></a></li>
-        <li><a href="#ricci-tensor-and-scalarhttpsenwikipediaorgwikiricci_curvature"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></a></li>
-        <li><a href="#einstein-tensorhttpsenwikipediaorgwikieinstein_tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></a></li>
+        <li><a href="#riemann-manifolds"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></a></li>
+        <li><a href="#christoffel-symbol"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></a></li>
+        <li><a href="#covariant-derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></a></li>
+        <li><a href="#parallel-transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></a></li>
+        <li><a href="#geodesics"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></a></li>
+        <li><a href="#riemann-curvature-tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></a></li>
+        <li><a href="#bianchi-identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></a></li>
+        <li><a href="#ricci-tensor-and-scalar"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></a></li>
+        <li><a href="#einstein-tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></a></li>
       </ol>
     </li>
     <li><a href="#next-post-in-the-series">Next post in the series</a></li>
@@ -290,7 +290,7 @@ $$</p>
 </li>
 </ul>
 <h2 id="curved-space">Curved space</h2>
-<h3 id="riemann-manifoldshttpsenwikipediaorgwikiriemannian_manifold"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></h3>
+<h3 id="riemann-manifolds"><a href="https://en.wikipedia.org/wiki/Riemannian_manifold">Riemann manifolds</a></h3>
 <p>We introduced a manifold as a space that when looked closely resembles euclidean
 space. But we could think of it also as a set (of anything) that can be
 parametrized in a continuous way, of which the parameters are the coordinates,
@@ -319,7 +319,7 @@ g_{\alpha\beta}(P) = \eta_{\alpha\beta} \\
 g_{\alpha\beta,\gamma}(P) = 0 \\
 g_{\alpha\beta,\gamma\lambda}(P) \neq 0 \
 $$</p>
-<h3 id="christoffel-symbolhttpsenwikipediaorgwikichristoffel_symbols"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></h3>
+<h3 id="christoffel-symbol"><a href="https://en.wikipedia.org/wiki/Christoffel_symbols">Christoffel symbol</a></h3>
 <p>There&rsquo;s several things that get more complicated in a curved space, and one of
 them is the partial derivatives. These are very useful, but they are not
 tensorial, thus they can&rsquo;t be generalized to any coordinate system inside the
@@ -337,7 +337,7 @@ connect vectors from different tangent spaces in nearby points of the manifold
 $$</p>
 <p>Note that the Christoffel symbol is <strong>not</strong> a tensor, that&rsquo;s why it&rsquo;s called
 <em>symbol</em>.</p>
-<h3 id="covariant-derivativehttpsenwikipediaorgwikicovariant_derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></h3>
+<h3 id="covariant-derivative"><a href="https://en.wikipedia.org/wiki/Covariant_derivative">Covariant derivative</a></h3>
 <p>With the Christoffel symbol at hand, we can define a generalized version of the
 partial derivative, that will be a tensorial object (note the two different
 notations, some books will use one or the other). The covariant derivative for a
@@ -361,7 +361,7 @@ for each lower a negative one, so we can generalize it for any tensor:</p>
 + {T^{\rho\mu_2&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k}\Gamma^{\mu_1}_{\lambda\rho} + {T^{\mu_1\rho&hellip;\mu_j}}_{\nu_1\nu_2&hellip;\nu_k}\Gamma^{\mu_2}_{\lambda\rho} + &hellip; \\
 - {T^{\mu_1\mu_2&hellip;\mu_j}}_{\rho\nu_2&hellip;\nu_k}\Gamma^{\rho}_{\lambda\nu_1} - {T^{\mu_1\mu_2&hellip;\mu_j}}_{\nu_1\rho&hellip;\nu_k}\Gamma^{\rho}_{\lambda\nu_2} - &hellip;
 $$</p>
-<h3 id="parallel-transporthttpsenwikipediaorgwikiparallel_transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></h3>
+<h3 id="parallel-transport"><a href="https://en.wikipedia.org/wiki/Parallel_transport">Parallel transport</a></h3>
 <p>Now, in a curved manifold, the usual notion of parallel vectors loses meaning.
 To regain a more generic sense of parallelism, we will have to introduce what&rsquo;s
 called <strong>parallel transport</strong>, this takes advantage that we can still talk about
@@ -380,7 +380,7 @@ point $\vec{V}$:</p>
 $$</p>
 <p>Where the first two equalities depend on the coordinates chosen, but the last
 equality is a tensorial expression, valid on all basis.</p>
-<h3 id="geodesicshttpsenwikipediaorgwikigeodesic"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></h3>
+<h3 id="geodesics"><a href="https://en.wikipedia.org/wiki/Geodesic">Geodesics</a></h3>
 <p>Given the last equality in the parallel transport, we can define a new type of
 curves, the ones that are as &ldquo;straight&rdquo; as possible, by demanding that they
 parallel transport their own tangent vector. This is a generalization of a
@@ -397,7 +397,7 @@ conditions (position and direction), you get only one solution, a geodesic.
 Though you can define many different parameters $\lambda$ that solve this
 equation, but all of them will be linear transformations of each other, and all
 are called <strong>affine</strong> parameters.</p>
-<h3 id="riemann-curvature-tensorhttpsenwikipediaorgwikiriemann_curvature_tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></h3>
+<h3 id="riemann-curvature-tensor"><a href="https://en.wikipedia.org/wiki/Riemann_curvature_tensor">Riemann curvature tensor</a></h3>
 <p>Imagine now that we have a two curves that intersect, and we duplicate both of
 them creating two more curves very close to the original ones, giving a small
 &ldquo;square&rdquo;. And that we have a vector on one of the corners. If we parallel
@@ -448,7 +448,7 @@ R_{\mu\nu\rho\sigma} = -R_{\nu\mu\rho\sigma} = -R_{\mu\nu\sigma\rho} = R_{\sigma
 R_{\mu\nu\rho\sigma} + R_{\mu\sigma\nu\rho} + R_{\mu\rho\sigma\nu} = 0
 \end{align}
 $$</p>
-<h4 id="geodesic-deviationhttpsenwikipediaorgwikigeodesic_deviation"><a href="https://en.wikipedia.org/wiki/Geodesic_deviation">Geodesic deviation</a></h4>
+<h4 id="geodesic-deviation"><a href="https://en.wikipedia.org/wiki/Geodesic_deviation">Geodesic deviation</a></h4>
 <p>When you have two geodesics that start parallel in a curved space, they do not
 remain parallel in general, and the deviation of the two can be summarized with
 the <strong>geodesic deviation equation</strong> as follows:</p>
@@ -460,7 +460,7 @@ $$</p>
 <p>Where $T$ is the tangent vector of the geodesic and $X$ is the vector connecting
 one geodesic to the other at regular intervals of the affine parameter $\lambda$
 ($X^\mu = dx^\mu/d\lambda$).</p>
-<h3 id="bianchi-identitieshttpsenwikipediaorgwikicurvature_formbianchi_identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></h3>
+<h3 id="bianchi-identities"><a href="https://en.wikipedia.org/wiki/Curvature_form#Bianchi_identities">Bianchi identities</a></h3>
 <p>If we do the partial derivative of the Riemann tensor ($(2)$) with respect to
 $x^\lambda$, keeping the result in a local lorentz frame
 (${\Gamma^\mu}_{\nu\rho} = 0$), keeping in mind that
@@ -473,7 +473,7 @@ R_{\mu\nu\rho\sigma;\lambda} + R_{\mu\nu\lambda\rho;\sigma} + R_{\mu\nu\sigma\la
 $$</p>
 <p>This is the a tensor equation called <strong>Bianchi identities</strong>, and as such is
 valid in any system.</p>
-<h3 id="ricci-tensor-and-scalarhttpsenwikipediaorgwikiricci_curvature"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></h3>
+<h3 id="ricci-tensor-and-scalar"><a href="https://en.wikipedia.org/wiki/Ricci_curvature">Ricci tensor and scalar</a></h3>
 <p>When contracting the Riemann tensor on the first and thrird indices, we get the
 <strong>Ricci tensor</strong>:</p>
 <p>$$
@@ -488,7 +488,7 @@ $$</p>
 R = g^{\mu\nu}R_{\mu\nu} = g^{\mu\nu}g^{\rho\sigma}R_{\rho\mu\sigma\nu}
 \end{align}
 $$</p>
-<h3 id="einstein-tensorhttpsenwikipediaorgwikieinstein_tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></h3>
+<h3 id="einstein-tensor"><a href="https://en.wikipedia.org/wiki/Einstein_tensor">Einstein tensor</a></h3>
 <p>By using the Ricci contractions on the Bianchi identities twice, we end up with
 the
 <a href="https://en.wikipedia.org/wiki/Contracted_Bianchi_identities"><strong>twice-contacted Bianchi identities</strong></a>:</p>

@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Homelab // David&#39;s musings and ramblings.</title>
+    <title>One Dimensional Wave Equation // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.145.0">
@@ -16,17 +16,44 @@
     
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Homelab">
-  <meta name="twitter:description" content="Amateur yak shaver">
+  <meta name="twitter:title" content="One Dimensional Wave Equation">
+  <meta name="twitter:description" content="As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)
+Let’s imagine that we have a vibrating rope, and we chunk out a small fragment of it.
+If we draw the diagram of forces we’ll get:
+Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.">
 
-    <meta property="og:url" content="https://musings.dcaro.es/tags/homelab/">
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/">
   <meta property="og:site_name" content="David&#39;s musings and ramblings.">
-  <meta property="og:title" content="Homelab">
-  <meta property="og:description" content="Amateur yak shaver">
+  <meta property="og:title" content="One Dimensional Wave Equation">
+  <meta property="og:description" content="As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)
+Let’s imagine that we have a vibrating rope, and we chunk out a small fragment of it.
+If we draw the diagram of forces we’ll get:
+Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.">
   <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-10T11:31:53+02:00">
+    <meta property="article:modified_time" content="2025-04-10T11:31:53+02:00">
+    <meta property="article:tag" content="Physics">
+    <meta property="article:tag" content="Waves">
+    <meta property="article:tag" content="Maths">
 
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
 <link
   rel="alternate"
   type="application/rss+xml"
@@ -40,7 +67,7 @@
       <header class="app-header">
         <div class="header-contents">
           <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
-          <h2>Homelab</h2>
+          <h2>One Dimensional Wave Equation</h2>
           
           <nav id="TableOfContents"></nav> 
           
@@ -103,49 +130,85 @@
     
     <main class="app-container">
       
-  <article>
-    <h1>Homelab</h1>
-    <ul class="posts-list">
-      
-        <li class="posts-list-item">
-          <a class="posts-list-item-title" href="https://musings.dcaro.es/posts/2024-02-17-adding-usb-osd-to-rpi-ceph-cluster/">Adding USB Osd to Rpi Ceph Cluster</a>
-          <span class="posts-list-item-description">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">One Dimensional Wave Equation</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
   <title>calendar</title>
   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
 </svg>
-            Feb 17, 2024
-            -
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+          Apr 10, 2025
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
   <title>clock</title>
   <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
 </svg>
-            1 min read
-          </span>
-        </li>
-      
-        <li class="posts-list-item">
-          <a class="posts-list-item-title" href="https://musings.dcaro.es/posts/2023-04-17-running-envoy-on-rpi-4/">Starting envoy on Rpi 4 - recompiling a new kernel</a>
-          <span class="posts-list-item-description">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
-  <title>calendar</title>
-  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+          2 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
 </svg>
-            Apr 17, 2023
-            -
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
-  <title>clock</title>
-  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-</svg>
-            3 min read
-          </span>
-        </li>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/waves/">Waves</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)</p>
+<p>Let&rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment of it.</p>
+<p>If we draw the diagram of forces we&rsquo;ll get:</p>
+<p><img src="images/rope_force_diagram.png" alt="Rope force diagram"></p>
+<p>Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.</p>
+<p>Using Newton&rsquo;s second law, for $x$:
+$$
+\mu dx\frac{d^2x}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
+$$</p>
+<p>Now, for very small values of $d\theta\lt\lt\theta$, we can use Taylor&rsquo;s approximation around $d\theta = 0$:
+$$
+\sin{\left(\theta + d\theta\right)}
+\approxeq \sin{\theta} + \frac{d}{d\theta}\left[\sin{\left(\theta + d\theta\right)}\right]_{d\theta=0}d\theta + O(d\theta^2)
+= \sin{\theta} + \cos{\theta}d\theta + O(d\theta^2)
+$$</p>
+<p>Substituting back, we get:
+$$
+\mu dx\frac{d^2x}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
+$$</p>
+<p>Rearranging a bit:
+$$
+\frac{d^2x}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dx}
+$$</p>
+<p>For small $\theta$ approximation, we have $\cos{\theta} \approxeq 1$:
+$$
+\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dx}
+$$</p>
+<p>This is nice, but there&rsquo;s three variables here, let&rsquo;s try to get rid of $\theta$. With a bit of trigonometry, we can see that:
+$$
+\tan{d\theta} = \frac{dy}{dx}
+$$
+And again, doing Taylor approximation around $d\theta=0$, we get:
+$$
+\tan{d\theta} = \frac{dy}{dx} \approxeq d\theta
+$$</p>
+<p>Deriving with respect $x$ both sides:
+$$
+\frac{d^2y}{dx^2} = \frac{d\theta}{dx}
+$$</p>
+<p>And plugging this back to the equation from before, we end up with:
+$$
+\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv \frac{1}{c^2}\frac{d^2y}{dx}
+$$</p>
+<p>And this is our wave equation! \o/, where it&rsquo;s usually defined $c \equiv \sqrt{\frac{\mu}{T}}$ as the propagation velocity.</p>
+
+    </div>
+    <div class="post-footer">
       
-    </ul>
-    
-
-
-
+    </div>
   </article>
 
     </main>
