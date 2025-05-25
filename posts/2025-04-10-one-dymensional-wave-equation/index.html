@@ -4,7 +4,7 @@
     <title>One Dimensional Wave Equation // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.145.0">
+    <meta name="generator" content="Hugo 0.147.5">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
@@ -160,50 +160,56 @@ Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on th
       </div>
     </header>
     <div class="post-content">
-      <p>As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)</p>
-<p>Let&rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment of it.</p>
+      <p>As part of my Uni courses, I want to write down the basic derivation of the
+one-dimensional wave equation on a rope, just as an exercise for myself :)</p>
+<p>Let&rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment
+of it.</p>
 <p>If we draw the diagram of forces we&rsquo;ll get:</p>
 <p><img src="images/rope_force_diagram.png" alt="Rope force diagram"></p>
-<p>Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.</p>
-<p>Using Newton&rsquo;s second law, for $x$:
-$$
+<p>Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on
+the rope.</p>
+<p>Using Newton&rsquo;s second law, for $x$:</p>
+<p>$$
 \mu dx\frac{d^2x}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
 $$</p>
-<p>Now, for very small values of $d\theta\lt\lt\theta$, we can use Taylor&rsquo;s approximation around $d\theta = 0$:
-$$
+<p>Now, for very small values of $d\theta\lt\lt\theta$, we can use Taylor&rsquo;s
+approximation around $d\theta = 0$:</p>
+<p>$$
 \sin{\left(\theta + d\theta\right)}
 \approxeq \sin{\theta} + \frac{d}{d\theta}\left[\sin{\left(\theta + d\theta\right)}\right]_{d\theta=0}d\theta + O(d\theta^2)
 = \sin{\theta} + \cos{\theta}d\theta + O(d\theta^2)
 $$</p>
-<p>Substituting back, we get:
-$$
+<p>Substituting back, we get:</p>
+<p>$$
 \mu dx\frac{d^2x}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
 $$</p>
-<p>Rearranging a bit:
-$$
+<p>Rearranging a bit:</p>
+<p>$$
 \frac{d^2x}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dx}
 $$</p>
-<p>For small $\theta$ approximation, we have $\cos{\theta} \approxeq 1$:
-$$
+<p>For small $\theta$ approximation, we have $\cos{\theta} \approxeq 1$:</p>
+<p>$$
 \frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dx}
 $$</p>
-<p>This is nice, but there&rsquo;s three variables here, let&rsquo;s try to get rid of $\theta$. With a bit of trigonometry, we can see that:
-$$
+<p>This is nice, but there&rsquo;s three variables here, let&rsquo;s try to get rid of
+$\theta$. With a bit of trigonometry, we can see that:</p>
+<p>$$
 \tan{d\theta} = \frac{dy}{dx}
-$$
-And again, doing Taylor approximation around $d\theta=0$, we get:
-$$
+$$</p>
+<p>And again, doing Taylor approximation around $d\theta=0$, we get:</p>
+<p>$$
 \tan{d\theta} = \frac{dy}{dx} \approxeq d\theta
 $$</p>
-<p>Deriving with respect $x$ both sides:
-$$
+<p>Deriving with respect $x$ both sides:</p>
+<p>$$
 \frac{d^2y}{dx^2} = \frac{d\theta}{dx}
 $$</p>
-<p>And plugging this back to the equation from before, we end up with:
-$$
+<p>And plugging this back to the equation from before, we end up with:</p>
+<p>$$
 \frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv c^2\frac{d^2y}{dx}
 $$</p>
-<p>And this is our wave equation! \o/, where it&rsquo;s usually defined $c \equiv \sqrt{\frac{T}{\mu}}$ as the propagation velocity.</p>
+<p>And this is our wave equation! \o/, where it&rsquo;s usually defined
+$c \equiv \sqrt{\frac{T}{\mu}}$ as the propagation velocity.</p>
 
     </div>
     <div class="post-footer">

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Deriving the Damped and Forced Harmonic Equation // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.147.5">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Deriving the Damped and Forced Harmonic Equation">
+  <meta name="twitter:description" content="Similar to the previous post, this is an exercise I have to make sure I’m able to do in my sleep for Uni, so here’s a blog post in case I have to revisit how to do it. It’s not specially difficult, but there’s a couple tricks that I always get wrong, and practice makes perfect :)
+Differential equation The idea is to derive the solutions to the damped and forced single dimension harmonic vibration, for that we start, from Newton’s, to the equation:">
+
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/">
+  <meta property="og:site_name" content="David&#39;s musings and ramblings.">
+  <meta property="og:title" content="Deriving the Damped and Forced Harmonic Equation">
+  <meta property="og:description" content="Similar to the previous post, this is an exercise I have to make sure I’m able to do in my sleep for Uni, so here’s a blog post in case I have to revisit how to do it. It’s not specially difficult, but there’s a couple tricks that I always get wrong, and practice makes perfect :)
+Differential equation The idea is to derive the solutions to the damped and forced single dimension harmonic vibration, for that we start, from Newton’s, to the equation:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-25T10:35:04+02:00">
+    <meta property="article:modified_time" content="2025-05-25T10:35:04+02:00">
+    <meta property="article:tag" content="Physics">
+    <meta property="article:tag" content="Waves">
+    <meta property="article:tag" content="Maths">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://musings.dcaro.es//index.xml"
+  title="David&#39;s musings and ramblings."
+/>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Deriving the Damped and Forced Harmonic Equation</h2>
+          
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#differential-equation">Differential equation</a></li>
+    <li><a href="#homogeneous-solution">Homogeneous solution</a>
+      <ol>
+        <li><a href="#underdamped-omega_02---gamma2---0">Underdamped: $\omega_0^2 - \gamma^2  &gt; 0$</a></li>
+        <li><a href="#critically-damped-omega_02---gamma2--0">Critically damped: $\omega_0^2 - \gamma^2 = 0$</a></li>
+        <li><a href="#overdamped-omega_02---gamma2--0">Overdamped: $\omega_0^2 - \gamma^2 &lt; 0$</a></li>
+      </ol>
+    </li>
+    <li><a href="#particular-solution">Particular solution</a></li>
+    <li><a href="#summing-everything-up">Summing everything up</a></li>
+  </ol>
+</nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Deriving the Damped and Forced Harmonic Equation</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          May 25, 2025
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/waves/">Waves</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/maths/">Maths</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Similar to the previous post, this is an exercise I have to make sure I&rsquo;m able
+to do in my sleep for Uni, so here&rsquo;s a blog post in case I have to revisit how
+to do it. It&rsquo;s not specially difficult, but there&rsquo;s a couple tricks that I
+always get wrong, and practice makes perfect :)</p>
+<h2 id="differential-equation">Differential equation</h2>
+<p>The idea is to derive the solutions to the damped and forced single dimension
+harmonic vibration, for that we start, from Newton&rsquo;s, to the equation:</p>
+<p>$$
+m\ddot{x} + b\dot{x} + kx = F_0\cos{\left(\omega t + \phi\right)}
+$$</p>
+<p>Where $b$ is the damping coefficient (assumed linear), and
+$F_0\cos{\left(\omega t+\phi\right)}$ is the driving force, and $k$ is the
+&ldquo;equivalent spring&rdquo; constant.</p>
+<p>This is an ordinary second order differential equation, for which we can find
+the solutions by summing up the solution to the <strong>homogeneous</strong> equation, and
+one <strong>particular</strong> solution.</p>
+<h2 id="homogeneous-solution">Homogeneous solution</h2>
+<p>Let&rsquo;s start with the <strong>homogeneous</strong> equation:</p>
+<p>$$
+m\ddot{x} + b\dot{x} + kx = 0
+$$</p>
+<p>Let&rsquo;s re-shuffle this a bit to leave the $\ddot{x}$ multiplied by 1:</p>
+<p>$$
+\ddot{x} + \frac{b}{m}\dot{x} + \frac{k}{m}x = 0
+$$</p>
+<p>Now here we can replace the other two factors, by the identities
+$\omega_0^2 = \frac{k}{m}$, and $2\gamma=\frac{b}{m}$. $\omega_0$ is the natural
+frequency of the system, this is, the one it would have if it was a non-damped,
+non-forced harmonic vibration, some books start directly with this formula to
+avoid using $k$.</p>
+<p><strong>NOTE</strong>: in some books, they use $\gamma = \frac{b}{m}$</p>
+<p>So we end up with the equation:</p>
+<p>$$
+\ddot{x} + 2\gamma\dot{x} + \omega_0^2x = 0
+$$</p>
+<p>From here the characteristic equation is:</p>
+<p>$$
+r^2 + 2\gamma r + \omega_0^2 = 0
+$$</p>
+<p>That has solution:</p>
+<p>$$
+r = \frac{-\gamma \pm \sqrt{4\gamma^2 - 4\omega_0^2}}{2}
+$$</p>
+<p>Re-shuffling a bit:</p>
+<p>$$
+r = -\gamma \pm \sqrt{\gamma^2 - \omega_0^2}
+$$</p>
+<p>Using the definition $\omega_\gamma = \sqrt{\omega_0^2 - \gamma^2}$ we get the
+equation (note that to flip the terms inside $\sqrt&hellip;$, we have to extract
+$i$):</p>
+<p>$$
+r = -\gamma \pm i\omega_\gamma
+$$</p>
+<p>The solution to the differential equation will depend on the sign of
+$\omega_0^2 - \gamma^2$.</p>
+<p>Let&rsquo;s start with the hardest one :)</p>
+<h3 id="underdamped-omega_02---gamma2---0">Underdamped: $\omega_0^2 - \gamma^2  &gt; 0$</h3>
+<p>This means that the roots are two complex conjugate numbers
+$r_1 = \overline{r_2} \in\mathbb{C}$, and $\omega_\gamma \in \mathbb{R}$.
+Following up on that:</p>
+<p>$$
+\begin{align*}
+r_1 &amp;= -\gamma + i\sqrt{\omega_0^2 - \gamma^2} \\
+r_2 &amp;= -\gamma - i\sqrt{\omega_0^2 - \gamma^2} \\
+x_h(t) &amp;= C_1 e^{\left(-\gamma + i\omega_\gamma \right)t} \\
+&amp;+ C_2 e^{\left(-\gamma - i\omega_\gamma\right)t} \\
+x_h(t) &amp;= C_1 e^{-\gamma t}e^{i\omega_\gamma t} \\
+&amp;+ C_2 e^{-\gamma t}e^{-i\omega_\gamma t} \\
+\end{align*}
+$$</p>
+<p>Remembering Euler&rsquo;s identity:</p>
+<p>$$
+\begin{align*}
+Ae^{i\alpha} &amp;= A\cos{\alpha} + iA\sin{\alpha} \\
+x_h(t) &amp;= C_1 e^{-\gamma t}\left[
+\cos{\left(\omega_\gamma t\right)}
++ i\sin{\left(\omega_\gamma t\right)}
+\right] \\
+&amp;+ C_2 e^{-\gamma t}\left[
+\cos{\left(\omega_\gamma t\right)}
+- i\sin{\left(\omega_\gamma t\right)}
+\right] \\
+x_h(t) &amp;= e^{-\gamma t}\left[
+\left(C_1+C_2\right)\cos{\left(\omega_\gamma t\right)}
++ i\left(C_1-C_2\right)\sin{\left(\omega_\gamma t\right)}
+\right] \\
+\end{align*}
+$$</p>
+<p>Bear with me, now as $C_1 = a+bi;C_2= c+di\in\mathbb{C}$, we expand:</p>
+<p>$$
+\begin{align*}
+x_h(t) &amp;= e^{-\gamma t}\left[
+\left(a+c+i(b+d)\right)\cos{\left(\omega_\gamma t\right)}
++ i\left(a-c+i(b-d)\right)\sin{\left(\omega_\gamma t\right)}
+\right] \\
+x_h(t) &amp;= e^{-\gamma t}\left[
+\left(a+c\right)\cos{\left(\omega_\gamma t\right)}
++i(b+d)\cos{\left(\omega_\gamma t\right)}
++i\left(a-c\right)\sin{\left(\omega_\gamma t\right)}
+-\left(b-d\right)\sin{\left(\omega_\gamma t\right)}
+\right] \\
+x_h(t) &amp;= e^{-\gamma t}\left[
+\left(a+c\right)\cos{\left(\omega_\gamma t\right)}
++ \left(d-b\right)\sin{\left(\omega_\gamma t\right)}
++ i\left(
+\left(b+d\right)\cos{\left(\omega_\gamma t\right)}
++\left(a-c\right)\sin{\left(\omega_\gamma t\right)}
+\right)
+\right] \\
+\end{align*}
+$$</p>
+<p>So, as $a,b,c,d \in \mathbb{R}$, and as <strong>we only care about the real
+solutions</strong>, <strong>because we know that the solution we want is real</strong>, we can
+discard everything that&rsquo;s multiplied by $i$ from there. So if we declare
+$A=\left(a+c\right)$, and $B=\left(d-b\right)$, we get the formula that you&rsquo;d
+find in most textbooks:</p>
+<p>$$
+\begin{align*}
+x_h(t) &amp;= e^{-\gamma t}\left(
+A\cos{\left(\omega_\gamma t\right)}
++ B\sin{\left(\omega_\gamma t\right)}
+\right) \\
+\end{align*}
+$$</p>
+<p>Note that this is a harmonic oscillation that fades with time (multiplied by
+$e^{-\gamma t}$), where the exponential is the envelope.</p>
+<h3 id="critically-damped-omega_02---gamma2--0">Critically damped: $\omega_0^2 - \gamma^2 = 0$</h3>
+<p>This means that there&rsquo;s a double real root, $\omega_\gamma = 0$.</p>
+<p>$$
+r_1 = r_2 = -\gamma
+$$</p>
+<p>So we get the solution:</p>
+<p>$$
+x_h(t) = \left(C_1 + tC_2\right)e^{-\gamma t}
+$$</p>
+<p>This also fades with time, but it does not oscillate like the previous (no
+$\cos$ or $\sin$).</p>
+<h3 id="overdamped-omega_02---gamma2--0">Overdamped: $\omega_0^2 - \gamma^2 &lt; 0$</h3>
+<p>In this case, we have two real roots $r_1 \ne r_2 \in \mathbb{R}$, and
+$\omega_\gamma \in \mathbb{C}$:</p>
+<p>$$
+\begin{align*}
+r_1 &amp;= -\gamma + \sqrt{\gamma^2 - \omega_0^2} \\
+r_2 &amp;= -\gamma  - \sqrt{\gamma^2 - \omega_0^2} \\
+x_h(t) &amp;= C_1 e^{\left(-\gamma + \sqrt{\gamma^2 - \omega_0^2}\right)t} \\
+&amp;+ C_2 e^{\left(-\gamma - \sqrt{\gamma^2 - \omega_0^2}\right)t} \\
+\end{align*}
+$$</p>
+<p>Here, as $\gamma &gt; 0$, $\gamma^2 - \omega_0^2 &gt; 0$, and
+$\sqrt{\gamma^2 - \omega_0^2} &lt; \sqrt{\gamma^2} = \gamma$, we know that the
+exponent of $e$ is always negative, so both terms in the solution tend to 0 for
+$t\to\infty$.</p>
+<p>And there&rsquo;s also no oscillation, just like the critically damped, but we can
+guess from the terms that it tends to 0 less quickly than the critically damped
+solution.</p>
+<h2 id="particular-solution">Particular solution</h2>
+<p>So we have now our homogeneous solution (well, solutions, depending on the type
+of damping). Now we need a particular solution to the equation, this can be done
+in many ways, but let&rsquo;s try using the method of
+<a href="https://en.wikipedia.org/wiki/Method_of_undetermined_coefficients">undetermined coefficients</a>.</p>
+<p>Remembering the full differential equation is:</p>
+<p>$$
+m\ddot{x} + b\dot{x} + kx = F_0\cos{\left(\omega t + \phi\right)}
+$$</p>
+<p>We see that the right side $f(x) = F_0\cos{\left(\omega t + \phi\right)}$, at
+this point, we can go ahead or do a little trick to simplify the calculations.</p>
+<p>For oscillations, we can always think of the solution as the real part of an
+imaginary function. And in that case, we can also imagine the driving force as
+the real part of an imaginary function. If we do this, this allows us to do the
+change:</p>
+<p>$$
+\begin{align*}
+x_p(t) &amp;= \text{Re}(z(t))  = \text{Re}(Ae^{i\left(\omega t - \delta\right)})\\
+F_0\cos{\left(\omega t + \phi\right)} &amp;= \text{Re}(F_0e^{i\left(\omega t + \phi\right)}) \\
+\end{align*}
+$$</p>
+<p>Getting the derivatives:</p>
+<p>$$
+\begin{align*}
+\dot{z}(t) &amp;= i\omega Ae^{i\left(\omega t - \delta\right)} = i\omega z\\
+\ddot{z}(t) &amp;= -\omega^2 Ae^{i\left(\omega t - \delta\right)} = -\omega^2z\\
+\end{align*}
+$$</p>
+<p>Substituting in the differential equation:</p>
+<p>$$
+\begin{align*}
+m\ddot{z} + b\dot{z} + kz &amp;= F_0e^{i\left(\omega t + \phi\right)}\\
+-m\omega^2Ae^{i\left(\omega t - \delta\right)}
++ ib\omega Ae^{i\left(\omega t - \delta\right)}
++ k Ae^{i\left(\omega t - \delta\right)}
+&amp;= F_0e^{i\left(\omega t + \phi\right)}\\
+-m\omega^2A + ib\omega A + kA &amp;= F_0e^{i\left(\phi + \delta\right)}\\
+-m\omega^2A + ib\omega A + kA &amp;= F_0\left[\cos{\left(\phi + \delta\right)} + i\sin{\left(\phi + \delta\right)}\right]\\
+\end{align*}
+$$</p>
+<p>From here, we can separate the real and the imaginary parts of the complex
+numbers, leaving the equations:</p>
+<p>$$
+\begin{align*}
+-m\omega^2A + kA &amp;= F_0\cos{\left(\phi + \delta\right)} \\
+b\omega A &amp;= F_0\sin{\left(\phi + \delta\right)} \\
+\end{align*}
+$$</p>
+<p>Squaring and summing them, we get $A$:</p>
+<p>$$
+\begin{align*}
+\left(-m\omega^2 + k\right)^2A^2 + b^2\omega^2A^2 &amp;= F_0^2\left[
+\cos^2{\left(\phi + \delta\right)}
++ \sin^2{\left(\phi + \delta\right)}
+\right]\\
+\left(-m\omega^2 + k\right)^2A^2 + b^2\omega^2A^2 &amp;= F_0^2 \\
+A^2\left[\left(-m\omega^2 + k\right)^2 + b^2\omega^2\right] &amp;= F_0^2 \\
+A^2 &amp;= \frac{F_0^2}{\left(-m\omega^2 + k\right)^2 + b^2\omega^2} \\
+A &amp;= \sqrt{\frac{F_0^2}{\left(-m\omega^2 + k\right)^2 + b^2\omega^2}} \\
+A &amp;= \frac{F_0}{\sqrt{\left(k - m\omega^2 \right)^2 + b^2\omega^2}} \\
+\end{align*}
+$$</p>
+<p>Going back to the definitions of $\gamma = \frac{b}{m}$ and
+$\omega_0^2 = \frac{k}{m}$, we have:</p>
+<p>$$
+\begin{align*}
+A &amp;= \frac{F_0}{\sqrt{m\left(\omega_0^2-\omega^2 \right)^2 + b^2\omega^2}} \\
+A &amp;= \frac{\frac{F_0}{m}}{\sqrt{\left(\omega_0^2-\omega^2 \right)^2 + \gamma^2\omega^2}} \\
+\end{align*}
+$$</p>
+<p>And diving one with the other, we get the $\phi + \lambda$:</p>
+<p>$$
+\begin{align*}
+\frac{b\omega}{kA - m\omega^2A } &amp;= \tan{\left(\phi + \delta\right)} \\
+\left(\phi + \delta\right) &amp;=  \arctan{\left(\frac{b\omega}{kA - m\omega^2A }\right)} \\
+\delta &amp;=  \arctan{\left(\frac{b\omega}{k - m\omega^2 }\right)} - \phi \\
+\delta &amp;=  \arctan{\left(\frac{\gamma\omega}{\omega_0^2 - \omega^2 }\right)} - \phi \\
+\end{align*}
+$$</p>
+<p>So overall we get:</p>
+<p>$$
+\begin{align*}
+x_p(t) &amp;= A\cos{\left(\omega t + \delta\right)} \\
+\delta &amp;=  \arctan{\left(\frac{\gamma\omega}{\omega_0^2 - \omega^2 }\right)} - \phi \\
+A &amp;= \frac{\frac{F_0}{m}}{\sqrt{\left(\omega_0^2-\omega^2 \right)^2 + \gamma^2\omega^2}} \\
+\end{align*}
+$$</p>
+<p><strong>Note</strong> here that this solution does not tend to 0 when $t\to\infty$, but
+instead it&rsquo;s a harmonic vibration with the same frequency as the driving force,
+but with a delay of $\delta - \phi$ radians.</p>
+<h2 id="summing-everything-up">Summing everything up</h2>
+<p>So we end up with a solution with two parts:</p>
+<p>$$
+\begin{align*}
+x(t) &amp;= x_h(t) + x_p(t)
+\end{align*}
+$$</p>
+<p>One that fades with time, that is usually called <strong>transient</strong> (that&rsquo;s $x_h$),
+and one that remains, that is called <strong>stationary</strong> ($x_p$).</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+© 2023 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+    </footer>
+  </body>
+</html>
