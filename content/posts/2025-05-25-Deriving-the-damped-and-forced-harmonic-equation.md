@@ -313,7 +313,7 @@ $\omega_0^2 = \frac{k}{m}$, we have:
 
 $$
 \begin{align*}
-    A &= \frac{F_0}{\sqrt{m\left(\omega_0^2-\omega^2 \right)^2 + b^2\omega^2}} \\\\
+    A &= \frac{F_0}{\sqrt{m^2\left(\omega_0^2-\omega^2 \right)^2 + b^2\omega^2}} \\\\
     A &= \frac{\frac{F_0}{m}}{\sqrt{\left(\omega_0^2-\omega^2 \right)^2 + \gamma^2\omega^2}} \\\\
 \end{align*}
 $$
