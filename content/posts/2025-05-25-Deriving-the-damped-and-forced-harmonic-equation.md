@@ -164,6 +164,30 @@ $$
 \end{align*}
 $$
 
+This has two integration constants, $A$ and $B$, than we'll have to find out
+with the given boundary conditions.
+
+Another form of this fórmula, is grouping everything inside a single cosine, and
+having the amplitude and a phase as the integration constants.
+
+Given the identity:
+
+$$
+\begin{align*}
+    A\cos{\left(\omega t\right)} + B\sin{\left(\omega t\right)} = R\cos{\left(\omega t - \lambda\right)}\\\\
+    R = \sqrt{A^2+B^2} \\\\
+    \lambda = \arctan{\frac{A}{B}}
+\end{align*}
+$$
+
+Then we can rewrite the solution to get the shorter formula:
+
+$$
+x_h(t) = Ce^{-\gamma t}\cos{\left(\omega_\gamma t - \lambda\right)}
+$$
+
+Where now $C$ and $\lambda$ are to be resolved with boundary conditions.
+
 Note that this is a harmonic oscillation that fades with time (multiplied by
 $e^{-\gamma t}$), where the exponential is the envelope.
 
