@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sun, 25 May 2025 10:35:04 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 26 Oct 2025 12:15:50 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fixing Fonts for Vscode and Protonmail in sway (Electron Apps)</title>
+      <link>https://musings.dcaro.es/posts/2025-10-26-fixing-fonts-for-vscode-and-protonmail-electron-apps/</link>
+      <pubDate>Sun, 26 Oct 2025 12:15:50 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2025-10-26-fixing-fonts-for-vscode-and-protonmail-electron-apps/</guid>
+      <description>&lt;p&gt;Dropping this here as I have not found many places in the internet that note it.&lt;/p&gt;&#xA;&lt;p&gt;If you see blurry/when running an app based on chromium under sway window&#xA;manager (ex. electron apps, like protonmail or vscode), you might be able to fix&#xA;it by specifying the following option when starting your application:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;gt;$ code --ozone-platform&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;wayland path/to/mycode&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Not sure why that&amp;rsquo;s not detected by default, but don&amp;rsquo;t have the time or interest&#xA;right now to go investigate. There&amp;rsquo;s a bunch more info here:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Deriving the Damped and Forced Harmonic Equation</title>
       <link>https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/</link>
