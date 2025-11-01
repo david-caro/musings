@@ -7,8 +7,15 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sun, 26 Oct 2025 12:15:50 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 01 Nov 2025 18:17:10 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Planck&#39;s Radiation Law Notes</title>
+      <link>https://musings.dcaro.es/posts/2025-11-01-plank-radiation-law-notes/</link>
+      <pubDate>Sat, 01 Nov 2025 18:17:10 +0100</pubDate>
+      <guid>https://musings.dcaro.es/posts/2025-11-01-plank-radiation-law-notes/</guid>
+      <description>&lt;h1 id=&#34;plancks-radiation-law&#34;&gt;Planck&amp;rsquo;s radiation law&lt;/h1&gt;&#xA;&lt;p&gt;This law tells us the energy density of the radiation of a black body, given the&#xA;temperature of a black body, and usually one of the frequency of the light, or&#xA;it&amp;rsquo;s wavelength (&lt;a href=&#34;https://en.wikipedia.org/wiki/Planck%27s_law&#34;&gt;wiki page&lt;/a&gt;,&#xA;specially&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Planck%27s_law#Correspondence_between_spectral_variable_forms&#34;&gt;this section&lt;/a&gt;).&lt;/p&gt;&#xA;&lt;p&gt;When using the frequency, it can be written like:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\rho(\omega, T) = \frac{1}{\pi^2 c^3}\frac{\hbar \omega^3}{e^{\frac{\hbar \omega}{\kappa_B T}} - 1}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Now, sometimes it&amp;rsquo;s useful to have it depending on the wavelength instead of&#xA;$\omega$, but that transformation is not as simple as it would seem.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Fixing Fonts for Vscode and Protonmail in sway (Electron Apps)</title>
       <link>https://musings.dcaro.es/posts/2025-10-26-fixing-fonts-for-vscode-and-protonmail-electron-apps/</link>

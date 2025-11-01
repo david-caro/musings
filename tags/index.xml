@@ -7,8 +7,22 @@
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sun, 26 Oct 2025 12:15:50 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 01 Nov 2025 18:17:10 +0100</lastBuildDate>
     <atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Physics</title>
+      <link>https://musings.dcaro.es/tags/physics/</link>
+      <pubDate>Sat, 01 Nov 2025 18:17:10 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/physics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quantum Physics</title>
+      <link>https://musings.dcaro.es/tags/quantum-physics/</link>
+      <pubDate>Sat, 01 Nov 2025 18:17:10 +0100</pubDate>
+      <guid>https://musings.dcaro.es/tags/quantum-physics/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Protonmail</title>
       <link>https://musings.dcaro.es/tags/protonmail/</link>
@@ -35,13 +49,6 @@
       <link>https://musings.dcaro.es/tags/maths/</link>
       <pubDate>Sun, 25 May 2025 10:35:04 +0200</pubDate>
       <guid>https://musings.dcaro.es/tags/maths/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Physics</title>
-      <link>https://musings.dcaro.es/tags/physics/</link>
-      <pubDate>Sun, 25 May 2025 10:35:04 +0200</pubDate>
-      <guid>https://musings.dcaro.es/tags/physics/</guid>
       <description></description>
     </item>
     <item>
@@ -161,13 +168,6 @@
       <link>https://musings.dcaro.es/tags/python/</link>
       <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
       <guid>https://musings.dcaro.es/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Quantum Physics</title>
-      <link>https://musings.dcaro.es/tags/quantum-physics/</link>
-      <pubDate>Fri, 22 Dec 2023 11:17:27 +0100</pubDate>
-      <guid>https://musings.dcaro.es/tags/quantum-physics/</guid>
       <description></description>
     </item>
     <item>
