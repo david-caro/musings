@@ -9,7 +9,7 @@ title = "David's musings and ramblings."
 author = "David Caro"
 avatar = "/sudo_face.png"
 description = "Amateur yak shaver"
-custom_css = ["css/toc.css", "css/footer.css"]
+custom_css = ["css/toc.css", "css/footer.css", "css/tables.css"]
 
 [[params.social]]
 icon = "github"

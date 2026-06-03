@@ -1,0 +1,14 @@
+.post-content table {
+    border-collapse: collapse;
+    margin: 1em 0;
+}
+
+.post-content table th,
+.post-content table td {
+    border: 1px solid #888;
+    padding: 0.4em 0.8em;
+}
+
+.post-content table thead th {
+    background-color: rgba(0, 0, 0, 0.08);
+}
