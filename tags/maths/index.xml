@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Maths on David&#39;s musings and ramblings.</title>
-    <link>https://musings.dcaro.es/tags/maths/</link>
-    <description>Recent content in Maths on David&#39;s musings and ramblings.</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Sun, 25 May 2025 10:35:04 +0200</lastBuildDate>
-    <atom:link href="https://musings.dcaro.es/tags/maths/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Deriving the Damped and Forced Harmonic Equation</title>
-      <link>https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/</link>
-      <pubDate>Sun, 25 May 2025 10:35:04 +0200</pubDate>
-      <guid>https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/</guid>
-      <description>&lt;p&gt;Similar to the previous post, this is an exercise I have to make sure I&amp;rsquo;m able&#xA;to do in my sleep for Uni, so here&amp;rsquo;s a blog post in case I have to revisit how&#xA;to do it. It&amp;rsquo;s not specially difficult, but there&amp;rsquo;s a couple tricks that I&#xA;always get wrong, and practice makes perfect :)&lt;/p&gt;&#xA;&lt;h2 id=&#34;differential-equation&#34;&gt;Differential equation&lt;/h2&gt;&#xA;&lt;p&gt;The idea is to derive the solutions to the damped and forced single dimension&#xA;harmonic vibration, for that we start, from Newton&amp;rsquo;s, to the equation:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>One Dimensional Wave Equation</title>
-      <link>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</link>
-      <pubDate>Thu, 10 Apr 2025 11:31:53 +0200</pubDate>
-      <guid>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</guid>
-      <description>&lt;p&gt;As part of my Uni courses, I want to write down the basic derivation of the&#xA;one-dimensional wave equation on a rope, just as an exercise for myself :)&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment&#xA;of it.&lt;/p&gt;&#xA;&lt;p&gt;If we draw the diagram of forces we&amp;rsquo;ll get:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/rope_force_diagram.png&#34; alt=&#34;Rope force diagram&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on&#xA;the rope.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>General relativity - Tensors, metrics and other creatures part II</title>
-      <link>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</link>
-      <pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
-      <guid>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</guid>
-      <description>&lt;h2 id=&#34;previous-post-in-the-series&#34;&gt;Previous post in the series&lt;/h2&gt;&#xA;&lt;p&gt;If you did not check it out, the first part of this post is&#xA;&lt;a href=&#34;https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tensors-revisited&#34;&gt;Tensors, revisited&lt;/h2&gt;&#xA;&lt;h3 id=&#34;playing-with-tensors&#34;&gt;Playing with tensors&lt;/h3&gt;&#xA;&lt;p&gt;Some tensor definitions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_tensor&#34;&gt;Symmetric tensor&lt;/a&gt;: Is a&#xA;tensor in which the coordinates are the same by swapping any set of indices,&#xA;for the first two indices:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\nu\mu\rho}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For the last two:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For all of them:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu}&#xA;$$&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>General relativity - Tensors, metrics and other creatures part I</title>
-      <link>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</link>
-      <pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
-      <guid>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</guid>
-      <description>&lt;p&gt;Lately, I have started learning a bit about general relativity, and one of the&#xA;most basic concepts is a &lt;code&gt;tensor&lt;/code&gt;, in this post I&amp;rsquo;ll try to write down some&#xA;basic concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;some-definitions&#34;&gt;Some definitions&lt;/h2&gt;&#xA;&lt;p&gt;Note that all these definitions are of geometric entities that are independent&#xA;of the coordinates chosen to describe them. This will be very important as will&#xA;allow us to describe physics the same way independently of the coordinates and&#xA;generalize the results.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Maths on David&#39;s musings and ramblings.</title>
+		<link>https://musings.dcaro.es/tags/maths/</link>
+		<description>Recent content in Maths on David&#39;s musings and ramblings.</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+			<copyright>© David Caro 2024</copyright>
+		
+		
+			<lastBuildDate>Sun, 25 May 2025 10:35:04 +0200</lastBuildDate>
+		
+			<atom:link href="https://musings.dcaro.es/tags/maths/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Deriving the Damped and Forced Harmonic Equation</title>
+				<link>https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/</link>
+				<pubDate>Sun, 25 May 2025 10:35:04 +0200</pubDate>
+				<guid>https://musings.dcaro.es/posts/2025-05-25-deriving-the-damped-and-forced-harmonic-equation/</guid>
+				<description>&lt;p&gt;Similar to the previous post, this is an exercise I have to make sure I&amp;rsquo;m able&#xA;to do in my sleep for Uni, so here&amp;rsquo;s a blog post in case I have to revisit how&#xA;to do it. It&amp;rsquo;s not specially difficult, but there&amp;rsquo;s a couple tricks that I&#xA;always get wrong, and practice makes perfect :)&lt;/p&gt;&#xA;&lt;h2 id=&#34;differential-equation&#34;&gt;Differential equation&lt;/h2&gt;&#xA;&lt;p&gt;The idea is to derive the solutions to the damped and forced single dimension&#xA;harmonic vibration, for that we start, from Newton&amp;rsquo;s, to the equation:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>One Dimensional Wave Equation</title>
+				<link>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</link>
+				<pubDate>Thu, 10 Apr 2025 11:31:53 +0200</pubDate>
+				<guid>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</guid>
+				<description>&lt;p&gt;As part of my Uni courses, I want to write down the basic derivation of the&#xA;one-dimensional wave equation on a rope, just as an exercise for myself :)&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment&#xA;of it.&lt;/p&gt;&#xA;&lt;p&gt;If we draw the diagram of forces we&amp;rsquo;ll get:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/rope_force_diagram.png&#34; alt=&#34;Rope force diagram&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on&#xA;the rope.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>General relativity - Tensors, metrics and other creatures part II</title>
+				<link>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</link>
+				<pubDate>Wed, 13 Mar 2024 22:20:20 +0100</pubDate>
+				<guid>https://musings.dcaro.es/posts/2024-03-13-general-relativity-tensors-part-ii/</guid>
+				<description>&lt;h2 id=&#34;previous-post-in-the-series&#34;&gt;Previous post in the series&lt;/h2&gt;&#xA;&lt;p&gt;If you did not check it out, the first part of this post is&#xA;&lt;a href=&#34;https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tensors-revisited&#34;&gt;Tensors, revisited&lt;/h2&gt;&#xA;&lt;h3 id=&#34;playing-with-tensors&#34;&gt;Playing with tensors&lt;/h3&gt;&#xA;&lt;p&gt;Some tensor definitions:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Symmetric_tensor&#34;&gt;Symmetric tensor&lt;/a&gt;: Is a&#xA;tensor in which the coordinates are the same by swapping any set of indices,&#xA;for the first two indices:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\nu\mu\rho}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For the last two:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;For all of them:&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;T_{\mu\nu\rho} = T_{\mu\rho\nu} = T_{\rho\mu\nu} = T_{\rho\nu\mu} = T_{\nu\mu\rho} = T_{\nu\rho\mu}&#xA;$$&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>General relativity - Tensors, metrics and other creatures part I</title>
+				<link>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</link>
+				<pubDate>Mon, 19 Feb 2024 22:57:55 +0100</pubDate>
+				<guid>https://musings.dcaro.es/posts/2024-02-19-general-relativity---tensors-metrics-and-other-creatures-part-i/</guid>
+				<description>&lt;p&gt;Lately, I have started learning a bit about general relativity, and one of the&#xA;most basic concepts is a &lt;code&gt;tensor&lt;/code&gt;, in this post I&amp;rsquo;ll try to write down some&#xA;basic concepts.&lt;/p&gt;&#xA;&lt;h2 id=&#34;some-definitions&#34;&gt;Some definitions&lt;/h2&gt;&#xA;&lt;p&gt;Note that all these definitions are of geometric entities that are independent&#xA;of the coordinates chosen to describe them. This will be very important as will&#xA;allow us to describe physics the same way independently of the coordinates and&#xA;generalize the results.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

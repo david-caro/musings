@@ -4,7 +4,7 @@
     <title>Fooling around with the proc directory and network connections // David&#39;s musings and ramblings.</title>
     <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
     <meta charset="utf-8" />
-    <meta name="generator" content="Hugo 0.152.2">
+    <meta name="generator" content="Hugo 0.162.1">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="David Caro" />
     <meta name="description" content="" />
@@ -15,27 +15,27 @@
 
     
     
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Fooling around with the proc directory and network connections">
-  <meta name="twitter:description" content="Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Fooling around with the proc directory and network connections">
+	<meta name="twitter:description" content="Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
 This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it’s containers run as that user).
 To do so, I wrote a small golang script. Here’s some notes on trying to get that information.">
 
     <meta property="og:url" content="https://musings.dcaro.es/posts/2022-09-17-proc-directory-and-network-connections/">
-  <meta property="og:site_name" content="David&#39;s musings and ramblings.">
-  <meta property="og:title" content="Fooling around with the proc directory and network connections">
-  <meta property="og:description" content="Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
+	<meta property="og:site_name" content="David&#39;s musings and ramblings.">
+	<meta property="og:title" content="Fooling around with the proc directory and network connections">
+	<meta property="og:description" content="Lately I have been curious to try to know if certain linux users are accessing certain resources, in an effort to discover and expose dependencies between services.
 This users are actually the ones with which containers are being run with from k8s itself (in toolforge, each k8s user has a linux user, and it’s containers run as that user).
 To do so, I wrote a small golang script. Here’s some notes on trying to get that information.">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2022-09-17T12:01:53+02:00">
-    <meta property="article:modified_time" content="2022-09-17T12:01:53+02:00">
-    <meta property="article:tag" content="Golang">
-    <meta property="article:tag" content="Systems">
-    <meta property="article:tag" content="Network">
-    <meta property="article:tag" content="Netsnoop">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2022-09-17T12:01:53+02:00">
+		<meta property="article:modified_time" content="2022-09-17T12:01:53+02:00">
+		<meta property="article:tag" content="Golang">
+		<meta property="article:tag" content="Systems">
+		<meta property="article:tag" content="Network">
+		<meta property="article:tag" content="Netsnoop">
 
     
 <link
@@ -168,9 +168,9 @@ project, so I went with the network sniffing :)</p>
 <p>This was way easier than I though it would be, there&rsquo;s a module named
 <a href="https://pkg.go.dev/github.com/google/gopacket">gopacket</a> that provides a quite easy API to do so, that will give you a
 channel where you can extract packets from:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
@@ -199,7 +199,7 @@ channel where you can extract packets from:</p>
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">//...</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/google/gopacket&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/google/gopacket/layers&#34;</span>
@@ -229,7 +229,7 @@ channel where you can extract packets from:</p>
 </div>
 </div>
 <p>Then all you have to do is receive from that channel the packages:
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">select</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">packet</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">packetChannel</span>:
 </span></span><span style="display:flex;"><span>           <span style="color:#75715e">// do something</span>
@@ -243,11 +243,11 @@ associated with each.</p>
 <h1 id="how-does-ss-do-it">How does <code>ss</code> do it?</h1>
 <p>I was curious to check what the <code>ss</code> command (the successor of <code>netstat</code>) does to get that information, so I went and
 straced it xd</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ strace ss -tnp 2&gt;&amp;<span style="color:#ae81ff">1</span> 1&gt;/dev/null | vim -</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ strace ss -tnp 2&gt;&amp;<span style="color:#ae81ff">1</span> 1&gt;/dev/null | vim -</span></span></code></pre></div>
 <p>From there I was seeing that it&rsquo;s navigating the whole <code>/proc/&lt;pid&gt;</code> tree, and for each is checking the <code>fd</code>, and then
 doing a <code>readlink</code> on each of the entries, checking then where are they pointing too and using that info to get the
 sockets and ports:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>...  lots of permission denied, I was not root
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>...  lots of permission denied, I was not root
 </span></span><span style="display:flex;"><span>openat<span style="color:#f92672">(</span>AT_FDCWD, <span style="color:#e6db74">&#34;/proc/3105/fd/&#34;</span>, O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>readlink<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/proc/3105/fd/0&#34;</span>, <span style="color:#e6db74">&#34;/dev/null&#34;</span>, 63<span style="color:#f92672">)</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span>
@@ -268,7 +268,7 @@ the namespace of the current process, and that most probably does not include co
 namespace, including the ones not started by that process, so you still have to filter them out.</p>
 <p>So on a quick note, here&rsquo;s how many processes are there on each network namespace on a k8s node (looking directly into
 <code>/proc/&lt;pid&gt;/ns</code> as docker does not add an entry in the global <code>/var/run/netns</code>):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@tools-k8s-worker-32:~/netstnoop$ sudo ls -la /proc/*/ns/net | awk <span style="color:#e6db74">&#39;{print $11}&#39;</span> | sort | uniq -c | head
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dcaro@tools-k8s-worker-32:~/netstnoop$ sudo ls -la /proc/*/ns/net | awk <span style="color:#e6db74">&#39;{print $11}&#39;</span> | sort | uniq -c | head
 </span></span><span style="display:flex;"><span>ls: cannot read symbolic link <span style="color:#e6db74">&#39;/proc/17747/ns/net&#39;</span>: No such file or directory
 </span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">209</span> net:<span style="color:#f92672">[</span>4026531992<span style="color:#f92672">]</span>
@@ -312,7 +312,9 @@ exist anymore, giving the <code>No such file</code> error.</p>
     </main>
     <footer class="app-footer">
       <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
-© 2023 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+<link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/tables.css" />
+© 2026 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+
     </footer>
   </body>
 </html>

@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Electronic Configuration and Hund&#39;s Rules // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.162.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Electronic Configuration and Hund&#39;s Rules">
+	<meta name="twitter:description" content="When filling electrons into atomic orbitals, three rules govern how nature arranges them to minimise energy. These are Hund’s rules, and understanding them requires first revisiting quantum numbers and the Pauli exclusion principle.
+Quantum numbers Each electron in an atom is described by four quantum numbers:
+Principal quantum number $n = 1, 2, 3, \ldots$: determines the shell (energy level). Azimuthal (orbital) quantum number $\ell = 0, 1, \ldots, n-1$: determines the subshell shape. By convention: $\ell=0 \to s$, $\ell=1 \to p$, $\ell=2 \to d$, $\ell=3 \to f$. Magnetic quantum number $m_\ell = -\ell, \ldots, 0, \ldots, &#43;\ell$: gives the $2\ell &#43; 1$ orbital orientations within a subshell. Spin quantum number $m_s = &#43;\tfrac{1}{2}$ or $-\tfrac{1}{2}$: the two spin states of an electron. The Pauli exclusion principle states that no two electrons in the same atom can share all four quantum numbers. This is ultimately a consequence of electrons being fermions (particles with half-integer spin), whose many-body wavefunction must be antisymmetric under exchange.">
+
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2026-06-03-electronic-configuration-and-hunds-rules/">
+	<meta property="og:site_name" content="David&#39;s musings and ramblings.">
+	<meta property="og:title" content="Electronic Configuration and Hund&#39;s Rules">
+	<meta property="og:description" content="When filling electrons into atomic orbitals, three rules govern how nature arranges them to minimise energy. These are Hund’s rules, and understanding them requires first revisiting quantum numbers and the Pauli exclusion principle.
+Quantum numbers Each electron in an atom is described by four quantum numbers:
+Principal quantum number $n = 1, 2, 3, \ldots$: determines the shell (energy level). Azimuthal (orbital) quantum number $\ell = 0, 1, \ldots, n-1$: determines the subshell shape. By convention: $\ell=0 \to s$, $\ell=1 \to p$, $\ell=2 \to d$, $\ell=3 \to f$. Magnetic quantum number $m_\ell = -\ell, \ldots, 0, \ldots, &#43;\ell$: gives the $2\ell &#43; 1$ orbital orientations within a subshell. Spin quantum number $m_s = &#43;\tfrac{1}{2}$ or $-\tfrac{1}{2}$: the two spin states of an electron. The Pauli exclusion principle states that no two electrons in the same atom can share all four quantum numbers. This is ultimately a consequence of electrons being fermions (particles with half-integer spin), whose many-body wavefunction must be antisymmetric under exchange.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-06-03T12:00:00+01:00">
+		<meta property="article:modified_time" content="2026-06-03T12:00:00+01:00">
+		<meta property="article:tag" content="Physics">
+		<meta property="article:tag" content="Quantum Physics">
+		<meta property="article:tag" content="Chemistry">
+		<meta property="article:tag" content="Atomic Physics">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://musings.dcaro.es//index.xml"
+  title="David&#39;s musings and ramblings."
+/>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Electronic Configuration and Hund&#39;s Rules</h2>
+          
+          <nav id="TableOfContents">
+  <ol>
+    <li><a href="#quantum-numbers">Quantum numbers</a></li>
+    <li><a href="#the-aufbau-principle">The Aufbau principle</a></li>
+    <li><a href="#hunds-rules">Hund&rsquo;s rules</a>
+      <ol>
+        <li><a href="#rule-1-maximise-total-spin-s">Rule 1: Maximise total spin $S$</a></li>
+        <li><a href="#rule-2-maximise-total-orbital-angular-momentum-l">Rule 2: Maximise total orbital angular momentum $L$</a></li>
+        <li><a href="#rule-3-j-depends-on-subshell-filling">Rule 3: $J$ depends on subshell filling</a></li>
+        <li><a href="#spectroscopic-symbol">Spectroscopic symbol</a></li>
+      </ol>
+    </li>
+    <li><a href="#examples">Examples</a>
+      <ol>
+        <li><a href="#carbon-c-1s2-2s2-2p2">Carbon (C), $1s^2, 2s^2, 2p^2$</a></li>
+        <li><a href="#nitrogen-n-1s2-2s2-2p3">Nitrogen (N), $1s^2, 2s^2, 2p^3$</a></li>
+        <li><a href="#oxygen-o-1s2-2s2-2p4">Oxygen (O), $1s^2, 2s^2, 2p^4$</a></li>
+        <li><a href="#iron-fe-textar-3d6-4s2">Iron (Fe), $[\text{Ar}], 3d^6, 4s^2$</a></li>
+      </ol>
+    </li>
+    <li><a href="#ls-coupling-vs-jj-coupling">LS coupling vs jj coupling</a>
+      <ol>
+        <li><a href="#ls-coupling-russell-saunders">LS coupling (Russell-Saunders)</a></li>
+        <li><a href="#jj-coupling">jj coupling</a></li>
+        <li><a href="#why-spin-orbit-coupling-grows-with-z">Why spin-orbit coupling grows with $Z$</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Electronic Configuration and Hund&#39;s Rules</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 3, 2026
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          7 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/physics/">Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/quantum-physics/">Quantum Physics</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/chemistry/">Chemistry</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/atomic-physics/">Atomic Physics</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>When filling electrons into atomic orbitals, three rules govern how nature
+arranges them to minimise energy. These are
+<a href="https://en.wikipedia.org/wiki/Hund%27s_rules"><strong>Hund&rsquo;s rules</strong></a>, and
+understanding them requires first revisiting
+<a href="https://en.wikipedia.org/wiki/Quantum_number">quantum numbers</a> and the
+<a href="https://en.wikipedia.org/wiki/Pauli_exclusion_principle">Pauli exclusion principle</a>.</p>
+<h2 id="quantum-numbers">Quantum numbers</h2>
+<p>Each electron in an atom is described by four quantum numbers:</p>
+<ul>
+<li><strong><a href="https://en.wikipedia.org/wiki/Principal_quantum_number">Principal quantum number</a></strong>
+$n = 1, 2, 3, \ldots$: determines the shell (energy level).</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Azimuthal_quantum_number">Azimuthal (orbital) quantum number</a></strong>
+$\ell = 0, 1, \ldots, n-1$: determines the subshell shape. By convention:
+$\ell=0 \to s$, $\ell=1 \to p$, $\ell=2 \to d$, $\ell=3 \to f$.</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Magnetic_quantum_number">Magnetic quantum number</a></strong>
+$m_\ell = -\ell, \ldots, 0, \ldots, +\ell$: gives the $2\ell + 1$ orbital
+orientations within a subshell.</li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Spin_quantum_number">Spin quantum number</a></strong>
+$m_s = +\tfrac{1}{2}$ or $-\tfrac{1}{2}$: the two spin states of an electron.</li>
+</ul>
+<p>The <strong>Pauli exclusion principle</strong> states that no two electrons in the same atom
+can share all four quantum numbers. This is ultimately a consequence of
+electrons being <a href="https://en.wikipedia.org/wiki/Fermion">fermions</a> (particles
+with half-integer spin), whose many-body wavefunction must be antisymmetric
+under exchange.</p>
+<p>A subshell with quantum number $\ell$ has $2\ell + 1$ orbitals, and each orbital
+can hold at most 2 electrons (spin up and spin down), so the maximum occupancy
+of a subshell is $2(2\ell+1)$.</p>
+<table>
+	<thead>
+			<tr>
+					<th style="text-align: center">Subshell</th>
+					<th style="text-align: center">$\ell$</th>
+					<th style="text-align: center">Orbitals</th>
+					<th style="text-align: center">Max electrons</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td style="text-align: center">$s$</td>
+					<td style="text-align: center">0</td>
+					<td style="text-align: center">1</td>
+					<td style="text-align: center">2</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">$p$</td>
+					<td style="text-align: center">1</td>
+					<td style="text-align: center">3</td>
+					<td style="text-align: center">6</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">$d$</td>
+					<td style="text-align: center">2</td>
+					<td style="text-align: center">5</td>
+					<td style="text-align: center">10</td>
+			</tr>
+			<tr>
+					<td style="text-align: center">$f$</td>
+					<td style="text-align: center">3</td>
+					<td style="text-align: center">7</td>
+					<td style="text-align: center">14</td>
+			</tr>
+	</tbody>
+</table>
+<h2 id="the-aufbau-principle">The Aufbau principle</h2>
+<p>Before stating Hund&rsquo;s rules, recall the
+<a href="https://en.wikipedia.org/wiki/Aufbau_principle"><strong>Aufbau principle</strong></a>:
+subshells are filled in order of increasing energy. The approximate ordering is
+given by the $(n + \ell)$ rule
+(<a href="https://en.wikipedia.org/wiki/Aufbau_principle#Madelung_energy_ordering_rule">Madelung&rsquo;s rule</a>):
+lower $n + \ell$ first; when equal, lower $n$ first:</p>
+<p>$$
+1s \to 2s \to 2p \to 3s \to 3p \to 4s \to 3d \to 4p \to 5s \to 4d \to \ldots
+$$</p>
+<p>Hund&rsquo;s rules apply <em>within</em> a partially filled subshell once we start placing
+electrons into its degenerate orbitals.</p>
+<h2 id="hunds-rules">Hund&rsquo;s rules</h2>
+<h3 id="rule-1-maximise-total-spin-s">Rule 1: Maximise total spin $S$</h3>
+<blockquote>
+<p>For a given electron configuration, the term with the <strong>maximum total spin
+$S$</strong> (equivalently, the highest
+<a href="https://en.wikipedia.org/wiki/Multiplicity_(chemistry)">spin multiplicity</a>
+$2S+1$) has the lowest energy.</p>
+</blockquote>
+<p>Electrons with the same spin cannot occupy the same orbital (Pauli), so they end
+up in <em>different</em> orbitals and avoid each other spatially. This reduces
+electron-electron repulsion, lowering the energy. In practice this means: <strong>fill
+each orbital with one electron (all spin-up) before pairing any spins.</strong></p>
+<h3 id="rule-2-maximise-total-orbital-angular-momentum-l">Rule 2: Maximise total orbital angular momentum $L$</h3>
+<blockquote>
+<p>Among terms with the same $S$, the one with the <strong>largest total orbital
+angular momentum $L$</strong> has the lowest energy.</p>
+</blockquote>
+<p>Classically, electrons orbiting in the same direction avoid each other more
+effectively than electrons orbiting in opposite directions, so larger $L$ means
+less repulsion and lower energy.</p>
+<p>$L$ is obtained by combining the individual $m_\ell$ values:</p>
+<p>$$
+L = \left| \sum_i m_{\ell_i} \right|_{\text{max}}
+$$</p>
+<p>(More precisely, $L$ is the maximum value of the total $M_L = \sum_i m_{\ell_i}$
+over the valid assignments consistent with Pauli and with the $S$ from Rule 1.)</p>
+<h3 id="rule-3-j-depends-on-subshell-filling">Rule 3: $J$ depends on subshell filling</h3>
+<blockquote>
+<p>Given $S$ and $L$, the total angular momentum $J = |L - S|$ for a <strong>less than
+half-filled</strong> subshell, and $J = L + S$ for a <strong>more than half-filled</strong> (or
+exactly half-filled if $L \neq 0$) subshell.</p>
+</blockquote>
+<p>The total angular momentum $\mathbf{J} = \mathbf{L} + \mathbf{S}$ can range from
+$|L - S|$ to $L + S$ in integer steps. Rule 3 picks the ground-state $J$ based
+on the sign of the
+<a href="https://en.wikipedia.org/wiki/Spin%E2%80%93orbit_interaction">spin-orbit coupling</a>
+constant:</p>
+<ul>
+<li><strong>Less than half-filled</strong>: spin-orbit coupling is positive, so the state with
+<em>antiparallel</em> $\mathbf{L}$ and $\mathbf{S}$ (i.e., $J = |L-S|$) has the
+lowest energy.</li>
+<li><strong>More than half-filled</strong>: spin-orbit coupling is negative (the subshell can
+be thought of in terms of positive &ldquo;holes&rdquo;), so <em>parallel</em> alignment
+($J = L+S$) has the lowest energy.</li>
+<li><strong>Exactly half-filled</strong> with $L = 0$ (e.g., the $p^3$ or $d^5$
+configurations): $J = S$.</li>
+</ul>
+<h3 id="spectroscopic-symbol">Spectroscopic symbol</h3>
+<p>The <a href="https://en.wikipedia.org/wiki/Term_symbol">spectroscopic term symbol</a>
+summarising all three rules is written:</p>
+<p>$$
+{}^{2S+1}L_J
+$$</p>
+<p>where $L$ is denoted by a capital letter ($S, P, D, F, \ldots$ for
+$L = 0,1,2,3,\ldots$).</p>
+<h2 id="examples">Examples</h2>
+<h3 id="carbon-c-1s2-2s2-2p2">Carbon (C), $1s^2, 2s^2, 2p^2$</h3>
+<p>The two $2p$ electrons go into the three $p$ orbitals ($m_\ell = -1, 0, +1$).</p>
+<p><strong>Rule 1</strong>: maximise $S$. Place one electron per orbital, both spin-up:</p>
+<p>$$
+m_\ell: \quad \boxed{\uparrow} \quad \boxed{\uparrow} \quad \boxed{\phantom{\uparrow}}
+$$</p>
+<p>Total spin: $S = \tfrac{1}{2} + \tfrac{1}{2} = 1$, multiplicity $2S+1 = 3$
+(triplet).</p>
+<p><strong>Rule 2</strong>: maximise $L$. The maximum $M_L$ consistent with the above is
+$m_\ell = +1$ and $m_\ell = 0$, giving $M_L = 1$, so $L = 1$ ($P$ state).</p>
+<p><strong>Rule 3</strong>: subshell is less than half-filled ($2 &lt; 3$), so
+$J = |L - S| = |1-1| = 0$.</p>
+<p>Ground state of Carbon: ${}^3P_0$.</p>
+<h3 id="nitrogen-n-1s2-2s2-2p3">Nitrogen (N), $1s^2, 2s^2, 2p^3$</h3>
+<p>Three $2p$ electrons, one per orbital.</p>
+<p><strong>Rule 1</strong>: all spin-up gives $S = \tfrac{3}{2}$, multiplicity $4$ (quartet).</p>
+<p>$$
+m_\ell: \quad \boxed{\uparrow} \quad \boxed{\uparrow} \quad \boxed{\uparrow}
+$$</p>
+<p><strong>Rule 2</strong>: $M_L = (+1) + 0 + (-1) = 0$, so $L = 0$ ($S$ state).</p>
+<p><strong>Rule 3</strong>: half-filled, $L = 0$, so $J = S = \tfrac{3}{2}$.</p>
+<p>Ground state of Nitrogen: ${}^4S_{3/2}$.</p>
+<h3 id="oxygen-o-1s2-2s2-2p4">Oxygen (O), $1s^2, 2s^2, 2p^4$</h3>
+<p>Four $2p$ electrons, one subshell past half-filling.</p>
+<p><strong>Rule 1</strong>: three go in spin-up (one per orbital), the fourth must pair with one
+of them (spin-down):</p>
+<p>$$
+m_\ell: \quad \boxed{\uparrow\downarrow} \quad \boxed{\uparrow} \quad \boxed{\uparrow}
+$$</p>
+<p>Net $S = 1$, multiplicity $3$ (triplet).</p>
+<p><strong>Rule 2</strong>: the paired electron (at $m_\ell = +1$, say) contributes
+$+1 + (-1) = 0$ to $M_L$ with its partner; the remaining two contribute
+$0 + (-1) = -1$&hellip; but we want the maximum $M_L$. The best assignment puts the
+doubly occupied orbital at $m_\ell = -1$: $M_L = (-1-1) + 0 + 1 = -1$, i.e.,
+$|M_L|_\text{max} = 1$, giving $L = 1$ ($P$ state).</p>
+<p><strong>Rule 3</strong>: more than half-filled ($4 &gt; 3$), so $J = L + S = 1 + 1 = 2$.</p>
+<p>Ground state of Oxygen: ${}^3P_2$.</p>
+<h3 id="iron-fe-textar-3d6-4s2">Iron (Fe), $[\text{Ar}], 3d^6, 4s^2$</h3>
+<p>Six $3d$ electrons, five $d$ orbitals ($m_\ell = -2,-1,0,+1,+2$).</p>
+<p><strong>Rule 1</strong>: five spin-up, one pairing (spin-down) in the $m_\ell = -2$ orbital:</p>
+<p>$$
+m_\ell{:}; \boxed{\uparrow\downarrow}; \boxed{\uparrow}; \boxed{\uparrow}; \boxed{\uparrow}; \boxed{\uparrow}
+$$</p>
+<p>$S = 2$, multiplicity $5$ (quintet).</p>
+<p><strong>Rule 2</strong>: $M_L = (-2-2) + (-1) + 0 + 1 + 2 = -2$&hellip; again choosing to minimise
+cancellation: putting the extra electron at $m_\ell = +2$ gives
+$M_L = (2+2) + 1 + 0 + (-1) + (-2) = 2$, so $L = 2$ ($D$ state).</p>
+<p><strong>Rule 3</strong>: more than half-filled ($6 &gt; 5$), so $J = L + S = 2 + 2 = 4$.</p>
+<p>Ground state of Iron: ${}^5D_4$.</p>
+<h2 id="ls-coupling-vs-jj-coupling">LS coupling vs jj coupling</h2>
+<p>There&rsquo;s two main ways to couple angular momentum for multielectronic atoms,
+<a href="https://en.wikipedia.org/wiki/Angular_momentum_coupling#LS_coupling"><strong>LS coupling</strong></a>(also
+called Russell-Saunders coupling) and
+<a href="https://en.wikipedia.org/wiki/Angular_momentum_coupling#jj_coupling"><strong>jj coupling</strong></a>.
+The two schemes differ in which interactions are treated as dominant.</p>
+<h3 id="ls-coupling-russell-saunders">LS coupling (Russell-Saunders)</h3>
+<p>In LS coupling, electron-electron repulsion is much stronger than spin-orbit
+interaction. The hierarchy of interactions is:</p>
+<ol>
+<li><strong>Electron-electron repulsion</strong> couples the individual orbital angular
+momenta $\ell_i$ into a total $L$, and the individual spins $s_i$ into a
+total $S$.</li>
+<li><strong>Spin-orbit interaction</strong> (weaker) then couples $L$ and $S$ into the total
+$J$.</li>
+</ol>
+<p>This is the regime where Hund&rsquo;s rules apply. A good quantum number set is
+$(L, S, J, M_J)$, and term symbols ${}^{2S+1}L_J$ are meaningful.</p>
+<p>LS coupling works well for <strong>light atoms</strong> (roughly $Z \lesssim 30$). In these
+atoms, spin-orbit coupling is a small perturbation on top of the
+electron-electron structure.</p>
+<h3 id="jj-coupling">jj coupling</h3>
+<p>In jj coupling, spin-orbit interaction is much stronger than electron-electron
+repulsion. The hierarchy is reversed:</p>
+<ol>
+<li><strong>Spin-orbit interaction</strong> couples each electron&rsquo;s own $\ell_i$ and $s_i$
+into an individual $j_i = \ell_i + s_i$.</li>
+<li><strong>Residual electron-electron repulsion</strong> (weaker) then couples the individual
+$j_i$ into the total $J$.</li>
+</ol>
+<p>$L$ and $S$ are no longer good quantum numbers separately. The relevant set is
+the collection of individual $j_i$ values and the total $J$. States are labelled
+by $(j_1, j_2, \ldots)_J$ rather than by a term symbol.</p>
+<p>jj coupling describes <strong>heavy atoms</strong> (roughly $Z \gtrsim 60$), such as lead
+(Pb, $Z=82$) or bismuth (Bi, $Z=83$), where relativistic effects amplify
+spin-orbit coupling enormously.</p>
+<h3 id="why-spin-orbit-coupling-grows-with-z">Why spin-orbit coupling grows with $Z$</h3>
+<p>For a hydrogen-like ion the spin-orbit coupling constant scales as:</p>
+<p>$$
+\xi \propto \frac{Z^4}{n^3}
+$$</p>
+<p>where $n$ is the principal quantum number. Electron-electron repulsion scales
+only as $Z$ (shielded nuclear charge). So for large $Z$ the ratio
+$\xi / E_{\text{ee}}$ grows rapidly and spin-orbit coupling wins.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+<link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/tables.css" />
+© 2026 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+
+    </footer>
+  </body>
+</html>

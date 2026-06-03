@@ -1,20 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Chemistry on David&#39;s musings and ramblings.</title>
-    <link>https://musings.dcaro.es/tags/chemistry/</link>
-    <description>Recent content in Chemistry on David&#39;s musings and ramblings.</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <copyright>© David Caro 2024</copyright>
-    <lastBuildDate>Fri, 15 Mar 2024 20:59:24 +0100</lastBuildDate>
-    <atom:link href="https://musings.dcaro.es/tags/chemistry/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Book: What Is Life? ★★★☆☆</title>
-      <link>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</link>
-      <pubDate>Fri, 15 Mar 2024 20:59:24 +0100</pubDate>
-      <guid>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</guid>
-      <description>&lt;p&gt;For my birthday I got a bunch of books from the&#xA;&lt;a href=&#34;https://global.oup.com/academic/content/series/o/oxford-landmark-science-ols/&#34;&gt;oxford landmark science&lt;/a&gt;,&#xA;and this is the second one that I&amp;rsquo;ve read so far.&lt;/p&gt;&#xA;&lt;p&gt;In the book, the author introduces several of the main properties of life as we&#xA;know it:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complex: alive entities are really complex&lt;/li&gt;&#xA;&lt;li&gt;Purposeful: living things seem to follow a goal, birds build nests, parents&#xA;care for their offspring, etc.&lt;/li&gt;&#xA;&lt;li&gt;Dynamic: life is always moving, old cells are dying and new ones get created&#xA;all the time, it&amp;rsquo;s a bubbling non-stop.&lt;/li&gt;&#xA;&lt;li&gt;Diverse: life adapts, changes, and continues adapting. Change seems to be&#xA;inherent to all this process.&lt;/li&gt;&#xA;&lt;li&gt;Out of equilibrium: it seems that life, with all the dynamism and change,&#xA;creates systems that are quite far from energetic equilibrium as we understand&#xA;it, seemingly breaking the second law of thermodynamics.&lt;/li&gt;&#xA;&lt;li&gt;Chiral: there&amp;rsquo;s many molecules involved in life as we know it, that have a&#xA;&amp;ldquo;handedness&amp;rdquo; to them, like DNA, and for some reason, the vast majority of them&#xA;are only find with the same handedness in living beings, like amino-acids are&#xA;left handed, while sugars are right handed. But the question is, given that&#xA;the inorganic world is a mixture of both, why does the biological world become&#xA;homochiral?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The author then elucidates that in order to know what is life, we have to&#xA;understand it, understand how it happened. Now, &amp;ldquo;how it happened&amp;rdquo; gets divided&#xA;in two questions, one historical, and one a-historical:&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Chemistry on David&#39;s musings and ramblings.</title>
+		<link>https://musings.dcaro.es/tags/chemistry/</link>
+		<description>Recent content in Chemistry on David&#39;s musings and ramblings.</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+			<copyright>© David Caro 2024</copyright>
+		
+		
+			<lastBuildDate>Wed, 03 Jun 2026 12:00:00 +0100</lastBuildDate>
+		
+			<atom:link href="https://musings.dcaro.es/tags/chemistry/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Electronic Configuration and Hund&#39;s Rules</title>
+				<link>https://musings.dcaro.es/posts/2026-06-03-electronic-configuration-and-hunds-rules/</link>
+				<pubDate>Wed, 03 Jun 2026 12:00:00 +0100</pubDate>
+				<guid>https://musings.dcaro.es/posts/2026-06-03-electronic-configuration-and-hunds-rules/</guid>
+				<description>&lt;p&gt;When filling electrons into atomic orbitals, three rules govern how nature&#xA;arranges them to minimise energy. These are&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Hund%27s_rules&#34;&gt;&lt;strong&gt;Hund&amp;rsquo;s rules&lt;/strong&gt;&lt;/a&gt;, and&#xA;understanding them requires first revisiting&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Quantum_number&#34;&gt;quantum numbers&lt;/a&gt; and the&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Pauli_exclusion_principle&#34;&gt;Pauli exclusion principle&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;quantum-numbers&#34;&gt;Quantum numbers&lt;/h2&gt;&#xA;&lt;p&gt;Each electron in an atom is described by four quantum numbers:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Principal_quantum_number&#34;&gt;Principal quantum number&lt;/a&gt;&lt;/strong&gt;&#xA;$n = 1, 2, 3, \ldots$: determines the shell (energy level).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Azimuthal_quantum_number&#34;&gt;Azimuthal (orbital) quantum number&lt;/a&gt;&lt;/strong&gt;&#xA;$\ell = 0, 1, \ldots, n-1$: determines the subshell shape. By convention:&#xA;$\ell=0 \to s$, $\ell=1 \to p$, $\ell=2 \to d$, $\ell=3 \to f$.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Magnetic_quantum_number&#34;&gt;Magnetic quantum number&lt;/a&gt;&lt;/strong&gt;&#xA;$m_\ell = -\ell, \ldots, 0, \ldots, +\ell$: gives the $2\ell + 1$ orbital&#xA;orientations within a subshell.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Spin_quantum_number&#34;&gt;Spin quantum number&lt;/a&gt;&lt;/strong&gt;&#xA;$m_s = +\tfrac{1}{2}$ or $-\tfrac{1}{2}$: the two spin states of an electron.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Pauli exclusion principle&lt;/strong&gt; states that no two electrons in the same atom&#xA;can share all four quantum numbers. This is ultimately a consequence of&#xA;electrons being &lt;a href=&#34;https://en.wikipedia.org/wiki/Fermion&#34;&gt;fermions&lt;/a&gt; (particles&#xA;with half-integer spin), whose many-body wavefunction must be antisymmetric&#xA;under exchange.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Book: What Is Life? ★★★☆☆</title>
+				<link>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</link>
+				<pubDate>Fri, 15 Mar 2024 20:59:24 +0100</pubDate>
+				<guid>https://musings.dcaro.es/posts/2024-03-15-book---what-is-life/</guid>
+				<description>&lt;p&gt;For my birthday I got a bunch of books from the&#xA;&lt;a href=&#34;https://global.oup.com/academic/content/series/o/oxford-landmark-science-ols/&#34;&gt;oxford landmark science&lt;/a&gt;,&#xA;and this is the second one that I&amp;rsquo;ve read so far.&lt;/p&gt;&#xA;&lt;p&gt;In the book, the author introduces several of the main properties of life as we&#xA;know it:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Complex: alive entities are really complex&lt;/li&gt;&#xA;&lt;li&gt;Purposeful: living things seem to follow a goal, birds build nests, parents&#xA;care for their offspring, etc.&lt;/li&gt;&#xA;&lt;li&gt;Dynamic: life is always moving, old cells are dying and new ones get created&#xA;all the time, it&amp;rsquo;s a bubbling non-stop.&lt;/li&gt;&#xA;&lt;li&gt;Diverse: life adapts, changes, and continues adapting. Change seems to be&#xA;inherent to all this process.&lt;/li&gt;&#xA;&lt;li&gt;Out of equilibrium: it seems that life, with all the dynamism and change,&#xA;creates systems that are quite far from energetic equilibrium as we understand&#xA;it, seemingly breaking the second law of thermodynamics.&lt;/li&gt;&#xA;&lt;li&gt;Chiral: there&amp;rsquo;s many molecules involved in life as we know it, that have a&#xA;&amp;ldquo;handedness&amp;rdquo; to them, like DNA, and for some reason, the vast majority of them&#xA;are only find with the same handedness in living beings, like amino-acids are&#xA;left handed, while sugars are right handed. But the question is, given that&#xA;the inorganic world is a mixture of both, why does the biological world become&#xA;homochiral?&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The author then elucidates that in order to know what is life, we have to&#xA;understand it, understand how it happened. Now, &amp;ldquo;how it happened&amp;rdquo; gets divided&#xA;in two questions, one historical, and one a-historical:&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
