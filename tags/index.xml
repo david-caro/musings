@@ -12,9 +12,23 @@
 			<copyright>© David Caro 2024</copyright>
 		
 		
-			<lastBuildDate>Wed, 03 Jun 2026 12:00:00 +0100</lastBuildDate>
+			<lastBuildDate>Thu, 04 Jun 2026 10:18:38 +0200</lastBuildDate>
 		
 			<atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Computer Science</title>
+				<link>https://musings.dcaro.es/tags/computer-science/</link>
+				<pubDate>Thu, 04 Jun 2026 10:18:38 +0200</pubDate>
+				<guid>https://musings.dcaro.es/tags/computer-science/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Remarkable</title>
+				<link>https://musings.dcaro.es/tags/remarkable/</link>
+				<pubDate>Thu, 04 Jun 2026 10:18:38 +0200</pubDate>
+				<guid>https://musings.dcaro.es/tags/remarkable/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Atomic Physics</title>
 				<link>https://musings.dcaro.es/tags/atomic-physics/</link>
@@ -83,20 +97,6 @@
 				<link>https://musings.dcaro.es/tags/programming/</link>
 				<pubDate>Sat, 18 Jan 2025 16:29:54 +0100</pubDate>
 				<guid>https://musings.dcaro.es/tags/programming/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Remarkable</title>
-				<link>https://musings.dcaro.es/tags/remarkable/</link>
-				<pubDate>Sat, 18 Jan 2025 16:29:54 +0100</pubDate>
-				<guid>https://musings.dcaro.es/tags/remarkable/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Computer Science</title>
-				<link>https://musings.dcaro.es/tags/computer-science/</link>
-				<pubDate>Sun, 27 Oct 2024 16:37:53 +0100</pubDate>
-				<guid>https://musings.dcaro.es/tags/computer-science/</guid>
 				<description></description>
 			</item>
 			<item>

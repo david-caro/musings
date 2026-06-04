@@ -12,9 +12,16 @@
 			<copyright>© David Caro 2024</copyright>
 		
 		
-			<lastBuildDate>Sat, 18 Jan 2025 16:29:54 +0100</lastBuildDate>
+			<lastBuildDate>Thu, 04 Jun 2026 10:18:38 +0200</lastBuildDate>
 		
 			<atom:link href="https://musings.dcaro.es/tags/remarkable/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Restoring ReMarkable Pro on Linux</title>
+				<link>https://musings.dcaro.es/posts/2026-06-04-restoring-remarkable-pro-on-linux/</link>
+				<pubDate>Thu, 04 Jun 2026 10:18:38 +0200</pubDate>
+				<guid>https://musings.dcaro.es/posts/2026-06-04-restoring-remarkable-pro-on-linux/</guid>
+				<description>&lt;p&gt;Today I borked my remarkable pro tablet by trying to set a passcode. Right after&#xA;confirming the passcode it rebooted and got in a reboot loop (my guess, it tried&#xA;to encrypt the disk and something failed or timed out, and then the reboot was&#xA;unable to go through).&lt;/p&gt;&#xA;&lt;p&gt;In any case, trying to recover it is not straightforward as reMarkable does not&#xA;officially support Linux. However, I did find a way to get it working again.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Installing ReMarkable Desktop on Fedora 41</title>
 				<link>https://musings.dcaro.es/posts/2025-01-18-installing-remarkable-desktop-on-fedora-41/</link>

@@ -3,13 +3,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://musings.dcaro.es/tags/computer-science/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/remarkable/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/posts/2026-06-04-restoring-remarkable-pro-on-linux/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
+    <loc>https://musings.dcaro.es/tags/</loc>
+    <lastmod>2026-06-04T10:18:38+02:00</lastmod>
+  </url><url>
     <loc>https://musings.dcaro.es/tags/atomic-physics/</loc>
     <lastmod>2026-06-03T12:00:00+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/chemistry/</loc>
-    <lastmod>2026-06-03T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/</loc>
     <lastmod>2026-06-03T12:00:00+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2026-06-03-electronic-configuration-and-hunds-rules/</loc>
@@ -18,13 +33,7 @@
     <loc>https://musings.dcaro.es/tags/physics/</loc>
     <lastmod>2026-06-03T12:00:00+01:00</lastmod>
   </url><url>
-    <loc>https://musings.dcaro.es/posts/</loc>
-    <lastmod>2026-06-03T12:00:00+01:00</lastmod>
-  </url><url>
     <loc>https://musings.dcaro.es/tags/quantum-physics/</loc>
-    <lastmod>2026-06-03T12:00:00+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/</loc>
     <lastmod>2026-06-03T12:00:00+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/posts/2025-11-01-plank-radiation-law-notes/</loc>
@@ -59,12 +68,6 @@
   </url><url>
     <loc>https://musings.dcaro.es/tags/programming/</loc>
     <lastmod>2025-01-18T16:29:54+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/remarkable/</loc>
-    <lastmod>2025-01-18T16:29:54+01:00</lastmod>
-  </url><url>
-    <loc>https://musings.dcaro.es/tags/computer-science/</loc>
-    <lastmod>2024-10-27T16:37:53+01:00</lastmod>
   </url><url>
     <loc>https://musings.dcaro.es/tags/gdb/</loc>
     <lastmod>2024-10-27T16:37:53+01:00</lastmod>

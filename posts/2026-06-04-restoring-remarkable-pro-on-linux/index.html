@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Restoring ReMarkable Pro on Linux // David&#39;s musings and ramblings.</title>
+    <link rel="shortcut icon" href="https://musings.dcaro.es/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.162.1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Caro" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://musings.dcaro.es/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css" />
+    
+    
+    <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/toc.css" />
+
+    
+    
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Restoring ReMarkable Pro on Linux">
+	<meta name="twitter:description" content="Today I borked my remarkable pro tablet by trying to set a passcode. Right after confirming the passcode it rebooted and got in a reboot loop (my guess, it tried to encrypt the disk and something failed or timed out, and then the reboot was unable to go through).
+In any case, trying to recover it is not straightforward as reMarkable does not officially support Linux. However, I did find a way to get it working again.">
+
+    <meta property="og:url" content="https://musings.dcaro.es/posts/2026-06-04-restoring-remarkable-pro-on-linux/">
+	<meta property="og:site_name" content="David&#39;s musings and ramblings.">
+	<meta property="og:title" content="Restoring ReMarkable Pro on Linux">
+	<meta property="og:description" content="Today I borked my remarkable pro tablet by trying to set a passcode. Right after confirming the passcode it rebooted and got in a reboot loop (my guess, it tried to encrypt the disk and something failed or timed out, and then the reboot was unable to go through).
+In any case, trying to recover it is not straightforward as reMarkable does not officially support Linux. However, I did find a way to get it working again.">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-06-04T10:18:38+02:00">
+		<meta property="article:modified_time" content="2026-06-04T10:18:38+02:00">
+		<meta property="article:tag" content="Computer Science">
+		<meta property="article:tag" content="Remarkable">
+
+    
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  href="https://musings.dcaro.es//index.xml"
+  title="David&#39;s musings and ramblings."
+/>
+
+
+  </head>
+  <body>
+      <header class="app-header">
+        <div class="header-contents">
+          <a href="https://musings.dcaro.es/"><img class="app-header-avatar" src="https://musings.dcaro.es/sudo_face.png" alt="David Caro" /></a>
+          <h2>Restoring ReMarkable Pro on Linux</h2>
+          
+          <nav id="TableOfContents"></nav> 
+          
+          <nav class="app-header-menu">
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/">Home</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/tags">Tags</a>
+                 - 
+              
+              <a class="app-header-menu-item" href="https://musings.dcaro.es/about">About</a>
+          </nav>
+        </div>
+        <div class="app-header-social">
+          
+            <a href="https://github.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>My Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.com/david-caro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>My Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gitlab.wikimedia.org/dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-gitlab">
+  <title>Work Gilab</title>
+  <path d="M22.65 14.39L12 22.13 1.35 14.39a.84.84 0 0 1-.3-.94l1.22-3.78 2.44-7.51A.42.42 0 0 1 4.82 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.49h8.1l2.44-7.51A.42.42 0 0 1 18.6 2a.43.43 0 0 1 .58 0 .42.42 0 0 1 .11.18l2.44 7.51L23 13.45a.84.84 0 0 1-.35.94z"></path>
+</svg>
+            </a>
+          
+            <a href="https://gerrit.wikimedia.org/r/q/author:dcaro" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-link">
+  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+</svg>
+            </a>
+          
+            <a href="https://twitter.com/dcaroest" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>My Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+            </a>
+          
+            <a href="https://www.linkedin.com/in/davidcaroestevez" target="_blank" rel="noreferrer noopener">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-linkedin">
+  <title>My Linkedin</title>
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle>
+</svg>
+            </a>
+          
+        </div>
+      </header>
+    
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Restoring ReMarkable Pro on Linux</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jun 4, 2026
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          3 min read
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://musings.dcaro.es/tags/computer-science/">Computer Science</a>
+              <a class="tag" href="https://musings.dcaro.es/tags/remarkable/">Remarkable</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <p>Today I borked my remarkable pro tablet by trying to set a passcode. Right after
+confirming the passcode it rebooted and got in a reboot loop (my guess, it tried
+to encrypt the disk and something failed or timed out, and then the reboot was
+unable to go through).</p>
+<p>In any case, trying to recover it is not straightforward as reMarkable does not
+officially support Linux. However, I did find a way to get it working again.</p>
+<p>First of all, you have to <strong>make sure the remarkable is charged</strong>, for that you
+have to plug it into a laptop usb for say 30min (socket chargers might just
+ignore it if it does not have enough charge already, learn that the hard way).</p>
+<p>Run the following script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># See https://developer.remarkable.com/documentation/recovery-for-linux-host</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -o errexit
+</span></span><span style="display:flex;"><span>set -o nounset
+</span></span><span style="display:flex;"><span>set -o pipefail
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PAPER_PRO_VENDOR_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1fc9:0134&#34;</span>
+</span></span><span style="display:flex;"><span>RECOVER_TOOL_DEST_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/bin/rm_recover&#34;</span>
+</span></span><span style="display:flex;"><span>RECOVERY_TOOL_URL_PREFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://device-recovery.cloud.remarkable.com/host/&#34;</span>
+</span></span><span style="display:flex;"><span>RECOVERY_TOOL_URL_POSTFIX<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/x86_64-unknown-linux-gnu-public/bin/rm_recover&#34;</span>
+</span></span><span style="display:flex;"><span>KNOWN_VERSION<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.14.1&#34;</span>
+</span></span><span style="display:flex;"><span>KNOWN_SHA<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;2e835990e57737b2c780be7660608cf1eed22a9d87a0014656a2ef0a20b14662&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>get_latest_version<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local version_data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        major_version <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        minor_version <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        patch_version
+</span></span><span style="display:flex;"><span>    version_data<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>rm_recover check-version | grep <span style="color:#e6db74">&#39;Latest release&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    major_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=major: )[^,]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    minor_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=minor: )[^,]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    patch_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=patch: )[^ }]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$major_version<span style="color:#e6db74">.</span>$minor_version<span style="color:#e6db74">.</span>$patch_version<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>get_current_version<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local version_data <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        major_version <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        minor_version <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span>        patch_version
+</span></span><span style="display:flex;"><span>    version_data<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>rm_recover check-version | grep <span style="color:#e6db74">&#39;This version&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    major_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=major: )[^,]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    minor_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=minor: )[^,]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    patch_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$version_data<span style="color:#e6db74">&#34;</span>| grep -o -P <span style="color:#e6db74">&#39;(?&lt;=patch: )[^ }]*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$major_version<span style="color:#e6db74">.</span>$minor_version<span style="color:#e6db74">.</span>$patch_version<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>check_in_development_mode<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    lsusb | grep -q <span style="color:#e6db74">&#34;</span>$PAPER_PRO_VENDOR_ID<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>download_recovery_tool<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1?No version passed<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    local sha<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Downloading recovery tool...&#34;</span>
+</span></span><span style="display:flex;"><span>    curl <span style="color:#e6db74">&#34;</span>$RECOVERY_TOOL_URL_PREFIX$version$RECOVERY_TOOL_URL_POSTFIX<span style="color:#e6db74">&#34;</span> -o <span style="color:#e6db74">&#34;</span>$RECOVER_TOOL_DEST_PATH<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    sha256sum rm_recover | grep -q <span style="color:#e6db74">&#34;</span>$sha<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">||</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        cat <span style="color:#e6db74">&lt;&lt;EOH
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">ERROR: Failed to verify the download of the recovery tool, maybe the sha changed?
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">You can try checking the webpage for updates
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">     https://developer.remarkable.com/documentation/recovery-for-linux-host
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Got downloaded tool sha:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$(sha256sum rm_recover)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">Expected tool sha:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">$sha
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOH</span>
+</span></span><span style="display:flex;"><span>        exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>install<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    local version<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>1<span style="color:#66d9ef">:-</span>$KNOWN_VERSION<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    local sha<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2<span style="color:#66d9ef">:-</span><span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    download_recovery_tool <span style="color:#e6db74">&#34;</span>$version<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$sha<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    chmod u+x rm_recover
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Downloading uuu and other tools, the recovery tool will fail this first time&#34;</span>
+</span></span><span style="display:flex;"><span>    rm_recover restore 2&gt;/dev/null 1&gt;&amp;2<span style="color:#f92672">||</span> :
+</span></span><span style="display:flex;"><span>    artifacts_dir<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>rm_recover artifacts | grep <span style="color:#e6db74">&#39;Artifacts dir: &#39;</span> | grep -o <span style="color:#e6db74">&#39;/.*&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;\n\nGot artifacts in </span>$artifacts_dir<span style="color:#e6db74">, adding uuu to the path&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">[[</span> -f /usr/local/bin/uuu <span style="color:#f92672">]]</span> <span style="color:#f92672">||</span> sudo ln -s <span style="color:#e6db74">&#34;</span>$artifacts_dir<span style="color:#e6db74">/uuu&#34;</span> /usr/local/bin/uuu
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Remarkable tools installed.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ! command -v rm_recover; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        install <span style="color:#e6db74">&#34;</span>$KNOWN_VERSION<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$KNOWN_SHA<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Using already installed rm_recover&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Checking for updates&#34;</span>
+</span></span><span style="display:flex;"><span>    latest_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>get_latest_version<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    current_version<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>get_current_version<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$latest_version<span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span>$current_version<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Found a newer version, want to upgrade it? [y/n]&#34;</span>
+</span></span><span style="display:flex;"><span>        read response
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$response<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span>~ ^<span style="color:#f92672">[</span>yY<span style="color:#f92672">]</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;Upgrading to </span>$latest_version<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>            install <span style="color:#e6db74">&#34;</span>$latest_version<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;   already in the latest version </span>$current_version<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sudo <span style="color:#66d9ef">$(</span>which rm_recover<span style="color:#66d9ef">)</span> <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>This will download the latest version of the official linux client (only
+available from the development forums), and set it up.</p>
+<p>Note that this does not setup the udev rules for you to be able to restore your
+remarkable as a regular user, for that you can check
+<a href="https://developer.remarkable.com/documentation/recovery-for-linux-host">this page</a>.</p>
+<p>With that I was able to reset to factory my remarkable and save me the trouble
+of having to either find a windows/macos machine, or send my device to get
+replaced.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+    <footer class="app-footer">
+      <link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/footer.css" />
+<link rel="stylesheet" type="text/css" href="https://musings.dcaro.es/css/tables.css" />
+© 2026 This work is openly licensed via <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+
+    </footer>
+  </body>
+</html>
