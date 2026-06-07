@@ -27,7 +27,7 @@
 				<link>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</link>
 				<pubDate>Thu, 10 Apr 2025 11:31:53 +0200</pubDate>
 				<guid>https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/</guid>
-				<description>&lt;p&gt;As part of my Uni courses, I want to write down the basic derivation of the&#xA;one-dimensional wave equation on a rope, just as an exercise for myself :)&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment&#xA;of it.&lt;/p&gt;&#xA;&lt;p&gt;If we draw the diagram of forces we&amp;rsquo;ll get:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/rope_force_diagram.png&#34; alt=&#34;Rope force diagram&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on&#xA;the rope.&lt;/p&gt;</description>
+				<description>&lt;p&gt;As part of my Uni courses, I want to write down the basic derivation of the&#xA;one-dimensional wave equation on a rope, just as an exercise for myself :)&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s imagine that we have a vibrating rope, and we chunk out a small fragment&#xA;of it.&lt;/p&gt;&#xA;&lt;p&gt;If we draw the diagram of forces we&amp;rsquo;ll get:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;images/rope_force_diagram.png&#34; alt=&#34;Rope force diagram&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Where $\mu = dm/dl \approxeq dm/dy$ is the density, and $T$ is the tension on&#xA;the rope.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>

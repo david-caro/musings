@@ -316,14 +316,14 @@ and define it as a multi-linear mapping, from 0 or more one-forms ($T^*$), and
 T : T^{*}_1 \times &hellip; \times T^{*}_k \times T_1 \times &hellip; \times T_l \rightarrow F
 $$</p>
 <p>We will say that the tensor if of rank (or type) $(k, l)$, where $k$ is the
-number of one-forms, and $l$ the number of vectors it maps.</p>
+number of vectors, and $l$ the number of one-forms it maps.</p>
 <p>We can show the multi-linearity with the following equality for a $(1,1)$
 tensor:</p>
 <p>$$
 T(a\omega + b\eta, cV + dW) = acT(\omega, V) + adT(\omega, W) + bcT(\eta, V) + bdT(\eta, W)
 $$</p>
 <h3 id="tensor-product-and-tensor-vector-space">Tensor product and tensor vector space</h3>
-<p>We can defined the tensor product of two tensors, $T$ of rank $(k, l)$, and S of
+<p>We can define the tensor product of two tensors, $T$ of rank $(k, l)$, and S of
 rank $(m, n)$:</p>
 <p>$$
 T \otimes S (\omega^{(1)}, &hellip;, \omega^{(k)}, &hellip;, \omega^{(k+m)}, V^{(1}, &hellip;, V^{(l)}, &hellip;, V^{(l+n)})
@@ -350,10 +350,10 @@ few we will look into in the future:</p>
 <p>$(0, 0)$: this would be just <strong>a scalar</strong>.</p>
 </li>
 <li>
-<p>$(0, 1)$: this is any vector, like <strong>velocity</strong>.</p>
+<p>$(1, 0)$: this is any vector, like <strong>velocity</strong>.</p>
 </li>
 <li>
-<p>$(1, 0)$: this is any one-form, a common one-form would be <strong>the gradient</strong> of
+<p>$(0, 1)$: this is any one-form, a common one-form would be <strong>the gradient</strong> of
 a scalar (in several notations):
 $$
 d\phi=\frac{\partial{\phi}}{\partial{x_\mu}}\hat\theta_\mu

@@ -20,7 +20,7 @@
 	<meta name="twitter:description" content="As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)
 Let’s imagine that we have a vibrating rope, and we chunk out a small fragment of it.
 If we draw the diagram of forces we’ll get:
-Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.">
+Where $\mu = dm/dl \approxeq dm/dy$ is the density, and $T$ is the tension on the rope.">
 
     <meta property="og:url" content="https://musings.dcaro.es/posts/2025-04-10-one-dymensional-wave-equation/">
 	<meta property="og:site_name" content="David&#39;s musings and ramblings.">
@@ -28,7 +28,7 @@ Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on th
 	<meta property="og:description" content="As part of my Uni courses, I want to write down the basic derivation of the one-dimensional wave equation on a rope, just as an exercise for myself :)
 Let’s imagine that we have a vibrating rope, and we chunk out a small fragment of it.
 If we draw the diagram of forces we’ll get:
-Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on the rope.">
+Where $\mu = dm/dl \approxeq dm/dy$ is the density, and $T$ is the tension on the rope.">
 	<meta property="og:locale" content="en_us">
 	<meta property="og:type" content="article">
 		<meta property="article:section" content="posts">
@@ -166,11 +166,11 @@ one-dimensional wave equation on a rope, just as an exercise for myself :)</p>
 of it.</p>
 <p>If we draw the diagram of forces we&rsquo;ll get:</p>
 <p><img src="images/rope_force_diagram.png" alt="Rope force diagram"></p>
-<p>Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on
+<p>Where $\mu = dm/dl \approxeq dm/dy$ is the density, and $T$ is the tension on
 the rope.</p>
-<p>Using Newton&rsquo;s second law, for $x$:</p>
+<p>Using Newton&rsquo;s second law, for $y$:</p>
 <p>$$
-\mu dx\frac{d^2x}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
+\mu dy\frac{d^2y}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
 $$</p>
 <p>Now, for very small values of $d\theta\lt\lt\theta$, we can use Taylor&rsquo;s
 approximation around $d\theta = 0$:</p>
@@ -181,15 +181,15 @@ approximation around $d\theta = 0$:</p>
 $$</p>
 <p>Substituting back, we get:</p>
 <p>$$
-\mu dx\frac{d^2x}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
+\mu dy\frac{d^2y}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
 $$</p>
 <p>Rearranging a bit:</p>
 <p>$$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dy}
 $$</p>
 <p>For small $\theta$ approximation, we have $\cos{\theta} \approxeq 1$:</p>
 <p>$$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dy}
 $$</p>
 <p>This is nice, but there&rsquo;s three variables here, let&rsquo;s try to get rid of
 $\theta$. With a bit of trigonometry, we can see that:</p>
@@ -206,7 +206,7 @@ $$</p>
 $$</p>
 <p>And plugging this back to the equation from before, we end up with:</p>
 <p>$$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv c^2\frac{d^2y}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv c^2\frac{d^2y}{dx}
 $$</p>
 <p>And this is our wave equation! \o/, where it&rsquo;s usually defined
 $c \equiv \sqrt{\frac{T}{\mu}}$ as the propagation velocity.</p>

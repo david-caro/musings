@@ -17,7 +17,7 @@
     
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="Quantum Physics - Harmonic Oscillator 1d">
-	<meta name="twitter:description" content="Harmonic oscillatoa This time let’s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+	<meta name="twitter:description" content="Harmonic oscillator This time let’s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
 In a classical frictionless harmonic oscillator, we had the force (Hooke’s law):
 $$ F = -kx = m\frac{d^2x}{dt^2} $$
 The solution for this is (as we saw in the infinite well):
@@ -26,7 +26,7 @@ $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$">
     <meta property="og:url" content="https://musings.dcaro.es/posts/2023-12-21-quantum-physics-harmonic-oscillator-1d/">
 	<meta property="og:site_name" content="David&#39;s musings and ramblings.">
 	<meta property="og:title" content="Quantum Physics - Harmonic Oscillator 1d">
-	<meta property="og:description" content="Harmonic oscillatoa This time let’s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
+	<meta property="og:description" content="Harmonic oscillator This time let’s give a look at the harmonic oscillator. This is a very useful case, as most curved potentials can be aproximated at their local minimums as harmonic oscillators.
 In a classical frictionless harmonic oscillator, we had the force (Hooke’s law):
 $$ F = -kx = m\frac{d^2x}{dt^2} $$
 The solution for this is (as we saw in the infinite well):
@@ -74,7 +74,7 @@ $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$">
           
           <nav id="TableOfContents">
   <ol>
-    <li><a href="#harmonic-oscillatoa">Harmonic oscillatoa</a></li>
+    <li><a href="#harmonic-oscillator">Harmonic oscillator</a></li>
     <li><a href="#raising-and-lowering-operators">Raising and lowering operators</a></li>
     <li><a href="#plots">Plots</a></li>
   </ol>
@@ -170,7 +170,7 @@ $$ x(t) = A\sin{\omega t} &#43; B\cos{\omega t} $$">
       </div>
     </header>
     <div class="post-content">
-      <h2 id="harmonic-oscillatoa">Harmonic oscillatoa</h2>
+      <h2 id="harmonic-oscillator">Harmonic oscillator</h2>
 <p>This time let&rsquo;s give a look at the harmonic oscillator. This is a very useful
 case, as most curved potentials can be aproximated at their local minimums as
 harmonic oscillators.</p>
@@ -193,7 +193,7 @@ V(x) = \frac{1}{2}m\omega^2x^2
 $$</p>
 <p>With this, we end up with the time-independent Schrödinger equation:</p>
 <p>$$
--\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2\psi = E\psi
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2x^2\psi = E\psi
 $$</p>
 <p>Now, this can be solved analytically (change of variable + power of series, &hellip;)
 or using a slick fancy method using the <strong>raising</strong> and <strong>lowering</strong> operators.</p>
@@ -208,8 +208,8 @@ with energy $E$, then $\hat{a}_\pm\psi$ also satisfies it with energy
 $E \pm \hbar\omega$.</p>
 <p>Essentially:</p>
 <p>$$\hat{H}(\hat{a_\pm} \psi) = (E \pm \hbar\omega)(\hat{a}_\pm \psi)$$</p>
-<p>There has to be a lower boundary though, as $E\nless 0$, this is:
-$$\hbar{a}_-\psi_0 = 0$$</p>
+<p>There has to be a lower boundary though, as $E\gt 0$, this is:
+$$\hat{a}_-\psi_0 = 0$$</p>
 <p>This gives:</p>
 <p>$$
 \psi_0(x) = \left(\frac{m\omega}{\pi\hbar}\right)^\frac{1}{4}e^{-\frac{m\omega}{2\hbar}x^2}
@@ -221,11 +221,11 @@ $$</p>
 <p>And now, given a lower boundary state (<strong>ground state</strong>), we can generate the
 rest of the states by just applying the <strong>raising</strong> operator:</p>
 <p>$$
-\psi_1 = \hbar{a}_+\psi_0
+\psi_1 = \hat{a}_+\psi_0
 $$</p>
 <p>Giving the generic:</p>
 <p>$$
-\psi_n(x) = C_n(\hbar{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,&hellip;
+\psi_n(x) = C_n(\hat{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,&hellip;
 $$</p>
 <p>Where $C_n$ are normalization coefficients that after some extra work
 normalizing some of the states, we end up with:</p>
