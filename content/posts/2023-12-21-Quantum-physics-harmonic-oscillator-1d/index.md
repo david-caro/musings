@@ -5,7 +5,7 @@ tags: [physics, "quantum physics", "jupyter notebook", python]
 math: true
 ---
 
-## Harmonic oscillatoa
+## Harmonic oscillator
 
 This time let's give a look at the harmonic oscillator. This is a very useful
 case, as most curved potentials can be aproximated at their local minimums as
@@ -39,7 +39,7 @@ $$
 With this, we end up with the time-independent Schrödinger equation:
 
 $$
--\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2\psi = E\psi
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + \frac{1}{2}m\omega^2x^2\psi = E\psi
 $$
 
 Now, this can be solved analytically (change of variable + power of series, ...)
@@ -63,8 +63,8 @@ Essentially:
 
 $$\hat{H}(\hat{a_\pm} \psi) = (E \pm \hbar\omega)(\hat{a}_\pm \psi)$$
 
-There has to be a lower boundary though, as $E\nless 0$, this is:
-$$\hbar{a}_-\psi_0 = 0$$
+There has to be a lower boundary though, as $E\gt 0$, this is:
+$$\hat{a}_-\psi_0 = 0$$
 
 This gives:
 
@@ -82,13 +82,13 @@ And now, given a lower boundary state (**ground state**), we can generate the
 rest of the states by just applying the **raising** operator:
 
 $$
-\psi_1 = \hbar{a}_+\psi_0
+\psi_1 = \hat{a}_+\psi_0
 $$
 
 Giving the generic:
 
 $$
-\psi_n(x) = C_n(\hbar{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,...
+\psi_n(x) = C_n(\hat{a}_+)^n\psi_0(x), \hspace{0.5cm}\text{with}\hspace{0.5cm} E_n = \left(n+\frac{1}{2}\right)\hbar\omega\hspace{.5cm}\text{and }n = 1,2,3,...
 $$
 
 Where $C_n$ are normalization coefficients that after some extra work

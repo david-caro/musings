@@ -98,7 +98,7 @@ And some operations:
   indices:
   $$
   {T_{(\nu_1\nu_2...\nu_{n})\mu}}^{\rho}
-  = \frac{1}{!n}\left(
+  = \frac{1}{n!}\left(
   {T_{\nu_1\nu_2...\nu_{n}\mu}}^{\rho} + {T_{\nu_2\nu_1...\nu_{n}\mu}}^{\rho} + ...
   \right)
   $$
@@ -107,7 +107,7 @@ And some operations:
   antisymmetrized indices:
   $$
   {T_{[\nu_1\nu_2...\nu_{n}]\mu}}^{\rho}
-  = \frac{1}{!n}\left(
+  = \frac{1}{n!}\left(
   {T_{\nu_1\nu_2\nu_3...\nu_{n}\mu}}^{\rho} - {T_{\nu_2\nu_1\nu_3...\nu_{n}\mu}}^{\rho} + {T_{\nu_2\nu_3\nu_1...\nu_{n}\mu}}^{\rho} ...
   \right)
   $$
@@ -244,7 +244,7 @@ $$
 T^\mu = \frac{dx^\mu}{d\lambda} \\\\
 T^\nu\frac{\partial}{\partial{x^\nu}} = \frac{d}{d\lambda} \\\\
 T^\mu{T^\nu}\_{;\mu} = 0 \quad \text{; parallel transport of T} \\\\
-\frac{d}{d\lambda}\left(\frac{dx^\mu}{d\lambda}\right) + {\Gamma^\mu}_{\rho\nu}\frac{dx^\rho}{d\lambda}\frac{dx^\mu}{d\lambda} = 0
+\frac{d}{d\lambda}\left(\frac{dx^\mu}{d\lambda}\right) + {\Gamma^\mu}_{\rho\nu}\frac{dx^\rho}{d\lambda}\frac{dx^\nu}{d\lambda} = 0
 $$
 
 And this last formula is called the **geodesic formula**. Given a set of initial

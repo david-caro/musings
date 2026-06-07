@@ -20,7 +20,6 @@ generalize the results.
   informally define as a set of elements and two operations that given two
   elements of the set, return another one, being those operations addition and
   multiplication, with some properties:
-
   - Associativity:
     - $a + (b + c) = (a + b) + c$
     - $a*( b*c )=( a * b)*c$
@@ -52,7 +51,6 @@ generalize the results.
   This is, similar to a field, it's a non-empty set of vectors, one binary
   operation, vector addition, $V\times V \rightarrow V$, that has the following
   properties (using arrows for vectors to avoid confusing them with scalars):
-
   - Associativity:
     $\vec{i} + (\vec{j} + \vec{k}) = (\vec{i} + \vec{j}) + \vec{k}$
   - Commutativity: $\vec{i} + \vec{j} = \vec{j} + \vec{i}$
@@ -63,7 +61,6 @@ generalize the results.
 
   And a binary function (scalar multiplication, $F\times V\rightarrow V$), with
   the properties:
-
   - Compatibility with scalar multiplication: $(ab)\vec{v} = a(b\vec{v})$
   - Identity: $1\vec{v}=\vec{v}$
   - Distributive with respective of vector addition:
@@ -121,7 +118,7 @@ T : T^{\*}_1 \times ... \times T^{\*}_k \times T_1 \times ... \times T_l \righta
 $$
 
 We will say that the tensor if of rank (or type) $(k, l)$, where $k$ is the
-number of one-forms, and $l$ the number of vectors it maps.
+number of vectors, and $l$ the number of one-forms it maps.
 
 We can show the multi-linearity with the following equality for a $(1,1)$
 tensor:
@@ -132,7 +129,7 @@ $$
 
 ### Tensor product and tensor vector space
 
-We can defined the tensor product of two tensors, $T$ of rank $(k, l)$, and S of
+We can define the tensor product of two tensors, $T$ of rank $(k, l)$, and S of
 rank $(m, n)$:
 
 $$
@@ -164,8 +161,8 @@ There's a bunch of examples, here's a few that we have introduced already and a
 few we will look into in the future:
 
 - $(0, 0)$: this would be just **a scalar**.
-- $(0, 1)$: this is any vector, like **velocity**.
-- $(1, 0)$: this is any one-form, a common one-form would be **the gradient** of
+- $(1, 0)$: this is any vector, like **velocity**.
+- $(0, 1)$: this is any one-form, a common one-form would be **the gradient** of
   a scalar (in several notations):
   $$
   d\phi=\frac{\partial{\phi}}{\partial{x_\mu}}\hat\theta_\mu

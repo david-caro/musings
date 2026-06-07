@@ -171,7 +171,7 @@ $$
 And giving us the $00$ component of the metric:
 
 $$
-g\_{00} = (2\Phi - 1)
+g\_{00} = -(1 + 2\Phi)
 $$
 
 ## Searching for the field equations

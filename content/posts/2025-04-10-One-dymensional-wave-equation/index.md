@@ -16,13 +16,13 @@ If we draw the diagram of forces we'll get:
 
 ![Rope force diagram](images/rope_force_diagram.png)
 
-Where $\mu = dm/dl \approxeq dm/dx$ is the density, and $T$ is the tension on
+Where $\mu = dm/dl \approxeq dm/dy$ is the density, and $T$ is the tension on
 the rope.
 
-Using Newton's second law, for $x$:
+Using Newton's second law, for $y$:
 
 $$
-\mu dx\frac{d^2x}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
+\mu dy\frac{d^2y}{dt^2} = T\sin{\left(\theta + d\theta\right)} - T\sin{\theta}
 $$
 
 Now, for very small values of $d\theta\lt\lt\theta$, we can use Taylor's
@@ -37,19 +37,19 @@ $$
 Substituting back, we get:
 
 $$
-\mu dx\frac{d^2x}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
+\mu dy\frac{d^2y}{dt^2} = T\sin{\theta} + T\cos{\theta}d\theta - T\sin{\theta} = T\cos{\theta}d\theta
 $$
 
 Rearranging a bit:
 
 $$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\cos{\theta}\frac{d\theta}{dy}
 $$
 
 For small $\theta$ approximation, we have $\cos{\theta} \approxeq 1$:
 
 $$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\frac{d\theta}{dy}
 $$
 
 This is nice, but there's three variables here, let's try to get rid of
@@ -74,7 +74,7 @@ $$
 And plugging this back to the equation from before, we end up with:
 
 $$
-\frac{d^2x}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv c^2\frac{d^2y}{dx}
+\frac{d^2y}{dt^2} = \frac{T}{\mu}\frac{d^2y}{dx} \equiv c^2\frac{d^2y}{dx}
 $$
 
 And this is our wave equation! \o/, where it's usually defined

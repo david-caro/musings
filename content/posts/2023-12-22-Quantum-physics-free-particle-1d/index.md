@@ -37,11 +37,10 @@ that :)
 
 This is what we call a **wave packet**.
 
-Then, using an integral instead (and keeping only one of the waves, as the other
-is just a ):
+Then, using an integral instead (and keeping only one of the waves):
 
 $$
-\psi(x, t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\phi(k)e^{i\left(kx-\frac{\hbar k^2}{2m}t\right)}
+\psi(x, t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\phi(k)e^{i\left(kx-\frac{\hbar k^2}{2m}t\right)}dk
 $$
 
 And, using the

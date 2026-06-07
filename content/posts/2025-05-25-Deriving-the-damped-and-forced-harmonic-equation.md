@@ -176,7 +176,7 @@ $$
 \begin{align*}
     A\cos{\left(\omega t\right)} + B\sin{\left(\omega t\right)} = R\cos{\left(\omega t - \lambda\right)}\\\\
     R = \sqrt{A^2+B^2} \\\\
-    \lambda = \arctan{\frac{A}{B}}
+    \lambda = \arctan{\frac{B}{A}}
 \end{align*}
 $$
 
