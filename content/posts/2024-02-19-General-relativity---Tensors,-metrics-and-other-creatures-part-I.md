@@ -118,7 +118,7 @@ T : T^{\*}_1 \times ... \times T^{\*}_k \times T_1 \times ... \times T_l \righta
 $$
 
 We will say that the tensor if of rank (or type) $(k, l)$, where $k$ is the
-number of vectors, and $l$ the number of one-forms it maps.
+number of one-forms, and $l$ the number of vectors it maps.
 
 We can show the multi-linearity with the following equality for a $(1,1)$
 tensor:
@@ -255,7 +255,7 @@ it is negative for anything that moves slower than light, so we define instead
 the **proper time**:
 
 $$
-(\Delta\tau)^2 = -(\Delta s)^2 = -\eta_{\mu\nu}x^\mu x^\nu
+(\Delta\tau)^2 = -(\Delta s)^2 = -\eta_{\mu\nu}\Delta x^\mu \Delta x^\nu
 $$
 
 This might look silly, but a great property of this proper time, is that it
@@ -320,8 +320,8 @@ x^{\mu\prime} = \Lambda^{\mu\prime}_\nu x^\nu
 $$
 
 $$
-(\Delta s)^2 = \eta_{\mu\nu}x^\mu x^\nu
-= \eta_{\mu\prime\nu\prime}x^{\mu\prime}x^{\nu\prime} \\\\
+(\Delta s)^2 = \eta_{\mu\nu}\Delta x^\mu \Delta x^\nu
+= \eta_{\mu\prime\nu\prime}\Delta x^{\mu\prime}\Delta x^{\nu\prime} \\\\
 = \eta_{\mu\prime\nu\prime}\Lambda^{\mu\prime}_\sigma x^\sigma \Lambda^{\nu\prime}\_{\rho} x^\rho
 $$
 

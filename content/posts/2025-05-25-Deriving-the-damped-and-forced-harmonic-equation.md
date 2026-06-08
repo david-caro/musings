@@ -333,7 +333,7 @@ So overall we get:
 
 $$
 \begin{align*}
-    x_p(t) &= A\cos{\left(\omega t + \delta\right)} \\\\
+    x_p(t) &= A\cos{\left(\omega t - \delta\right)} \\\\
     \delta &=  \arctan{\left(\frac{\gamma\omega}{\omega_0^2 - \omega^2 }\right)} - \phi \\\\
     A &= \frac{\frac{F_0}{m}}{\sqrt{\left(\omega_0^2-\omega^2 \right)^2 + \gamma^2\omega^2}} \\\\
 \end{align*}

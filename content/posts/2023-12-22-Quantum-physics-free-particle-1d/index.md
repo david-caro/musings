@@ -69,7 +69,7 @@ Now centering the integral ($r = k - k_0$) at $k_0$, and doing a bit of
 mangling, we get:
 
 $$
-\psi(x, t) \approx \frac{1}{\sqrt{2\pi}}e^{i(k_0x-\omega_0t)}\int_{-\infty}^{+\infty}\phi(k_0 + r)e^{ir(x-\omega'_0r)t}dr
+\psi(x, t) \approx \frac{1}{\sqrt{2\pi}}e^{i(k_0x-\omega_0t)}\int_{-\infty}^{+\infty}\phi(k_0 + r)e^{ir(x-\omega'_0 t)}dr
 $$
 
 $$

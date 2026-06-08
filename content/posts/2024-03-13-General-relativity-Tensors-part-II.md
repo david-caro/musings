@@ -90,7 +90,7 @@ And some operations:
 
   $$
     V_\mu = \eta_{\rho\mu}V^\rho \\\\
-    \omega^\mu = \eta^{\rho\mu}\omega_\mu
+    \omega^\mu = \eta^{\rho\mu}\omega_\rho
   $$
 
 - Symmetrization: You take the sum of all the permutations, and divide by the
