@@ -12,9 +12,16 @@
 			<copyright>© David Caro 2024</copyright>
 		
 		
-			<lastBuildDate>Tue, 08 Sep 2026 08:28:14 +0200</lastBuildDate>
+			<lastBuildDate>Tue, 08 Sep 2026 09:07:08 +0200</lastBuildDate>
 		
 			<atom:link href="https://musings.dcaro.es/tags/physics/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Rydberg Energy From Bohr Principles</title>
+				<link>https://musings.dcaro.es/posts/2026-09-08-rydberg-energy-from-bohr-principles/</link>
+				<pubDate>Tue, 08 Sep 2026 09:07:08 +0200</pubDate>
+				<guid>https://musings.dcaro.es/posts/2026-09-08-rydberg-energy-from-bohr-principles/</guid>
+				<description>&lt;p&gt;This is another small derivation that I liked, starting from the Bohr postulates and classical mechanics,&#xA;we get to the formulas for the &lt;a href=&#34;https://en.wikipedia.org/wiki/Bohr_radius&#34;&gt;Bohr radius&lt;/a&gt; and the &lt;a href=&#34;https://en.wikipedia.org/wiki/Rydberg_constant#Alternative_expressions&#34;&gt;Rydberg&#xA;energy&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://en.wikipedia.org/wiki/Bohr_model&#34;&gt;Bohr postulates&lt;/a&gt; are:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Electrons revolve around the nucleus in stationary orbits that do not decay, or radiate energy.&lt;/li&gt;&#xA;&lt;li&gt;Angular momentum is quantized: $L = n\hbar$ ($n$ being an integer $\ge 0$)&lt;/li&gt;&#xA;&lt;li&gt;Electrons do not absorve or emmit energy continuously, they only do so in &amp;ldquo;packets&amp;rdquo; jumping from one stable orbit to&#xA;the next (absorving a photon) or to the previous (emmiting a photon).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;With that in mind, we can consider an electron going around the nucleus in a circular orbit, balanced by the &lt;a href=&#34;https://en.wikipedia.org/wiki/Coulomb%27s_law&#34;&gt;Coulomb&#xA;force&lt;/a&gt;, so the centripetal acceleration has to match it:&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>De Broglie From Wavefunction</title>
 				<link>https://musings.dcaro.es/posts/2026-09-08-de-broglie-from-wavefunctions/</link>
