@@ -1,7 +1,7 @@
 ---
 math: true
-tags: ["physics", "maths", "quantum"]
-title: "De Broglie From Wavefunctions"
+tags: ["physics", "maths", "quantum physics"]
+title: "De Broglie From Wavefunction"
 date: 2026-09-08T08:28:14+02:00
 draft: false
 ---
