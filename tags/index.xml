@@ -12,9 +12,30 @@
 			<copyright>© David Caro 2024</copyright>
 		
 		
-			<lastBuildDate>Thu, 04 Jun 2026 10:18:38 +0200</lastBuildDate>
+			<lastBuildDate>Tue, 08 Sep 2026 08:28:14 +0200</lastBuildDate>
 		
 			<atom:link href="https://musings.dcaro.es/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Maths</title>
+				<link>https://musings.dcaro.es/tags/maths/</link>
+				<pubDate>Tue, 08 Sep 2026 08:28:14 +0200</pubDate>
+				<guid>https://musings.dcaro.es/tags/maths/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Physics</title>
+				<link>https://musings.dcaro.es/tags/physics/</link>
+				<pubDate>Tue, 08 Sep 2026 08:28:14 +0200</pubDate>
+				<guid>https://musings.dcaro.es/tags/physics/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Quantum</title>
+				<link>https://musings.dcaro.es/tags/quantum/</link>
+				<pubDate>Tue, 08 Sep 2026 08:28:14 +0200</pubDate>
+				<guid>https://musings.dcaro.es/tags/quantum/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Computer Science</title>
 				<link>https://musings.dcaro.es/tags/computer-science/</link>
@@ -44,13 +65,6 @@
 				<description></description>
 			</item>
 			<item>
-				<title>Physics</title>
-				<link>https://musings.dcaro.es/tags/physics/</link>
-				<pubDate>Wed, 03 Jun 2026 12:00:00 +0100</pubDate>
-				<guid>https://musings.dcaro.es/tags/physics/</guid>
-				<description></description>
-			</item>
-			<item>
 				<title>Quantum Physics</title>
 				<link>https://musings.dcaro.es/tags/quantum-physics/</link>
 				<pubDate>Wed, 03 Jun 2026 12:00:00 +0100</pubDate>
@@ -76,13 +90,6 @@
 				<link>https://musings.dcaro.es/tags/vscode/</link>
 				<pubDate>Sun, 26 Oct 2025 12:15:50 +0100</pubDate>
 				<guid>https://musings.dcaro.es/tags/vscode/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Maths</title>
-				<link>https://musings.dcaro.es/tags/maths/</link>
-				<pubDate>Sun, 25 May 2025 10:35:04 +0200</pubDate>
-				<guid>https://musings.dcaro.es/tags/maths/</guid>
 				<description></description>
 			</item>
 			<item>
